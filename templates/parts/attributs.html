@@ -1,0 +1,38 @@
+<div class="attributs">
+    <h1>{{localize "PROPHECY.ATTRIBUTS.Label"}}</h1>
+
+    {{#each systemData.attributs as |key att|}}
+    <div class="block">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <span class="label">
+                {{localize (translate 'Attributs' att)}}
+            </span>
+            <span class="score">{{min (formatNumber key.total decimals=0) 0}}</span>
+        </header>
+
+        <div class="sub" style="display:none;">
+            <label>
+                <span class="label">{{localize "PROPHECY.Base"}}</span>
+                {{numberInput key.data.base name=(concat 'system.attributs.' att '.data.base') step=1}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.CARACTERISTIQUES.Singular"}}</span>
+                {{#unless (isNull key.data.car)}}
+                <span class="score">{{formatNumber key.data.car sign=true decimals=0 }}</span>
+                {{else}}
+                <span class="score">NA</span>
+                {{/unless}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Modificateur"}}</span>
+                <span class="score">{{formatNumber key.data.mod sign=true decimals=0 }}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Temporaire"}}</span>
+                {{numberInput key.data.temp name=(concat 'system.attributs.' att '.data.temp') step=1}}
+            </label>
+        </div>
+    </div>
+    {{/each}}
+</div>

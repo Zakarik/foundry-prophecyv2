@@ -1,0 +1,69 @@
+<form class="mainFlex {{cssClass}}" autocomplete="off">
+    <section class="header">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+
+        <div class="identite">
+            <input name="name" type="text" value="{{data.name}}" placeholder="{{localize "PROPHECY.Nom"}}" />
+        </div>
+        <div class="data">
+            <label>
+                <span class="score">{{systemData.eclat}}</span>
+                <span class="label">{{localize 'PROPHECY.ETOILE.Eclat'}}</span>
+            </label>
+
+            <label>
+                {{numberInput systemData.envergure name="system.envergure" step=1 min=0}}
+                <span class="label">{{localize 'PROPHECY.ETOILE.Envergure'}}</span>
+            </label>
+
+            <label>
+                {{numberInput systemData.experience name="system.experience" step=1 min=0}}
+                <span class="label">{{localize 'PROPHECY.Experience'}}</span>
+            </label>
+        </div>
+    </section>
+
+    <section class="body">
+        {{!-- Sheet Tab Navigation --}}
+        <nav class="tabs menu" data-group="primary">
+            <a class="item" data-tab="motivationspouvoirs">
+                {{localize "PROPHECY.MotivationsPouvoirs"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+
+            <a class="item" data-tab="compagnons">
+                {{localize "PROPHECY.CompagnonsRoles"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+        </nav>
+
+        <div class="tab motivationspouvoirs" data-group="primary" data-tab="motivationspouvoirs">
+            <div class="main">
+                {{> systems/prophecy-2e/templates/parts/motivations.html }}
+
+                <div class="pouvoirs">
+                    <h2>{{localize 'TYPES.Item.pouvoir'}}</h2>
+                    <i class="fa-solid fa-plus-large item-create" data-type="pouvoir" title="{{localize 'PROPHECY.ADD.Pouvoir'}}"></i>
+                    {{#each actor.pouvoirs as | key av |}}
+                        <div class="data">
+                            <header class="header js-toggler summary" data-item-id="{{key._id}}">
+                                <i class="fa-solid fa-square-plus"></i>
+                                <span class="clickableSend" title="{{key.name}}" data-type="pouvoir">
+                                    {{key.name}}
+                                    <i class="fa-solid"></i>
+                                </span>
+                                <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Pouvoir'}}"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Pouvoir'}}"><i class="fas fa-trash"></i></a>
+                            </header>
+                            <span class="description" style="display:none;">{{{sanitizeTxt key.system.description}}}</span>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        {{> systems/prophecy-2e/templates/parts/compagnons.html }}
+    </section>
+</form>

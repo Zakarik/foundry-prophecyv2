@@ -1,0 +1,23 @@
+{{#each combatants}}
+    <div class="main" data-id='{{id}}'>
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-minus"></i>
+            <span class="title">{{actor.name}}</span>
+        </header>
+        <input type='hidden' class='maitrise' value='0' />
+        <div class='labelActions'>
+            <span></span>
+            <span>{{localize "PROPHECY.ATTRIBUTSMINEURS.Maitrise"}}</span>
+        </div>
+        {{#each actor.system.initiative.list}}
+        <div class='actions'>
+            <span class='label'>{{this}}</span>
+            <div class='inner'>
+                <i class="fa-solid fa-minus minus"></i>
+                <span>0</span>
+                <i class="fa-solid fa-plus plus"></i>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+{{/each}}

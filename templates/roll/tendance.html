@@ -1,0 +1,28 @@
+<div class="dice-roll prophecy-std-roll prophecy-tendance-roll">
+    {{#if flavor}}
+    <div class="dice-flavor">{{flavor}}</div>
+    {{/if}}
+    {{#each rolls}}
+        <div class="dice-result" style="order:{{sum 3 @index}}">
+            <div class="dice-formula">
+                <span class='label'>{{formula}}</span>
+                <span class='score'>{{total}}</span>
+            </div>
+            {{{tooltip}}}
+        </div>
+
+        {{#if locNR}}
+        <div class="NR" style="order:{{sum 3 @index}}" data-value="{{valNR}}">
+            <span>{{locNR}}</span>
+        </div>
+        {{/if}}
+    {{/each}}
+
+    {{#if bonus}}
+    <div class="bonus">
+        {{#each bonus}}
+            <span class="{{class}}" data-value="{{value}}">{{label}}</span>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>

@@ -1,0 +1,129 @@
+<form class="mainFlex {{cssClass}}" autocomplete="off">
+    <section class="header">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+
+        <input name="name" class="itmName" type="text" value="{{data.name}}" placeholder="{{localize "PROPHECY.Nom"}}" />
+
+        <div class="main large">
+            <div class="col">
+                <label class="type">
+                    <span>{{localize 'PROPHECY.Type'}} :</span>
+                    <select name="system.type">
+                        {{selectOptions item.TypeArme selected=systemData.type blank='' localize=true sort=true}}
+                    </select>
+                </label>
+
+                <div class="line">
+                    <label class="poids">
+                        <span>{{localize 'PROPHECY.Poids'}} :</span>
+                        <input type="text" name="system.poids"  value="{{systemData.poids}}" />
+                    </label>
+
+                    <select name="system.mains" class="mains">
+                        {{selectOptions item.Mains selected=systemData.mains localize=true sort=true}}
+                    </select>
+                </div>
+                {{#if (or (eq systemData.type 'projectile') (eq systemData.type 'mecanique'))}}
+                <label class="portee">
+                        <span>{{localize 'PROPHECY.Portee'}} :</span>
+                        <input type="text" name="system.portee" value="{{systemData.portee}}" />
+                </label>
+                {{/if}}
+            </div>
+
+            <div class="dommages">
+                <span>{{localize 'PROPHECY.Dommages'}}</span>
+                <div class="line">
+                    <select name="system.dommages.data.caracteristique.base">
+                        {{selectOptions item.Caracteristiques selected=systemData.dommages.data.caracteristique.base localize=true sort=true}}
+                    </select>
+                    <span>x</span>
+                    <input type="number" name="system.dommages.data.caracteristique.multi" value="{{systemData.dommages.data.caracteristique.multi}}" min="0" title="{{localize 'PROPHECY.CARACTERISTIQUES.Multiplicateur'}}" />
+                    <span>+</span>
+                    <input type="number" name="system.dommages.data.bonus" value="{{systemData.dommages.data.bonus}}" title="{{localize 'PROPHECY.Bonus'}}" />
+                    <span>+</span>
+                    <input type="text" name="system.dommages.data.dice" value="{{systemData.dommages.data.dice}}" placeholder="1D10" />
+                </div>
+                <div class="line full">
+                    <select name="system.dommages.howToApply">
+                        {{selectOptions item.HowToApplyDmg selected=systemData.dommages.howToApply localize=true}}
+                    </select>
+                </div>
+            </div>
+
+            <label class="cout">
+                <span>{{localize 'PROPHECY.RaretePrix'}}</span>
+                <input type="text" name="system.cout"  value="{{systemData.cout}}" />
+            </label>
+        </div>
+
+        <div class="underMain">
+            <div class="main prerequis">
+                <h1>{{localize 'PROPHECY.Prerequis'}}</h1>
+
+                {{#each systemData.prerequis as | prerequis kP|}}
+                    <label class="{{kP}} lPrerequis">
+                        <span>{{threeUppercase (localize (translate 'Caracteristiques' kP))}}</span>
+                        {{numberInput prerequis name=(concat 'system.prerequis.' kP) min='0' step=1}}
+                    </label>
+                {{/each}}
+            </div>
+
+            <div class="initiative">
+                <span class="header">{{localize 'PROPHECY.INITIATIVE.Label'}}</span>
+                <label>
+                    <span>{{localize 'PROPHECY.INITIATIVE.M'}}</span>
+                    <input type="text" name="system.initiative.m" value="{{systemData.initiative.m}}" />
+                </label>
+                <label>
+                    <span>{{localize 'PROPHECY.INITIATIVE.CC'}}</span>
+                    <input type="text" name="system.initiative.cc" value="{{systemData.initiative.cc}}" />
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="body">
+        {{!-- Sheet Tab Navigation --}}
+        <nav class="tabs menu" data-group="primary">
+            <a class="item" data-tab="description">
+                {{localize "PROPHECY.Description"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+
+            <a class="item" data-tab="artisanat">
+                {{localize "PROPHECY.Artisanat"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+
+            <a class="item" data-tab="effets">
+                {{localize "PROPHECY.Effets"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+        </nav>
+
+        <div class="tab description" data-group="primary" data-tab="description">
+            {{> systems/prophecy-2e/templates/parts/description.html txt=systemData.description address='system.description' }}
+        </div>
+
+        <div class="tab statistiques" data-group="primary" data-tab="artisanat">
+            <div class="data">
+                <label>
+                    <span>{{localize 'PROPHECY.TC'}}</span>
+                    <input type="text" name="system.artisanat.tc"  value="{{systemData.artisanat.tc}}" />
+                </label>
+
+                <label>
+                    <span>{{localize 'PROPHECY.DC'}}</span>
+                    <input type="text" name="system.artisanat.dc"  value="{{systemData.artisanat.dc}}" />
+                </label>
+            </div>
+        </div>
+
+        {{> systems/prophecy-2e/templates/parts/effets.html }}
+    </section>
+</form>

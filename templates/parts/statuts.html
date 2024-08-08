@@ -1,0 +1,15 @@
+<div class="tab statuts" data-group="primary" data-tab="statuts">
+    {{#each systemData.statuts as | data kD|}}
+        <div class="dataStatuts">
+            <div class="header">
+                <span class="number">{{data.num}}</span>
+                <input type="text" name="system.statuts.{{kD}}.name" value="{{data.name}}" />
+                <i class="{{ifThen data.check 'fa-solid' 'fa-light'}} fa-circle checkStatuts" data-num="{{kD}}" title="{{localize 'PROPHECY.CHECK.Statut'}}"></i>
+                <i class="fas fa-trash removeStatut" data-num="{{kD}}" title="{{localize 'PROPHECY.DELETE.Statut'}}"></i>
+            </div>
+            {{editor data.description target=(concat "system.statuts." kD ".description") engine="prosemirror" button=true owner=../owner editable=../editable}}
+        </div>
+    {{/each}}
+
+    <span class="addStatuts">{{localize 'PROPHECY.ADD.Statut'}}</span>
+</div>

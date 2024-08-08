@@ -1,0 +1,180 @@
+div {
+    &.identite {
+        display:grid;
+        height: 100%;
+        align-items: flex-start;
+        align-content: flex-start;
+        grid-template-columns: 122px 1fr 1fr 1fr;
+        grid-gap: 5px;
+        row-gap: 2px;
+        padding: 5px;
+        border-radius: 5px;
+
+        background:$brown;
+
+        span {
+            font-variant: small-caps;
+            color: $black;
+
+            font-size: 16px;
+        }
+
+        input {
+            min-width: 0px;
+            background:transparent;
+            padding:0px;
+            padding-top: 10px;
+            text-align: center;
+
+            color:$black;
+
+            border-radius: 0px;
+            border-top: 0px;
+            border-right: 0px;
+            border-left: 0px;
+            border-color: $darkbrown;
+
+            margin-bottom: 2px;
+        }
+
+        >input {
+            grid-column: 2 / 5;
+        }
+
+        label {
+            display:grid;
+            grid-gap: 2px;
+            grid-template-columns: max-content 1fr;
+            align-items: flex-end;
+            align-content: flex-end;
+
+            &.threeCol {
+                grid-template-columns: max-content 1fr;
+                grid-column: 2 / 5;
+
+                span {
+                    word-wrap: nowrap;
+                    text-align: center;
+                }
+            }
+
+            &.age {
+                grid-template-columns: max-content 30px max-content;
+            }
+
+            &.experience {
+                grid-column: 2 / 5;
+                display: grid;
+                grid-template-columns: max-content 1fr;
+                align-items: flex-end;
+                grid-gap: 5px;
+
+                input {
+                    width: 100%;
+                }
+            }
+
+            span {
+                &:nth-last-of-type(0) {
+                    text-align: left;
+                }
+            }
+        }
+
+        div.oneLineTriple {
+            display: grid;
+            grid-gap: 2px;
+            grid-template-columns: 1fr max-content;
+            align-items: flex-end;
+            align-content: flex-end;
+
+            i {
+                margin-bottom: 2px;
+                cursor:pointer;
+
+                &:hover {
+                    color:$darkbrown;
+                }
+            }
+        }
+
+        img {
+            grid-row: 1 / 7;
+            width: 100%;
+            border-radius: 5px;
+            background-size:contain;
+            border-color: $darkbrown;
+        }
+
+        div {
+            &.caste {
+                grid-column: 2 / 5;
+                display:grid;
+                grid-template-columns: max-content 1fr;
+                grid-gap: 5px;
+                align-items: flex-end;
+
+                div.data {
+                    display: grid;
+                    grid-template-columns: 1fr max-content max-content max-content;
+                    grid-gap: 5px;
+                    align-items: flex-end;
+                    border-bottom: 1px solid $black;
+                    height: 24px;
+
+                    i,
+                    a {
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        cursor: pointer;
+
+                        &:hover {
+                            text-shadow: none;
+                            color:$darkbrown;
+                        }
+                    }
+                }
+
+                span {
+                    font-variant: small-caps;
+                    color: $black;
+                    font-weight: bold;
+                    font-size: 18px;
+
+                    &.value {
+                        display: flex;
+                        align-items: flex-end;
+                        align-content: flex-end;
+                        background: transparent;
+                        padding: 0px;
+                        color: $black;
+                        margin-bottom: 0px;
+                        height: 26px;
+                        line-height: 26px;
+                    }
+                }
+
+                input {
+                    min-width: 0px;
+                    background: transparent;
+                    padding: 0px;
+                    padding-top: 10px;
+                    color: $black;
+                    border-radius: 0px;
+                    border-top: 0px;
+                    border-right: 0px;
+                    border-left: 0px;
+                    border-color: $darkbrown;
+                    margin-bottom: 2px;
+                }
+            }
+
+            &.lastLine {
+                display: grid;
+                grid-column: 1 / 5;
+                grid-template-columns: 1fr 150px;
+                grid-gap: 5px;
+            }
+        }
+    }
+}

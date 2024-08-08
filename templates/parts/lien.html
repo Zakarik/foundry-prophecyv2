@@ -1,0 +1,12 @@
+<div class="tab lien" data-group="primary" data-tab="lien">
+    <div class="dataLien">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <input type="text" name="system.lien.name" value="{{systemData.lien.name}}" placeholder="{{localize 'PROPHECY.Nom'}}" />
+            <i class="fa-solid fa-comment-dots clickableSend" data-type="lien" data-name="{{systemData.lien.name}}" data-description="{{systemData.lien.description}}"></i>
+        </header>
+        <div class="description" style="display:none;">
+            {{editor systemData.lien.description target=(concat "system.lien.description") engine="prosemirror" button=true owner=owner editable=editable}}
+        </div>
+    </div>
+</div>

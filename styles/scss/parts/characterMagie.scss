@@ -1,0 +1,743 @@
+div.magie {
+
+    h2 {
+        margin: 0px;
+        border: 0px;
+        font-variant: small-caps;
+        font-weight: bold;
+        color: $black;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    div {
+        &.mid {
+            display:grid;
+            grid-template-columns: 250px 1fr;
+            background:$brown;
+            border-radius: 5px;
+            margin-top: 5px;
+
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+
+            grid-gap: 5px;
+
+            span {
+                color: $black;
+            }
+
+            div {
+                &.left {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 5px;
+                    grid-template-rows: repeat(4, max-content) 1fr max-content;
+
+                    div {
+
+                        &.dataBlock {
+                            display: grid;
+                            align-items: center;
+                            align-content: center;
+                            grid-template-columns: 1fr;
+                            grid-gap: 2px;
+                            justify-content: space-between;
+
+                            header {
+                                display: grid;
+                                align-items: center;
+                                align-content: center;
+                                grid-template-columns: max-content 1fr 50px;
+                                grid-gap: 2px;
+                                justify-content: space-between;
+
+                                span {
+                                    font-variant: small-caps;
+                                    font-size: 18px;
+
+                                    &.label {
+                                        font-weight: bold;
+                                    }
+
+                                    &.score {
+                                        border: 1px solid $darkbrown;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        font-weight: bold;
+                                        height: 24px;
+                                        line-height: 24px;
+                                    }
+                                }
+
+                                input {
+                                    text-align: center;
+                                    padding: 0px;
+                                    margin: 0px;
+                                    border: 1px solid $darkbrown;
+                                    border-radius: 5px;
+                                    width: 100%;
+                                    height: 22px;
+                                    font-size: 18px;
+                                    min-width: 0px;
+                                    font-weight: bold;
+                                    background-color: $lightbrown;
+                                }
+
+                                i {
+                                   cursor: pointer;
+
+                                   &:hover {
+                                    color: $darkbrown;
+                                   }
+                                }
+                            }
+
+                            &.withExpand {
+                                grid-template-columns: 1fr;
+
+                                header {
+                                    display: grid;
+                                    grid-template-columns: max-content 1fr 50px;
+                                    align-items: center;
+                                    align-content: center;
+                                    grid-gap: 2px;
+                                    justify-content: space-between;
+                                }
+
+                                div {
+                                    &.sub {
+                                        display: grid;
+                                        margin-top: 2px;
+                                        grid-gap: 2px;
+
+                                        label {
+                                            display:grid;
+                                            grid-template-columns: 1fr 50px;
+                                            grid-gap: 2px;
+                                            justify-content: space-between;
+
+                                            span {
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+
+                                                &.score {
+                                                    border: 1px solid $darkbrown;
+                                                    border-radius: 5px;
+                                                    text-align: center;
+                                                    color: $black;
+                                                    font-weight: bold;
+                                                    background:transparent;
+                                                }
+                                            }
+
+                                            input {
+                                                text-align: center;
+                                                padding: 0px;
+                                                margin: 0px;
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                width: 100%;
+                                                height: 19px;
+                                                min-width: 0px;
+                                                font-weight: bold;
+                                                background-color: $lightbrown;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            div {
+                                &.sub {
+                                    display: grid;
+                                    align-items: center;
+                                    align-content: center;
+                                    grid-template-columns: 1fr;
+                                    grid-gap: 2px;
+                                    justify-content: space-between;
+
+                                    label {
+                                        display: grid;
+                                        align-items: center;
+                                        align-content: center;
+                                        grid-template-columns: 1fr 50px;
+                                        grid-gap: 2px;
+                                        justify-content: space-between;
+                                    }
+
+                                    span {
+                                        font-variant: small-caps;
+                                        font-size: 14px;
+
+                                        &.label {
+                                            font-weight: bold;
+                                        }
+
+                                        &.score {
+                                            border: 1px solid $darkbrown;
+                                            border-radius: 5px;
+                                            text-align: center;
+                                            font-weight: bold;
+                                            height: 18px;
+                                            line-height: 18px;
+                                        }
+                                    }
+
+                                    input {
+                                        text-align: center;
+                                        padding: 0px;
+                                        margin: 0px;
+                                        border: 1px solid $darkbrown;
+                                        border-radius: 5px;
+                                        width: 100%;
+                                        height: 22px;
+                                        font-size: 14px;
+                                        min-width: 0px;
+                                        font-weight: bold;
+                                        background-color: $lightbrown;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.separateur {
+                            margin-top: auto;
+                            margin-bottom: 5px;
+                            border-bottom: 1px solid $darkbrown;
+                        }
+
+                        &.dataReserve {
+                            display: grid;
+                            align-items: center;
+                            align-content: center;
+                            grid-template-columns: 1fr;
+                            grid-gap: 2px;
+                            justify-content: space-between;
+
+
+                            header {
+                                display: grid;
+                                align-items: center;
+                                align-content: center;
+                                grid-template-columns: max-content 1fr 100px;
+                                grid-gap: 2px;
+                                justify-content: space-between;
+
+                                span {
+                                    font-variant: small-caps;
+                                    font-size: 18px;
+
+                                    &.label {
+                                        font-weight: bold;
+                                    }
+
+                                    &.score {
+                                        text-align: center;
+                                        font-weight: bold;
+                                        height: 24px;
+                                        line-height: 24px;
+                                    }
+
+                                    &.separation {
+                                        text-align: center;
+                                        font-weight: bold;
+                                        height: 24px;
+                                        line-height: 24px;
+                                    }
+                                }
+
+                                input {
+                                    text-align: center;
+                                    padding: 0px;
+                                    margin: 0px;
+                                    border: 0px;
+                                    width: 100%;
+                                    height: 22px;
+                                    font-size: 18px;
+                                    min-width: 0px;
+                                    font-weight: bold;
+                                    background-color: transparent;
+                                }
+
+                                div {
+                                    &.scores {
+                                        display: grid;
+                                        grid-template-columns: 1fr max-content 1fr;
+                                        border: 1px solid $darkbrown;
+                                        border-radius: 5px;
+                                    }
+                                }
+
+                                i {
+                                   cursor: pointer;
+
+                                   &:hover {
+                                    color: $darkbrown;
+                                   }
+                                }
+                            }
+
+                            div {
+                                &.sub {
+                                    display: grid;
+                                    align-items: center;
+                                    align-content: center;
+                                    grid-template-columns: 1fr;
+                                    grid-gap: 2px;
+                                    justify-content: space-between;
+
+                                    label {
+                                        display: grid;
+                                        align-items: center;
+                                        align-content: center;
+                                        grid-template-columns: 1fr 100px;
+                                        grid-gap: 2px;
+                                        justify-content: space-between;
+                                    }
+
+                                    span {
+                                        font-variant: small-caps;
+                                        font-size: 14px;
+
+                                        &.label {
+                                            font-weight: bold;
+                                        }
+
+                                        &.score {
+                                            border: 1px solid $darkbrown;
+                                            border-radius: 5px;
+                                            text-align: center;
+                                            font-weight: bold;
+                                            height: 18px;
+                                            line-height: 18px;
+                                        }
+                                    }
+
+                                    input {
+                                        text-align: center;
+                                        padding: 0px;
+                                        margin: 0px;
+                                        border: 1px solid $darkbrown;
+                                        border-radius: 5px;
+                                        width: 100%;
+                                        height: 22px;
+                                        font-size: 14px;
+                                        min-width: 0px;
+                                        font-weight: bold;
+                                        background-color: $lightbrown;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.right {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-gap: 5px;
+                    border-left: 1px solid $darkbrown;
+                    padding-left: 5px;
+                    align-items: flex-start;
+
+                    h2 {
+                        grid-column: 1 / 4;
+                    }
+
+                    div {
+                        &.dataBlock {
+                            display: grid;
+                            align-items: center;
+                            align-content: center;
+                            grid-template-columns: 1fr;
+                            grid-gap: 2px;
+                            justify-content: space-between;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            padding: 2px;
+
+                            div {
+                                &.top {
+                                    header {
+                                        display: grid;
+                                        align-items: center;
+                                        align-content: center;
+                                        grid-template-columns: max-content 1fr 50px;
+                                        grid-gap: 2px;
+                                        justify-content: space-between;
+
+                                        span {
+                                            font-variant: small-caps;
+                                            font-size: 16px;
+
+                                            &.label {
+                                                font-weight: bold;
+                                            }
+
+                                            &.score {
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                text-align: center;
+                                                font-weight: bold;
+                                                height: 24px;
+                                                line-height: 24px;
+                                            }
+                                        }
+
+                                        input {
+                                            text-align: center;
+                                            padding: 0px;
+                                            margin: 0px;
+                                            border: 1px solid $darkbrown;
+                                            border-radius: 5px;
+                                            width: 100%;
+                                            height: 22px;
+                                            font-size: 16px;
+                                            min-width: 0px;
+                                            font-weight: bold;
+                                            background-color: $lightbrown;
+                                        }
+
+                                        i {
+                                           cursor: pointer;
+
+                                           &:hover {
+                                            color: $darkbrown;
+                                           }
+                                        }
+                                    }
+
+                                    div {
+                                        &.sub {
+                                            display: grid;
+                                            align-items: center;
+                                            align-content: center;
+                                            grid-template-columns: 1fr;
+                                            grid-gap: 2px;
+                                            justify-content: space-between;
+
+                                            label {
+                                                display: grid;
+                                                align-items: center;
+                                                align-content: center;
+                                                grid-template-columns: 1fr 50px;
+                                                grid-gap: 2px;
+                                                justify-content: space-between;
+                                            }
+
+                                            span {
+                                                font-variant: small-caps;
+                                                font-size: 14px;
+
+                                                &.label {
+                                                    font-weight: bold;
+                                                }
+
+                                                &.score {
+                                                    border: 1px solid $darkbrown;
+                                                    border-radius: 5px;
+                                                    text-align: center;
+                                                    font-weight: bold;
+                                                    height: 18px;
+                                                    line-height: 18px;
+                                                }
+                                            }
+
+                                            input {
+                                                text-align: center;
+                                                padding: 0px;
+                                                margin: 0px;
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                width: 100%;
+                                                height: 22px;
+                                                font-size: 14px;
+                                                min-width: 0px;
+                                                font-weight: bold;
+                                                background-color: $lightbrown;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.bottom {
+                                    display: grid;
+                                    align-items: center;
+                                    align-content: center;
+                                    grid-template-columns: 1fr;
+                                    grid-gap: 2px;
+                                    justify-content: space-between;
+
+
+                                    header {
+                                        display: grid;
+                                        align-items: center;
+                                        align-content: center;
+                                        grid-template-columns: max-content 1fr 100px;
+                                        grid-gap: 2px;
+                                        justify-content: space-between;
+
+                                        span {
+                                            font-variant: small-caps;
+                                            font-size: 16px;
+
+                                            &.label {
+                                                font-weight: bold;
+                                            }
+
+                                            &.score {
+                                                text-align: center;
+                                                font-weight: bold;
+                                                height: 24px;
+                                                line-height: 24px;
+                                            }
+
+                                            &.separation {
+                                                text-align: center;
+                                                font-weight: bold;
+                                                height: 24px;
+                                                line-height: 24px;
+                                            }
+                                        }
+
+                                        input {
+                                            text-align: center;
+                                            padding: 0px;
+                                            margin: 0px;
+                                            border: 0px;
+                                            width: 100%;
+                                            height: 24px;
+                                            font-size: 16px;
+                                            min-width: 0px;
+                                            font-weight: bold;
+                                            background-color: transparent;
+                                        }
+
+                                        div {
+                                            &.scores {
+                                                display: grid;
+                                                grid-template-columns: 1fr max-content 1fr;
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                            }
+                                        }
+
+                                        i {
+                                           cursor: pointer;
+
+                                           &:hover {
+                                            color: $darkbrown;
+                                           }
+                                        }
+                                    }
+
+                                    div {
+                                        &.sub {
+                                            display: grid;
+                                            align-items: center;
+                                            align-content: center;
+                                            grid-template-columns: 1fr;
+                                            grid-gap: 2px;
+                                            justify-content: space-between;
+
+                                            label {
+                                                display: grid;
+                                                align-items: center;
+                                                align-content: center;
+                                                grid-template-columns: 1fr 100px;
+                                                grid-gap: 2px;
+                                                justify-content: space-between;
+                                            }
+
+                                            span {
+                                                font-variant: small-caps;
+                                                font-size: 14px;
+
+                                                &.label {
+                                                    font-weight: bold;
+                                                }
+
+                                                &.score {
+                                                    border: 1px solid $darkbrown;
+                                                    border-radius: 5px;
+                                                    text-align: center;
+                                                    font-weight: bold;
+                                                    height: 18px;
+                                                    line-height: 18px;
+                                                }
+                                            }
+
+                                            input {
+                                                text-align: center;
+                                                padding: 0px;
+                                                margin: 0px;
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                width: 100%;
+                                                height: 22px;
+                                                font-size: 14px;
+                                                min-width: 0px;
+                                                font-weight: bold;
+                                                background-color: $lightbrown;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.sortileges {
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background:$brown;
+            border-radius: 5px;
+            margin-top: 5px;
+
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+
+            h2 {
+                grid-column: 1 / 4;
+            }
+
+            div {
+                &.col {
+                    &:nth-of-type(1) {
+                        border-right: 1px solid $darkbrown;
+                        padding-right: 10px;
+                        margin-right: 10px;
+                    }
+
+                    &:nth-of-type(3) {
+                        border-left: 1px solid $darkbrown;
+                        padding-left: 10px;
+                        margin-left: 10px;
+                    }
+                }
+
+                &.colSpell {
+                    display: grid;
+                    grid-template-columns: 1fr max-content;
+                    grid-gap: 2px;
+                    align-items: center;
+                    align-content: flex-start;
+
+                    h3 {
+                        border: 0px;
+                        font-size: 18px;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        margin: 0px;
+                    }
+
+                    &:not(:first-of-type) {
+                        margin-top: 5px;
+                    }
+                }
+
+                &.blockSpell {
+                    grid-column: 1 / 3;
+
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 2px;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                    padding: 2px;
+                    border: 1px solid $darkbrown;
+                    border-radius: 5px;
+                    background: $lightbrown;
+
+                    header {
+                        display: grid;
+                        grid-template-columns: max-content 1fr repeat(3, max-content);
+                        align-items: center;
+                        align-content: center;
+                        grid-gap: 2px;
+                        font-weight: bold;
+                        font-size: 15px;
+                        border: 0px;
+                        margin: 0px;
+
+                        span {
+                            display:grid;
+                            grid-template-columns: 1fr 18px;
+                            grid-gap: 2px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: $darkbrown;
+                            }
+                        }
+                    }
+
+                    &.opacity {
+                        opacity: 80%;
+                    }
+                }
+
+                &.sub {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                    grid-gap: 2px;
+
+                    label {
+                        &.line {
+                            span {
+                                &.label {
+                                    font-weight: bold;
+
+                                    &.center {
+                                        display: block;
+                                        text-align: center;
+                                    }
+                                }
+
+                                &.data {
+                                    word-break: break-all;
+
+                                    p {
+                                        margin: 0px;
+                                    }
+                                }
+                            }
+
+                            &.effets {
+                                grid-column: 1 / 3;
+
+                                span {
+                                    &.label {
+                                        display: block;
+                                        text-align: center;
+                                        border-top: 1px solid $darkbrown;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            i {
+                cursor: pointer;
+
+                &:hover {
+                    color: $darkbrown;
+                }
+            }
+        }
+    }
+}
