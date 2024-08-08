@@ -1,0 +1,68 @@
+{{#if (eq type 'check')}}
+    <label class="check {{class}}" data-value="{{value}}" data-onlyone="{{onlyone}}" data-index="{{index}}" data-name="{{name}}" data-class="{{class}}">
+        {{label}}
+        <i class="fa-solid fa-xmark"></i>
+    </label>
+{{/if}}
+{{#if (eq type 'number')}}
+    <div class='data {{class}}' data-value="{{value}}" data-onlyone="{{onlyone}}" data-index="{{index}}" data-name="{{name}}" data-class="{{class}}">
+        <span class='label'>{{label}}</span>
+        <div class='inner'>
+            <i class="fa-solid fa-minus minus" data-class="{{class}}" data-min="{{this.min}}"></i>
+            <span class="score">{{value}}</span>
+            <i class="fa-solid fa-plus plus" data-class="{{class}}" data-max="{{max}}"></i>
+        </div>
+    </div>
+{{/if}}
+{{#if (eq type 'stdCheck')}}
+    <div class='stdCheck {{class}}' data-value="{{value}}" data-onlyone="{{onlyone}}" data-index="{{index}}" data-name="{{name}}" data-class="{{class}}">
+        <label>
+            <input type="checkbox" class="check" {{checked checked}} />
+            <span class='label'>{{label}}</span>
+        </label>
+    </div>
+{{/if}}
+{{#if (eq type 'numberWithCheck')}}
+    <div class='dataWithCheck {{class}}'>
+        <label>
+            <input type="checkbox" class="check" {{checked checked}} />
+            <span class='label'>{{label}}</span>
+        </label>
+        <div class='inner' {{#unless checked}}style="display:none;"{{/unless}}>
+            <i class="fa-solid fa-minus minus" data-class="{{class}}" data-min="{{this.min}}"></i>
+            <span class="score">{{value}}</span>
+            <i class="fa-solid fa-plus plus" data-class="{{class}}" data-max="{{max}}"></i>
+        </div>
+    </div>
+{{/if}}
+{{#if (eq type 'choice')}}
+    <div class='dataChoice {{class}}'>
+        <span class='label'>{{label}}</span>
+        <select class="inner">
+            {{selectOptions choices selected=selected localize=true}}
+        </select>
+    </div>
+{{/if}}
+{{#if (eq type 'choiceWithCheck')}}
+    <div class='dataWithCheck {{class}}'>
+        <label>
+            <input type="checkbox" class="check" />
+            <span class='label'>{{label}}</span>
+        </label>
+        <select class="inner" style="display:none;">
+            {{selectOptions choices selected='' nameAttr="key" labelAttr="label" blank='' localize=true}}
+        </select>
+    </div>
+{{/if}}
+{{#if (eq type 'checkWithTotal')}}
+    <div class='dataWithCheck {{class}}' data-tag="{{data}}">
+        <label>
+            <input type="checkbox" class="check" {{checked checked}} />
+            <span class='label'>{{label}}</span>
+        </label>
+        <span class="total">{{value}}</span>
+        {{#if locNR}}
+        <span class="fullLine NR" data-value="{{valNR}}">{{locNR}}</span>
+        {{/if}}
+    </div>
+{{/if}}

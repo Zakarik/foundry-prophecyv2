@@ -1,0 +1,59 @@
+<div class="identite">
+    <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+
+    <input name="name" class="name" type="text" value="{{data.name}}" placeholder="{{localize "PROPHECY.Nom"}}" />
+
+    <label class="age" title="{{localize (translate 'CatAge' systemData.catage)}}">
+        <span>{{localize "PROPHECY.Age"}} : </span>
+        <input type="number" name="system.identite.age" value="{{systemData.identite.age}}" min="6" />
+        <span>{{localize "PROPHECY.Ans"}}</span>
+    </label>
+    <label>
+        <span>{{localize "PROPHECY.Taille"}} : </span>
+        <input type="text" name="system.identite.taille" value="{{systemData.identite.taille}}" />
+    </label>
+    <label>
+        <span>{{localize "PROPHECY.Poids"}} : </span>
+        <input type="text" name="system.identite.poids" value="{{systemData.identite.poids}}" />
+    </label>
+
+    {{#unless limited}}
+    <label class="threeCol">
+        <span>{{localize "PROPHECY.PaysDOrigine"}} :</span>
+        <input name="system.identite.pays" type="text" value="{{systemData.identite.pays}}" />
+    </label>
+
+    <label class="threeCol">
+        <span>{{localize "PROPHECY.AugureDeNaissance"}} :</span>
+        <input name="system.identite.augure" type="text" value="{{systemData.identite.augure}}" />
+    </label>
+    {{/unless}}
+
+    <div class="caste summary" data-item-id="{{ifThen actor.caste actor.caste._id ''}}">
+        <span>Caste : </span>
+        <div class="data">
+            {{#if actor.caste}}
+                <span class="value">{{actor.caste.name}}</span>
+                {{#if (isEffectExist actor.caste)}}
+                    <i class="{{ifThen (isEffectActive actor.caste) 'fa-solid' 'fa-regular'}} fa-octagon-check clickableEffect"
+                    title="{{ifThen (isEffectActive actor.caste) (localize 'PROPHECY.UNACTIVATE.Caste') (localize 'PROPHECY.ACTIVATE.Caste')}}"></i>
+                {{else}}
+                    <i></i>
+                {{/if}}
+                <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Caste'}}"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Caste'}}"><i class="fas fa-trash"></i></a>
+            {{else}}
+            <span></span>
+            <i></i>
+            <i></i>
+            <i class="fa-solid fa-plus-large item-create" data-type="caste" title="{{localize 'PROPHECY.ADD.Caste'}}"></i>
+            {{/if}}
+        </div>
+    </div>
+    {{#unless (or limited (eq actor.type 'pnj'))}}
+    <label class="experience">
+        <span>{{localize 'PROPHECY.Experience'}} :</span>
+        <input type="number" name="system.experience" value="{{systemData.experience}}" min="0">
+    </label>
+    {{/unless}}
+</div>

@@ -1,0 +1,73 @@
+<div class="tab magie" data-group="primary" data-tab="magie">
+    <div class="mid">
+        {{> systems/prophecy-2e/templates/parts/subparts/magieLeft.html }}
+        {{> systems/prophecy-2e/templates/parts/subparts/magieRight.html }}
+    </div>
+
+    <div class="sortileges">
+            <h2>{{localize 'PROPHECY.MAGIE.Sortileges'}}</h2>
+
+            {{#each actor.sortileges as |kCol column|}}
+                <div class="col">
+                    {{#each kCol as |kRow row|}}
+                        <div class="colSpell">
+                            <h3>{{localize (translate 'MAGIE' 'Spheres' row)}}</h3>
+                            <i class="fa-solid fa-plus-large item-create" data-type="sortilege" data-sphere="{{row}}" title="{{localize 'PROPHECY.ADD.Sortilege'}}"></i>
+                            {{#each @this as |kS spell|}}
+
+                                <div class="blockSpell summary" data-item-id="{{kS._id}}">
+                                    <header class="js-toggler">
+                                        <i class="fa-solid fa-square-plus"></i>
+                                        <span class="label clickableRoll" data-type="magie" title="{{localize 'PROPHECY.DoRoll'}}">
+                                            {{kS.name}}
+                                            <i class="fa-solid"></i>
+                                        </span>
+                                        {{#if (isEffectExist kS)}}
+                                        <i class="{{ifThen (isEffectActive kS) 'fa-solid' 'fa-regular'}} fa-octagon-check clickableEffect"
+                                        title="{{ifThen (isEffectActive kS) (localize 'PROPHECY.UNACTIVATE.Sortilege') (localize 'PROPHECY.ACTIVATE.Sortilege')}}"></i>
+                                        {{else}}
+                                        <i></i>
+                                        {{/if}}
+                                        <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Sortilege'}}"><i class="fas fa-edit"></i></a>
+                                        <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Sortilege'}}"><i class="fas fa-trash"></i></a>
+                                    </header>
+                                    <div class="sub" style="display:none;">
+                                        <label class="line">
+                                            <span class="label">{{localize 'PROPHECY.MAGIE.SORTILEGE.Complexite'}} :</span>
+                                            <span class="data">{{kS.system.complexite}}</span>
+                                        </label>
+                                        <label class="line">
+                                            <span class="label center">{{localize (translate 'MAGIE' 'Disciplines' kS.system.discipline)}}</span>
+                                        </label>
+                                        <label class="line">
+                                            <span class="label">{{localize 'PROPHECY.Cout'}} :</span>
+                                            <span class="data">{{kS.system.cout}}</span>
+                                        </label>
+                                        <label class="line">
+                                            <span class="label">{{localize 'PROPHECY.Difficulte'}} :</span>
+                                            <span class="data">{{kS.system.difficulte}}</span>
+                                        </label>
+                                        <label class="line effets">
+                                            <span class="label">{{localize 'PROPHECY.MAGIE.SORTILEGE.Temps'}}</span>
+                                            <span class="data">{{kS.system.temps}}</span>
+                                        </label>
+                                        <label class="line effets">
+                                            <span class="label">{{localize 'PROPHECY.MAGIE.SORTILEGE.Cles'}}</span>
+                                            <span class="data">{{kS.system.cles}}</span>
+                                        </label>
+                                        <label class="line effets">
+                                            <span class="label">
+                                                {{localize 'PROPHECY.Effets'}}
+                                                <i class="fa-solid fa-comment-dots clickableSend" data-type="sendmagie"></i>
+                                            </span>
+                                            <span class="data">{{{kS.system.effets}}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                </div>
+            {{/each}}
+    </div>
+</div>

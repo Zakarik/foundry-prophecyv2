@@ -1,0 +1,26 @@
+<form class="mainFlex {{cssClass}}" autocomplete="off">
+    <section class="header {{ifThen limited 'limited' ''}}">
+        {{> systems/prophecy-2e/templates/parts/identite.html }}
+        {{#unless limited}}
+        {{> systems/prophecy-2e/templates/parts/caracteristiques.html }}
+        {{> systems/prophecy-2e/templates/parts/attributs.html }}
+        {{/unless}}
+    </section>
+
+    {{#unless limited}}
+    <section class="body">
+        {{> systems/prophecy-2e/templates/parts/topData.html }}
+
+        {{> systems/prophecy-2e/templates/parts/menu.html }}
+
+        {{> systems/prophecy-2e/templates/parts/principal.html }}
+        {{> systems/prophecy-2e/templates/parts/combat.html }}
+        {{> systems/prophecy-2e/templates/parts/caste.html }}
+        {{> systems/prophecy-2e/templates/parts/magie.html }}
+        {{> systems/prophecy-2e/templates/parts/lien.html }}
+        {{> systems/prophecy-2e/templates/parts/equipement.html }}
+        {{> systems/prophecy-2e/templates/parts/concept.html }}
+        {{> systems/prophecy-2e/templates/parts/competences.html }}
+    </section>
+    {{/unless}}
+</form>

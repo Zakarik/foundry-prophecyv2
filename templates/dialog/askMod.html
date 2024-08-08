@@ -1,0 +1,13 @@
+{{#each combatants}}
+    <div class="main" data-id='{{id}}'>
+        <header class="js-toggler">
+            {{#unless noFold}}
+            <i class="fa-solid fa-square-minus"></i>
+            {{/unless}}
+            <span class="title">{{name}}</span>
+        </header>
+        {{#each bonus}}
+            {{> systems/prophecy-2e/templates/dialog/parts/mods.html index=@index}}
+        {{/each}}
+    </div>
+{{/each}}

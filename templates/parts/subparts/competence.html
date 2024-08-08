@@ -1,0 +1,84 @@
+<div class="competence" data-id="{{comp}}" data-attr="{{attr}}" data-cat="{{cat}}" data-list="{{list}}">
+    <div class="main">
+        <header class="js-toggler bLabel {{ifThen domain 'mainMulti' ''}}">
+            <i class="fa-solid fa-square-plus"></i>
+            {{#if custom}}
+                <div class="customCmp">
+                    <input class="label" type="text" name="system.competences.{{attr}}.{{cat}}.{{comp}}.{{list}}.label" value="{{label}}" />
+                    <i class="fa-solid fa-dice-d10 clickableRoll" data-type="competence" data-custom="true" data-label="{{label}}" title="{{localize 'PROPHECY.DoRoll'}}"></i>
+                    <i class="fas fa-trash clickable" data-type="removeCompetence" title="{{localize 'PROPHECY.DELETE.Competence'}}"></i>
+                </div>
+            {{else}}
+                <span class="label clickableRoll" data-type="competence" title="{{localize 'PROPHECY.DoRoll'}}">
+                    {{label}}
+                    <i class="fa-solid"></i>
+                </span>
+                {{#if domain}}
+                <input type="text" class="sublabel" name="system.competences.{{attr}}.{{cat}}.{{comp}}.{{list}}.sublabel" placeholder="{{localize 'PROPHECY.COMPETENCES.Domaine'}}" value="{{sublabel}}" />
+                {{/if}}
+            {{/if}}
+            <i class="fa-solid fa-plus-large spe-create" title="{{localize 'PROPHECY.ADD.Specialization'}}"></i>
+
+            <span class="score">{{total}}</span>
+        </header>
+
+        <div class="innerData" style="display:none;">
+            <div class="innerMods">
+                <span class="innerLabel">{{localize 'PROPHECY.Base'}}</span>
+                <input type="number" name="system.competences.{{attr}}.{{cat}}.{{comp}}.{{list}}.data.base" value="{{data.base}}" />
+            </div>
+            <div class="innerMods">
+                <span class="innerLabel">{{localize 'PROPHECY.Evolutions'}}</span>
+                <input type="number" name="system.competences.{{attr}}.{{cat}}.{{comp}}.{{list}}.data.evo" value="{{data.evo}}" />
+            </div>
+            <div class="innerMods">
+                <span class="innerLabel">{{localize 'PROPHECY.Modificateurs'}}</span>
+                <span class="innerScore">{{data.mod}}</span>
+            </div>
+            <div class="innerMods">
+                <span class="innerLabel">{{localize 'PROPHECY.Temporaire'}}</span>
+                <input type="number" name="system.competences.{{attr}}.{{cat}}.{{comp}}.{{list}}.data.temp" value="{{data.temp}}" />
+            </div>
+        </div>
+    </div>
+    {{#each specialization as |kSpe spe|}}
+        <div class="sub" data-spe="{{spe}}">
+            <header class="js-toggler bLabel {{ifThen domain 'mainMulti' ''}}">
+                <i class="fa-solid fa-square-plus"></i>
+                <input type="text" name="system.competences.{{../attr}}.{{../cat}}.{{../comp}}.{{../list}}.specialization.{{spe}}.label" placeholder="{{localize "PROPHECY.COMPETENCES.Specialization"}}" value="{{kSpe.label}}" />
+                <i class="fa-solid fa-dice-d10 clickableRoll" data-type="specialization" data-name="{{kSpe.label}}" data-value="{{kSpe.total}}"></i>
+                <i class="fas fa-trash spe-delete" data-speid="{{spe}}" title="{{localize 'PROPHECY.DELETE.Specialization'}}" data-name="{{kSpe.label}}"></i>
+                <span class="score">{{kSpe.total}}</span>
+            </header>
+
+            <div class="innerData" style="display:none;">
+                <div class="innerMods">
+                    <span class="innerLabel">{{localize 'PROPHECY.Base'}}</span>
+                    <input type="number" name="system.competences.{{../attr}}.{{../cat}}.{{../comp}}.{{../list}}.specialization.{{spe}}.data.base" value="{{kSpe.data.base}}" />
+                </div>
+                <div class="innerMods">
+                    <span class="innerLabel">{{localize 'PROPHECY.Evolutions'}}</span>
+                    <input type="number" name="system.competences.{{../attr}}.{{../cat}}.{{../comp}}.{{../list}}.specialization.{{spe}}.data.evo" value="{{kSpe.data.evo}}" />
+                </div>
+                <div class="innerMods">
+                    <span class="innerLabel">{{localize 'PROPHECY.Modificateurs'}}</span>
+                    <input type="number" name="system.competences.{{../attr}}.{{../cat}}.{{../comp}}.{{../list}}.specialization.{{spe}}.data.mod" value="{{kSpe.data.mod}}" />
+                </div>
+                <div class="innerMods">
+                    <span class="innerLabel">{{localize 'PROPHECY.Temporaire'}}</span>
+                    <input type="number" name="system.competences.{{../attr}}.{{../cat}}.{{../comp}}.{{../list}}.specialization.{{spe}}.data.temp" value="{{kSpe.data.temp}}" />
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+{{#if domain}}
+    {{#if @last}}
+    <div class="multi" data-attr="{{attr}}" data-cat="{{cat}}" data-id="{{comp}}" data-list="{{list}}">
+        {{#unless @first}}
+        <i class="fa-regular fa-trash-can-arrow-up multi-delete" title="{{localize 'PROPHECY.DELETE.Competence'}}" data-name="{{label}} : {{sublabel}}"></i>
+        {{/unless}}
+        <i class="fa-solid fa-plus-large multi-create" title="{{localize 'PROPHECY.ADD.Competence'}}"></i>
+    </div>
+    {{/if}}
+{{/if}}

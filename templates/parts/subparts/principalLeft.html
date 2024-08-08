@@ -1,0 +1,26 @@
+<div class="left">
+    <div class="avDv">
+        <h2>{{localize 'PROPHECY.Avantages'}}</h2>
+        <i class="fa-solid fa-plus-large item-create" data-type="avantage" title="{{localize 'PROPHECY.ADD.Avantage'}}"></i>
+        {{#each actor.avantages as | key av |}}
+            <div class="data {{ifThen (isEffectActive key) '' 'opacity'}}">
+                <header class="header js-toggler summary" data-item-id="{{key._id}}">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span class="clickableSend" title="{{key.name}}" data-type="avdv">
+                        {{key.name}}
+                        <i class="fa-solid"></i>
+                    </span>
+                    {{#if (isEffectExist key)}}
+                    <i class="{{ifThen (isEffectActive key) 'fa-solid' 'fa-regular'}} fa-octagon-check clickableEffect"
+                    title="{{ifThen (isEffectActive key) (localize 'PROPHECY.UNACTIVATE.Avantage') (localize 'PROPHECY.ACTIVATE.Avantage')}}"></i>
+                    {{else}}
+                    <i></i>
+                    {{/if}}
+                    <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Avantage'}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Avantage'}}"><i class="fas fa-trash"></i></a>
+                </header>
+                <span class="description" style="display:none;">{{{sanitizeTxt key.system.description}}}</span>
+            </div>
+        {{/each}}
+    </div>
+</div>

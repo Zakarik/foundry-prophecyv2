@@ -1,0 +1,117 @@
+section.header {
+    display:grid;
+    height: 190px;
+    grid-template-columns: 180px 1fr;
+    grid-template-rows: max-content 1fr;
+    align-items: flex-start;
+    align-content:flex-start;
+
+    grid-gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+
+    background:$brown;
+
+    img {
+        grid-row: 1 / 4;
+        width: 100%;
+        border-radius: 5px;
+        background-size:contain;
+        border-color: $darkbrown;
+    }
+
+    input,
+    select {
+        min-width: 0px;
+        background:transparent;
+        padding:0px;
+        padding-top: 2px;
+        text-align: center;
+
+        color:$black;
+
+        border-radius: 0px;
+        border-top: 0px;
+        border-right: 0px;
+        border-left: 0px;
+        border-color: $darkbrown;
+
+        margin-bottom: 2px;
+        height: 18px;
+
+        &.itmName {
+            font-size: 22px;
+            padding-top: 0px;
+            height: 30px;
+        }
+    }
+
+    select {
+        width: 150px;
+    }
+
+
+    h1 {
+        grid-column: 1 / 5;
+
+        border: 0px;
+        margin: 0px;
+        padding: 0px;
+        font-variant: small-caps;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    label {
+        display: grid;
+        grid-template-columns: 1fr 50px;
+        grid-gap: 5px;
+        align-items: flex-end;
+
+        span {
+            font-weight: bold;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        &.mainLabel {
+            grid-template-columns: 100px 1fr;
+        }
+
+        &.full {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 0px;
+            border: 1px solid $darkbrown;
+            border-radius: 5px;
+
+            span {
+                font-variant: small-caps;
+                text-align: center;
+                font-size: 16px;
+            }
+
+            input {
+                border-bottom: 0px;
+            }
+        }
+    }
+
+    div {
+        &.main {
+            display: grid;
+            grid-template-columns: 130px 260px 1fr;
+            align-items: flex-start;
+            align-content: flex-start;
+            grid-gap: 5px;
+        }
+
+        &.col {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 5px;
+        }
+    }
+}

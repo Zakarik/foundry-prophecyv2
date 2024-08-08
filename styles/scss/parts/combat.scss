@@ -1,0 +1,501 @@
+div.combat {
+    div {
+        &.mid {
+            display:grid;
+            grid-template-columns: 250px 1fr 250px;
+            background:$brown;
+            border-radius: 5px;
+            margin-top: 5px;
+
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+
+            grid-gap: 5px;
+
+            h1 {
+                display: grid;
+                grid-template-columns: max-content max-content;
+                grid-gap: 10px;
+
+                font-variant: small-caps;
+                font-size: 18px;
+                font-weight: bold;
+                border: 0px;
+                margin: 0px;
+                padding: 0px;
+
+                i {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $darkbrown;
+                    }
+                }
+            }
+
+            div {
+                &.left {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                    margin-top: 5px;
+
+                    i, a {
+                        cursor: pointer;
+
+                        &.wearP {
+                            transform: scale(-1, 1);
+                        }
+
+                        &:hover {
+                            text-shadow: none;
+                            color: $darkbrown;
+                        }
+                    }
+
+                    div {
+                        &.header {
+                            display: grid;
+                            grid-template-columns: 1fr max-content;
+                            align-items: center;
+                            align-content: center;
+                        }
+
+                        &.list {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-gap: 2px;
+                            align-items: flex-start;
+                            align-content: flex-start;
+                        }
+
+                        &.bWpn {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            align-items: center;
+                            align-content: center;
+                            grid-gap: 2px;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            background: $lightbrown;
+                            padding: 2px;
+
+                            header {
+                                display: grid;
+                                grid-template-columns: max-content 1fr repeat(4, max-content);
+                                align-items: center;
+                                align-content: center;
+                                grid-gap: 2px;
+                                font-weight: bold;
+                                font-size: 15px;
+                                border: 0px;
+                                margin: 0px;
+
+                                span {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    display: grid;
+                                    grid-template-columns: 1fr 18px;
+                                    grid-gap: 2px;
+
+                                    &.label {
+                                        span {
+                                            display: inline;
+                                        }
+
+                                        &.clickableRoll:hover {
+                                            cursor:pointer;
+                                            color:$darkbrown;
+                                        }
+                                    }
+                                }
+                            }
+
+                            div {
+                                &.data {
+                                    display: grid;
+                                    grid-template-columns: 1fr;
+                                    align-items: flex-start;
+                                    align-content: flex-start;
+                                    grid-gap: 2px;
+
+                                    span {
+                                        &.full {
+                                            text-align: center;
+                                            font-variant: small-caps;
+                                            font-size: 14px;
+                                            font-weight: bold;
+                                        }
+                                    }
+
+                                    label {
+                                        display: grid;
+                                        grid-gap: 2px;
+                                        grid-template-columns: 1fr 110px;
+                                        align-items: flex-end;
+                                        align-content: flex-end;
+
+                                        span {
+                                            &.label {
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+                                            }
+
+                                            &.score {
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                text-align: center;
+                                                color: $black;
+                                                font-weight: bold;
+                                                background: transparent;
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+                                                height: 100%;
+                                            }
+
+                                            &.separation {
+                                                text-align: center;
+                                            }
+                                        }
+
+                                        &.duo {
+                                            grid-template-columns: 1fr 50px 6px 50px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.red {
+                                header span {
+                                    color: rgb(170, 5, 5);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.right {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 5px;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                    margin-top: 5px;
+
+                    div {
+                        &.dataBlock {
+                            display: grid;
+                            align-items: center;
+                            align-content: center;
+                            grid-template-columns: 1fr 50px;
+                            grid-gap: 2px;
+                            justify-content: space-between;
+
+                            span {
+                                font-variant: small-caps;
+                                font-size: 18px;
+
+                                &.label {
+                                    font-weight: bold;
+                                }
+
+                                &.score {
+                                    border: 1px solid $darkbrown;
+                                    border-radius: 5px;
+                                    text-align: center;
+                                    font-weight: bold;
+                                    height: 24px;
+                                    line-height: 24px;
+                                }
+                            }
+
+                            &.withExpand {
+                                grid-template-columns: 1fr;
+
+                                header {
+                                    display: grid;
+                                    grid-template-columns: max-content 1fr 50px;
+                                    align-items: center;
+                                    align-content: center;
+                                    grid-gap: 2px;
+                                    justify-content: space-between;
+                                }
+
+                                div {
+                                    &.sub {
+                                        display: grid;
+                                        margin-top: 2px;
+                                        grid-gap: 2px;
+
+                                        label {
+                                            display:grid;
+                                            grid-template-columns: 1fr 50px;
+                                            grid-gap: 2px;
+                                            justify-content: space-between;
+
+                                            span {
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+
+                                                &.score {
+                                                    border: 1px solid $darkbrown;
+                                                    border-radius: 5px;
+                                                    text-align: center;
+                                                    color: $black;
+                                                    font-weight: bold;
+                                                    background:transparent;
+                                                }
+                                            }
+
+                                            input {
+                                                text-align: center;
+                                                padding: 0px;
+                                                margin: 0px;
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                width: 100%;
+                                                height: 19px;
+                                                min-width: 0px;
+                                                font-weight: bold;
+                                                background-color: $lightbrown;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.header {
+                            display: grid;
+                            grid-template-columns: 1fr max-content;
+                            align-items: center;
+                            align-content: center;
+                        }
+
+                        &.list {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-gap: 2px;
+                            align-items: flex-start;
+                            align-content: flex-start;
+                        }
+
+                        &.bArmure {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            align-items: center;
+                            align-content: center;
+                            grid-gap: 2px;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            background: $lightbrown;
+                            padding: 2px;
+
+                            header {
+                                display: grid;
+                                grid-template-columns: max-content 1fr repeat(3, max-content);
+                                align-items: center;
+                                align-content: center;
+                                grid-gap: 2px;
+                                font-weight: bold;
+                                font-size: 15px;
+                                border: 0px;
+                                margin: 0px;
+
+                                span {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                }
+                            }
+
+                            div {
+                                &.data {
+                                    display: grid;
+                                    grid-template-columns: 1fr;
+                                    align-items: flex-start;
+                                    align-content: flex-start;
+                                    grid-gap: 2px;
+
+                                    div,
+                                    label {
+                                        display: grid;
+                                        grid-gap: 2px;
+                                        grid-template-columns: 1fr 50px;
+                                        align-items: flex-end;
+                                        align-content: flex-end;
+
+                                        span {
+                                            &.label {
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+                                            }
+
+                                            &.score {
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                text-align: center;
+                                                color: $black;
+                                                font-weight: bold;
+                                                background: transparent;
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+                                            }
+                                        }
+
+                                        &.long {
+                                            grid-template-columns: 1fr max-content max-content 50px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.red {
+                                header span {
+                                    color: rgb(170, 5, 5);
+                                }
+                            }
+                        }
+
+                        &.bBouclier {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            align-items: center;
+                            align-content: center;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            background: $lightbrown;
+                            padding: 2px;
+
+                            header {
+                                display: grid;
+                                grid-template-columns: max-content 1fr repeat(4, max-content);
+                                align-items: center;
+                                align-content: center;
+                                grid-gap: 2px;
+                                font-weight: bold;
+                                font-size: 15px;
+                                border: 0px;
+                                margin: 0px;
+
+                                span {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+
+                                    &.clickableRoll {
+                                        width: max-content;
+                                        cursor: pointer;
+
+                                        &:hover {
+                                            color: $darkbrown;
+                                        }
+                                    }
+                                }
+
+                                div {
+                                    &.line {
+                                        grid-column: 1 / 7;
+                                        display: grid;
+                                        grid-template-columns: 1fr 1fr;
+
+                                        border-bottom-left-radius: 5px;
+                                        border-bottom-right-radius: 5px;
+                                        border-top: 1px dotted $darkbrown;
+
+                                        a {
+                                            text-align: center;
+                                            width: 100%;
+                                            font-variant: small-caps;
+                                            font-size: 14px;
+                                            padding-left: 2px;
+                                            padding-right: 2px;
+
+                                            &.checked {
+                                                background:$lightVariantbrown;
+                                            }
+
+                                            &:first-of-type {
+                                                border-bottom-left-radius: 5px;
+                                            }
+
+                                            &:last-of-type {
+                                                border-bottom-right-radius: 5px;
+                                                border-left: 1px solid $darkbrown;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            div {
+                                &.data {
+                                    display: grid;
+                                    grid-template-columns: 1fr;
+                                    align-items: flex-start;
+                                    align-content: flex-start;
+                                    grid-gap: 2px;
+                                    border-top: 1px solid $darkbrown;
+                                    padding-top: 2px;
+
+                                    div,
+                                    label {
+                                        display: grid;
+                                        grid-gap: 2px;
+                                        grid-template-columns: 1fr 100px;
+                                        align-items: flex-end;
+                                        align-content: flex-end;
+
+                                        span {
+                                            &.label {
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+                                            }
+
+                                            &.score {
+                                                border: 1px solid $darkbrown;
+                                                border-radius: 5px;
+                                                text-align: center;
+                                                color: $black;
+                                                font-weight: bold;
+                                                background: transparent;
+                                                font-size: 14px;
+                                                font-variant: small-caps;
+                                            }
+                                        }
+
+                                        &.long {
+                                            grid-template-columns: 1fr max-content max-content 50px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.red {
+                                header span {
+                                    color: $lightred;
+                                }
+                            }
+                        }
+                    }
+
+                    i, a {
+                        cursor: pointer;
+
+                        &.wearP {
+                            transform: scale(-1, 1);
+                        }
+
+                        &:hover {
+                            text-shadow: none;
+                            color: $darkbrown;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<div class="topData">
+    <div class="ressource">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <span class="label">{{localize 'PROPHECY.ATTRIBUTSMINEURS.Chance'}}</span>
+            <div class="data">
+                {{numberInput systemData.attributsmineurs.chance.value name='system.attributsmineurs.chance.value' step=1 min=0}}
+                <span class="separator">/</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.chance.max decimals=0}}</span>
+            </div>
+        </header>
+
+        <div class="sub" style="display:none;">
+            <label>
+                <span class="label">{{localize "PROPHECY.Base"}}</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.chance.data.base decimals=0}}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Modificateur"}}</span>
+                {{numberInput systemData.attributsmineurs.chance.data.mod name='system.attributsmineurs.chance.data.mod' step=1 min=0}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Temporaire"}}</span>
+                {{numberInput systemData.attributsmineurs.chance.data.temp name='system.attributsmineurs.chance.data.temp' step=1 min=0}}
+            </label>
+        </div>
+    </div>
+
+    <div class="ressource">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <span class="label">{{localize 'PROPHECY.ATTRIBUTSMINEURS.Maitrise'}}</span>
+            <div class="data">
+                {{numberInput systemData.attributsmineurs.maitrise.value name='system.attributsmineurs.maitrise.value' step=1 min=0}}
+                <span class="separator">/</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.maitrise.max decimals=0}}</span>
+            </div>
+        </header>
+
+        <div class="sub" style="display:none;">
+            <label>
+                <span class="label">{{localize "PROPHECY.Base"}}</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.maitrise.data.base decimals=0}}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Modificateurs"}}</span>
+                {{numberInput systemData.attributsmineurs.maitrise.data.mod name='system.attributsmineurs.maitrise.data.mod' step=1 min=0}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Temporaire"}}</span>
+                {{numberInput systemData.attributsmineurs.maitrise.data.temp name='system.attributsmineurs.maitrise.data.temp' step=1 min=0}}
+            </label>
+        </div>
+    </div>
+
+    <div class="data">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <span class="label">{{localize 'PROPHECY.ATTRIBUTSMINEURS.Renommee'}}</span>
+            <span class="score">{{min (formatNumber systemData.attributsmineurs.renommee.total decimals=0) 0}}</span>
+        </header>
+
+        <div class="sub" style="display:none;">
+            <label>
+                <span class="label">{{localize "PROPHECY.Base"}}</span>
+                {{numberInput systemData.attributsmineurs.renommee.data.base name='system.attributsmineurs.renommee.data.base' step=1}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Modificateur"}}</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.renommee.data.mod sign=true decimals=0 }}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Temporaire"}}</span>
+                {{numberInput systemData.attributsmineurs.renommee.data.temp name='system.attributsmineurs.renommee.data.temp' step=1}}
+            </label>
+        </div>
+    </div>
+
+    <div class="data">
+        <div class="blessure">
+            <span class="label">{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Malus'}}</span>
+            <span class="score">{{formatNumber systemData.attributsmineurs.blessure.malus decimals=0}}</span>
+        </div>
+    </div>
+
+    <div class="data">
+        <div class="encombrement" title="{{localize 'PROPHECY.Penalite'}}">
+            <span class="label">{{localize 'PROPHECY.Encombrement'}}</span>
+            <span class="score">{{formatNumber systemData.combat.encombrement decimals=0}}</span>
+        </div>
+    </div>
+</div>

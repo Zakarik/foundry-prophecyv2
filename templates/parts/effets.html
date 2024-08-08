@@ -1,0 +1,24 @@
+<div class="tab effets" data-group="primary" data-tab="effets">
+    <div class="dataEffets">
+        <div class="header">
+            <i class="fa-solid fa-square-plus clickable addEffets" title="{{localize 'PROPHECY.ADD.Effet'}}" data-id="{{effect._id}}"></i>
+            <span>{{localize 'PROPHECY.Effets'}}</span>
+        </div>
+        {{#each item.effects as | effect kE|}}
+            <div class="effectsBlock" data-effect-id="{{effect._id}}">
+                {{#each effect.changes as | change kC|}}
+                <div class="effectsChanges" data-key="{{kC}}" data-id="{{effect._id}}">
+                    <i class="fa-solid fa-trash deleteEffets" title="{{localize 'PROPHECY.DELETE.Effet'}}"></i>
+                    <select name="item.effects.{{kE}}.changes.{{kC}}.key" data-key="{{kC}}" data-id="{{effect._id}}" class="effect">
+                        {{selectOptions ../../item.listMods selected=(sanitizeChanges change.key) blank='PROPHECY.Choisir' localize=true sort=true}}
+                    </select>
+                    <select name="item.effects.{{kE}}.changes.{{kC}}.mode" data-key="{{kC}}" data-id="{{effect._id}}" class="mode">
+                        {{selectOptions ../../item.listModes selected=change.mode localize=true sort=true}}
+                    </select>
+                    <input type="number" name="item.effects.{{kE}}.changes.{{kC}}.key" value="{{change.value}}" data-key="{{kC}}" data-id="{{effect._id}}" class="effect" />
+                </div>
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,100 @@
+@mixin menu() {
+    nav {
+        &.menu {
+            display:flex;
+            align-items: flex-start;
+            align-content: flex-start;
+            justify-content: flex-start;
+            grid-gap: 5px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+
+            a {
+                display: flex;
+                align-items: center;
+                width: 180px;
+                background: $smoothbrown;
+                border: 1px solid $smoothbrown;
+                border-radius: 5px;
+                text-align: left;
+
+                font-variant: small-caps;
+                justify-content: space-between;
+                font-size: 18px;
+                font-weight: bold;
+
+                padding: 5px;
+
+                i {
+                    display: none;
+                }
+
+                &.active {
+                    text-shadow: none;
+                    background: $lightVariantbrown;
+                    border: 1px solid $lightVariantbrown;
+
+                    i {
+                        display: inline;
+                    }
+                }
+
+                &:hover {
+                    box-shadow: 2px 2px 10px inset;
+                    text-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin submenu($number) {
+    nav {
+        &.submenu {
+            display:grid;
+            grid-template-columns: repeat($number, max-content);
+            align-items: flex-start;
+            align-content: flex-start;
+            justify-content: flex-start;
+            grid-gap: 5px;
+            margin-top: 5px;
+
+            a {
+                display: flex;
+                align-items: center;
+                width: 180px;
+                background: $smoothbrown;
+                border: 1px solid $darkbrown;
+                border-radius: 5px;
+                text-align: left;
+
+                font-variant: small-caps;
+                justify-content: space-between;
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+
+                padding: 2px;
+
+                i {
+                    display: none;
+                }
+
+                &.active {
+                    text-shadow: none;
+                    background: $lightVariantbrown;
+                    border: 1px solid $darkbrown;
+
+                    i {
+                        display: inline;
+                    }
+                }
+
+                &:hover {
+                    box-shadow: 2px 2px 10px inset $black;
+                    text-shadow: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,313 @@
+@mixin roll-bonus() {
+    div.bonus {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 14px;
+        font-variant: small-caps;
+        margin-bottom: 2px;
+        grid-gap: 2px;
+        flex: none;
+        width: 100%;
+
+        span {
+            width: max-content;
+            padding: 2px;
+            border: 1px solid $darkbrown;
+            background: $brown;
+            border-radius: 5px;
+        }
+    }
+}
+
+div {
+    &.prophecy-initiative-roll {
+        color: $black;
+
+        div {
+            &.dice-formula {
+                background: $brown;
+                border:1px solid $darkbrown;
+                border-radius: 5px;
+                cursor: pointer;
+                font-variant: small-caps;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            header {
+                &.part-header {
+                    border-color: $darkbrown;
+
+                    span {
+                        &.part-total {
+                            border-top: 1px solid $darkbrown;
+                            border-left: 1px solid $darkbrown;
+                            border-right: 1px solid $darkbrown;
+                            background:$brown;
+                        }
+                    }
+                }
+            }
+
+            li {
+                &.die {
+                    color: $brown;
+
+                    &.d10 {
+                        background-image: $d10 !important;
+                    }
+                }
+            }
+
+
+
+            ol {
+                &.dice-rolls {
+                    &.drop {
+                        opacity: 0.5;
+                    }
+
+                    &.offhand {
+                        li {
+                            background-image: $d10offhand !important;
+                        }
+                    }
+                }
+
+
+
+
+            }
+        }
+
+        @include roll-bonus();
+    }
+
+    &.prophecy-std-roll {
+        color: $black;
+
+        div {
+            &.dice-formula {
+                display: grid;
+                grid-template-columns: 1fr 50px;
+                cursor: pointer;
+                font-variant: small-caps;
+                font-size: 14px;
+                font-weight: bold;
+                column-gap: 5px;
+                margin-bottom: 2px;
+                background:none;
+                border:0px;
+                box-shadow: none;
+
+                span {
+                    background: $brown;
+                    border:1px solid $darkbrown;
+                    border-radius: 5px;
+
+                    &.label {
+                        display: flex;
+                        text-align: left;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        align-items: center;
+                        line-height: 16px;
+                    }
+
+                    &.score {
+                        display: flex;
+                        width: 100%;
+                        text-align: center;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+            }
+
+            &.dice-tooltip {
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+
+            &.NR {
+                order: 3;
+                grid-column: 1 / 3;
+                display: block;
+                width:100%;
+
+                background: $brown;
+                border: 1px solid $darkbrown;
+                border-radius: 5px;
+                text-align: center;
+                font-weight: bold;
+                font-variant: small-caps;
+                line-height: 24px;
+
+                margin-bottom: 2px;
+            }
+
+            header {
+                &.part-header {
+                    border-color: $darkbrown;
+                    align-items: flex-end;
+
+                    span {
+                        &.part-total {
+                            border-top: 1px solid $darkbrown;
+                            border-left: 1px solid $darkbrown;
+                            border-right: 1px solid $darkbrown;
+                            background:$brown;
+                        }
+                    }
+                }
+            }
+
+            li {
+                &.die {
+                    color: $brown;
+
+                    &.d10 {
+                        background-image: $d10 !important;
+                    }
+                }
+            }
+
+
+
+            ol {
+                &.dice-rolls {
+                    &.drop {
+                        opacity: 0.5;
+                    }
+
+                    &.offhand {
+                        li {
+                            background-image: $d10offhand !important;
+                        }
+                    }
+                }
+
+
+
+
+            }
+        }
+
+        @include roll-bonus();
+    }
+
+    &.prophecy-tendance-roll {
+        div {
+            &.dice-flavor {
+                text-align: left;
+                font-variant: small-caps;
+                font-size: 16px;
+                letter-spacing: 1px;
+                flex: none;
+                width: 100%;
+            }
+        }
+    }
+
+    &.prophecy-std-roll {
+        div {
+            &.dice-name {
+                text-align: left;
+                font-variant: small-caps;
+                font-size: 16px;
+                letter-spacing: 1px;
+                flex: none;
+                width: 100%;
+            }
+        }
+    }
+
+    &.prophecy-std-other {
+        color: $black;
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 2px;
+            font-size: 14px;
+            column-gap: 5px;
+            border:1px solid $darkbrown;
+            border-radius: 5px;
+            background: $brown;
+
+            span {
+
+                &.label {
+                    display: flex;
+                    width: 100%;
+                    text-align: left;
+                    padding: 5px;
+                    align-items: center;
+                    line-height: 18px;
+                    font-weight: bold;
+                    font-size: 18px;
+                    font-variant: small-caps;
+                }
+
+                &.description {
+                    width: 100%;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+
+    &.prophecy-damage-buttons,
+    &.prophecy-magic-buttons {
+        display:grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-content: center;
+
+        a {
+            width: 100%;
+            border: 1px solid $darkbrown;
+            border-radius: 5px;
+            padding:2px;
+            background:$lightbrown;
+            color: $darkbrown;
+            font-variant: small-caps;
+            font-size: 16px;
+            font-weight: bold;
+
+            &:hover {
+                text-shadow: none;
+                box-shadow: none;
+
+                cursor: pointer;
+                background:$lightVariantbrown;
+            }
+        }
+    }
+}
+
+li {
+    &.chat-message {
+        background: $brown-transparency;
+        border: 1px solid $darkbrown;
+        border-radius: 5px;
+
+        h4 {
+            color: $black;
+        }
+
+        span {
+            color: $black;
+        }
+
+        &.whisper {
+            background: $lightVariantbrown-transparency;
+        }
+
+        &.blind {
+            background: $lightbrown-transparency;
+        }
+    }
+}

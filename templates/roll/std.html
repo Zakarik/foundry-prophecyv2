@@ -1,0 +1,33 @@
+<div class="dice-roll prophecy-std-roll">
+    {{#if flavor}}
+    <div class="dice-flavor">{{flavor}}</div>
+    {{/if}}
+    <div class="dice-result">
+        <div class="dice-formula">
+            <span class='label'>{{formula}}</span>
+            <span class='score'>{{total}}</span>
+        </div>
+        {{{tooltip}}}
+    </div>
+    {{#if bonus}}
+    <div class="bonus">
+        {{#each bonus}}
+            <span class="{{class}}" data-value="{{value}}">{{label}}</span>
+        {{/each}}
+    </div>
+    {{/if}}
+    {{#if locNR}}
+    <div class="NR" data-value="{{valNR}}">
+        <span>{{locNR}}</span>
+    </div>
+    {{/if}}
+</div>
+{{{dmg}}}
+{{{magic}}}
+{{#if btnSimple}}
+    {{#each btn}}
+        <div class="prophecy-damage-buttons">
+            <a class="applydmg"><i class="fa-solid fa-bullseye-arrow"></i> {{localize 'PROPHECY.ROLL.ApplyDmg'}} <i class="fa-solid fa-bullseye-arrow"></i></a>
+        </div>
+    {{/each}}
+{{/if}}

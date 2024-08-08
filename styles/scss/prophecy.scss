@@ -1,0 +1,1059 @@
+$lightbrown:#E3C1AD;
+$lightVariantbrown:#f0d2dcd8;
+$brown:#DEB887;
+$lightVariantbrown-transparency:rgba(212, 188, 196, 0.8);
+$lightbrown-transparency:rgba(225, 192, 174, 0.8);
+$brown-transparency:rgba(220, 183, 137, 0.8);
+$darkbrown:#A0522d;
+$smoothbrown:#DE9F87;
+$black:black;
+$lightgrey:lightgrey;
+$white:white;
+$red:#8B0000;
+$lightred:rgb(170, 5, 5);
+$green:#228B22;
+$dragon:#EDEDED;
+$or:#FFD700;
+$argent:#CECECE;
+$bronze:#614E1A;
+$fer:#848484;
+$d10:url("../img/icons/d10.svg");
+$d10offhand:url("../img/icons/d10_offhand.svg");
+
+@import "_library";
+
+div {
+    &.prophecy.personnage {
+        min-width: 1049px;
+    }
+
+    &.prophecy.personnage section.window-content {
+        section.header {
+            display:grid;
+            grid-template-columns: 1fr 1fr 160px;
+            align-items: flex-start;
+            align-content:flex-start;
+
+            grid-gap: 5px;
+
+            &.limited {
+                grid-template-columns: 1fr 1fr 1fr;
+
+                div {
+                    &.identite {
+                        width: 500px;
+                        grid-column: 2;
+
+                        label {
+                            input[type=text] {
+                                text-align: left;
+                            }
+                        }
+
+                        input {
+                            &.name {
+                                font-weight: bold;
+                                font-size: 20px;
+                                font-variant:small-caps;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @import "parts/identite";
+        @import "parts/topData";
+        @import "parts/caracteristiques";
+        @import "parts/attributs";
+        @import "parts/principal";
+        @import "parts/combat";
+        @import "parts/tendances";
+        @import "parts/competences";
+        @import "parts/blessures";
+        @import "parts/characterCaste";
+        @import "parts/characterMagie";
+        @import "parts/lien";
+        @import "parts/equipement";
+        @import "parts/concept";
+
+        @include menu();
+    }
+
+    &.prophecy.etoile section.window-content {
+        section.header {
+            display:grid;
+            grid-template-columns: 122px 1fr;
+            grid-template-rows: 26px 1fr;
+            align-items: flex-start;
+            align-content:flex-start;
+            background: $brown;
+            padding: 5px;
+            border-radius: 5px;
+
+            grid-gap: 5px;
+
+            img {
+                grid-row: 1 / 3;
+                border-color: $darkbrown;
+                border-radius: 5px;
+            }
+        }
+
+        section.body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 5px;
+        }
+
+        div {
+            &.identite {
+                display: grid;
+                grid-gap: 5px;
+
+                input {
+                    min-width: 0px;
+                    background:transparent;
+                    padding:0px;
+                    padding-top: 10px;
+                    text-align: center;
+
+                    color:$black;
+
+                    border-radius: 0px;
+                    border-top: 0px;
+                    border-right: 0px;
+                    border-left: 0px;
+                    border-color: $darkbrown;
+                }
+            }
+
+            &.data {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 10px;
+
+                label {
+                    display: grid;
+                    grid-template-columns: 72px 1fr;
+                    grid-gap: 5px;
+
+                    span {
+                        font-variant: small-caps;
+                        font-size: 14px;
+
+                        &.score {
+                            display: grid;
+                            align-items: center;
+                            width: 72px;
+                            height: 42px;
+                            text-align: center;
+                            border-radius: 5px;
+                            font-size: 20px;
+                            border: 1px solid $darkbrown;
+                        }
+
+                        &.label {
+                            display: grid;
+                            align-items: center;
+                            font-size: 19px;
+                            font-weight: bold;
+                        }
+                    }
+
+                    input[type=number] {
+                        width: 72px;
+                        height: 42px;
+                        text-align: center;
+                        border-radius: 5px;
+                        border-color: $darkbrown;
+                        background: $lightbrown;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            &.motivationspouvoirs {
+                div.main {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 5px
+                }
+            }
+        }
+
+        @import "parts/motivations";
+        @import "parts/pouvoirs";
+        @import "parts/compagnons";
+        @include menu();
+
+        nav.menu {
+            a {
+                width: 210px;
+            }
+        }
+    }
+
+    &.prophecy.avdv section.window-content {
+        @import "parts/avdv";
+        @import "parts/description";
+        @import "parts/effets";
+        @include menu();
+    }
+
+    &.prophecy.caste section.window-content {
+        @import "parts/caste";
+        @import "parts/description";
+        @import "parts/privileges";
+        @import "parts/effets";
+        @import "parts/statuts";
+        @include menu();
+    }
+
+    &.prophecy.armure section.window-content {
+        @import "parts/armure";
+        @import "parts/description";
+        @import "parts/effets";
+        @include menu();
+    }
+
+    &.prophecy.armement section.window-content {
+        @import "parts/armement";
+        @import "parts/description";
+        @import "parts/effets";
+        @include menu();
+    }
+
+    &.prophecy.materiel section.window-content {
+        @import "parts/materiel";
+        @import "parts/description";
+        @include menu();
+    }
+
+    &.prophecy.sortilege section.window-content {
+        @import "parts/sortilege";
+        @import "parts/description";
+        @import "parts/effets";
+        @include menu();
+    }
+
+    &.prophecy.pouvoir section.window-content {
+        section.header {
+            display:grid;
+            grid-template-columns: 122px 1fr;
+            grid-template-rows: 26px 1fr;
+            align-items: flex-start;
+            align-content:flex-start;
+            background: $brown;
+            padding: 5px;
+            border-radius: 5px;
+
+            grid-gap: 5px;
+
+            img {
+                grid-row: 1 / 3;
+                border-color: $darkbrown;
+                border-radius: 5px;
+            }
+
+            input {
+                min-width: 0px;
+                background:transparent;
+                padding:0px;
+                padding-top: 10px;
+                text-align: center;
+
+                color:$black;
+
+                border-radius: 0px;
+                border-top: 0px;
+                border-right: 0px;
+                border-left: 0px;
+                border-color: $darkbrown;
+            }
+        }
+
+        @import "parts/description";
+    }
+
+
+    &.prophecy.dialog {
+        @mixin dialog-mods() {
+            div {
+                &.dataWithCheck {
+                    display: grid;
+                    grid-template-columns: 1fr 100px;
+                    column-gap: 5px;
+                    row-gap: 2px;
+                    justify-content: space-between;
+                    line-height: 19px;
+                    align-items: center;
+                    align-content: center;
+
+                    label {
+                        display: grid;
+                        grid-template-columns: max-content 1fr;
+                        grid-gap: 5px;
+                        justify-content: space-between;
+                        line-height: 19px;
+                        align-items: center;
+                        align-content: center;
+                        cursor: pointer;
+                    }
+
+                    input[type=checkbox] {
+                        cursor: pointer;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        font-variant: small-caps;
+                        font-weight: bold;
+
+                        &.total {
+                            display: block;
+                            width: 100%;
+                            text-align: center;
+                            border: 1px solid $darkbrown;
+                            background-color: $lightbrown;
+                            border-radius: 5px;
+                            height: 19px;
+                            padding-left: 2px;
+                            padding-right: 2px;
+                        }
+
+                        &.fullLine {
+                            grid-column: 1 / 3;
+
+                            display: block;
+                            width: 100%;
+                            text-align: center;
+                            border: 1px solid $darkbrown;
+                            background-color: $lightbrown;
+                            border-radius: 5px;
+                            height: 19px;
+                            padding-left: 2px;
+                            padding-right: 2px;
+                        }
+                    }
+
+                    input {
+                        margin:0px;
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    select {
+                        margin: 0px;
+                        padding-left: 2px;
+                        padding-right: 2px;
+                        padding-top: 0px;
+                        padding-bottom: 0px;
+                        height: 19px;
+                        font-variant: small-caps;
+                        border: 1px solid $darkbrown;
+                        background-color: $lightbrown;
+                        border-radius: 5px;
+                        width: 100%;
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+
+                &.dataChoice {
+                    display: grid;
+                    grid-template-columns: 1fr 100px;
+                    column-gap: 5px;
+                    row-gap: 2px;
+                    justify-content: space-between;
+                    line-height: 19px;
+                    align-items: center;
+                    align-content: center;
+
+                    span {
+                        font-size: 14px;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                    }
+
+                    select {
+                        margin: 0px;
+                        padding-left: 2px;
+                        padding-right: 2px;
+                        padding-top: 0px;
+                        padding-bottom: 0px;
+                        height: 19px;
+                        font-variant: small-caps;
+                        border: 1px solid $darkbrown;
+                        background-color: $lightbrown;
+                        border-radius: 5px;
+                        width: 100%;
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+
+                &.stdCheck {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    column-gap: 5px;
+                    row-gap: 2px;
+                    justify-content: space-between;
+                    line-height: 19px;
+                    align-items: center;
+                    align-content: center;
+
+                    label {
+                        display: grid;
+                        grid-template-columns: max-content 1fr;
+                        grid-gap: 5px;
+                        justify-content: space-between;
+                        line-height: 19px;
+                        align-items: center;
+                        align-content: center;
+                        cursor: pointer;
+                    }
+
+                    input[type=checkbox] {
+                        cursor: pointer;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                    }
+
+                    input {
+                        margin:0px;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+        }
+
+        section.window-content {
+            background:$darkbrown;
+
+            div {
+                &.main {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 5px;
+                    background: $brown;
+
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    margin-top: 5px;
+                    border: 1px solid $black;
+                    padding: 5px;
+                }
+
+                &.dialog-buttons {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 5px;
+
+                    button {
+                        background: $brown;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        text-shadow: none;
+                        background: $lightbrown;
+                        border: 1px solid $black;
+                        border-top-left-radius: 0px;
+                        border-top-right-radius: 0px;
+
+                        &:hover {
+                            box-shadow: 2px 2px 10px inset;
+                            text-shadow: none;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        &.dialogDelete {
+            section.window-content {
+                div {
+                    &.dialog-content {
+                        display: grid;
+                        grid-template-columns: 1fr;
+
+                        span {
+                            color: $black;
+
+                            &.title {
+                                font-size: 15px;
+                                text-align: center;
+                                line-height: 20px;
+                            }
+
+                            &.center {
+                                text-align: center;
+                                font-variant: small-caps;
+                                font-weight: bold;
+                                font-size: 18px;
+                                letter-spacing: 1px;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        &.dialogInitiative {
+            section.window-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 30px;
+                align-items: flex-start;
+                align-content: flex-start;
+                row-gap: 5px;
+
+                header {
+                    display: grid;
+                    grid-template-columns: max-content 1fr;
+                    font-size: 18px;
+                    grid-gap: 5px;
+                    align-items: center;
+                    align-content: center;
+
+                    i {
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $darkbrown;
+                            text-shadow: none;
+                        }
+                    }
+                }
+
+                span {
+                    &.title {
+                        display: block;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                }
+
+                div {
+                    &.main {
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+
+                    &.labelActions {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        grid-gap: 10px;
+                        justify-content: space-between;
+
+                        span {
+                            font-size: 18px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                    }
+
+                    &.data {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        grid-gap: 10px;
+                        justify-content: space-between;
+
+                        span {
+                            font-size: 14px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+                        }
+
+                        input {
+                            text-align: center;
+                            padding: 0px;
+                            margin: 0px;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            width: 100%;
+                            height: 19px;
+                            min-width: 0px;
+                            font-weight: bold;
+                            background-color: $lightbrown;
+                        }
+                    }
+
+                    &.inner {
+                        display: grid;
+                        grid-template-columns: max-content max-content max-content;
+                        grid-gap: 2px;
+                        justify-content: space-between;
+                        align-items: center;
+                        align-content: center;
+
+                        border: 1px solid $darkbrown;
+                        background-color: $lightbrown;
+                        border-radius: 5px;
+                        width: 100%;
+                        height: 19px;
+                        padding-left: 2px;
+                        padding-right: 2px;
+
+                        i {
+                            cursor: pointer;
+
+                            &:hover {
+                                color: $darkbrown;
+                                text-shadow: none;
+                            }
+                        }
+                    }
+                }
+
+                @include dialog-mods();
+            }
+        }
+
+        &.dialogRoll {
+            section.window-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 30px;
+                align-items: flex-start;
+                align-content: flex-start;
+                row-gap: 5px;
+
+                header {
+                    display: grid;
+                    grid-template-columns: max-content 1fr;
+                    font-size: 18px;
+                    grid-gap: 5px;
+                    align-items: center;
+                    align-content: center;
+
+                    i {
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $darkbrown;
+                            text-shadow: none;
+                        }
+                    }
+                }
+
+                span {
+                    &.title {
+                        display: block;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                }
+
+                div {
+                    &.main {
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+
+                    &.labelActions {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        grid-gap: 10px;
+                        justify-content: space-between;
+
+                        span {
+                            font-size: 18px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                    }
+
+                    &.data {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        grid-gap: 10px;
+                        justify-content: space-between;
+
+                        span {
+                            font-size: 14px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+                        }
+
+                        input {
+                            text-align: center;
+                            padding: 0px;
+                            margin: 0px;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            width: 100%;
+                            height: 19px;
+                            min-width: 0px;
+                            font-weight: bold;
+                            background-color: $lightbrown;
+                        }
+                    }
+
+                    &.inner {
+                        display: grid;
+                        grid-template-columns: max-content max-content max-content;
+                        grid-gap: 2px;
+                        justify-content: space-between;
+                        align-items: center;
+                        align-content: center;
+
+                        border: 1px solid $darkbrown;
+                        background-color: $lightbrown;
+                        border-radius: 5px;
+                        width: 100%;
+                        height: 19px;
+                        padding-left: 2px;
+                        padding-right: 2px;
+
+                        i {
+                            cursor: pointer;
+
+                            &:hover {
+                                color: $darkbrown;
+                                text-shadow: none;
+                            }
+                        }
+                    }
+                }
+
+                @include dialog-mods();
+
+            }
+        }
+
+        &.dialogPostRoll {
+            section.window-content {
+                div {
+                    &.data {
+                        grid-template-columns: 1fr;
+                        grid-gap: 2px;
+                        justify-content: space-between;
+                    }
+
+                    &.sub {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        align-content: flex-start;
+                        grid-gap: 2px;
+
+                        div {
+                            &.data {
+                                grid-template-columns: 1fr 100px;
+                                grid-gap: 10px;
+                            }
+                        }
+                    }
+
+                    &.dataWithCheck {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        column-gap: 5px;
+                        row-gap: 2px;
+                        justify-content: space-between;
+                        line-height: 19px;
+                        align-items: center;
+                        align-content: center;
+
+                        label {
+                            display: grid;
+                            grid-template-columns: max-content 1fr;
+                            grid-gap: 5px;
+                            justify-content: space-between;
+                            line-height: 19px;
+                            align-items: center;
+                            align-content: center;
+                            cursor: pointer;
+                        }
+
+                        input[type=checkbox] {
+                            cursor: pointer;
+                        }
+
+                        span {
+                            font-size: 14px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+
+                            &.total {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                border: 1px solid $darkbrown;
+                                background-color: $lightbrown;
+                                border-radius: 5px;
+                                height: 19px;
+                                padding-left: 2px;
+                                padding-right: 2px;
+                            }
+
+                            &.fullLine {
+                                grid-column: 1 / 3;
+
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                border: 1px solid $darkbrown;
+                                background-color: $lightbrown;
+                                border-radius: 5px;
+                                height: 19px;
+                                padding-left: 2px;
+                                padding-right: 2px;
+                            }
+                        }
+
+                        input {
+                            margin:0px;
+                            width: 16px;
+                            height: 16px;
+                        }
+
+                        select {
+                            margin: 0px;
+                            padding-left: 2px;
+                            padding-right: 2px;
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+                            height: 19px;
+                            font-variant: small-caps;
+                            border: 1px solid $darkbrown;
+                            background-color: $lightbrown;
+                            border-radius: 5px;
+                            width: 100%;
+
+                            &:focus {
+                                box-shadow: none;
+                            }
+                        }
+                    }
+
+                    &.dataChoice {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        column-gap: 5px;
+                        row-gap: 2px;
+                        justify-content: space-between;
+                        line-height: 19px;
+                        align-items: center;
+                        align-content: center;
+
+                        span {
+                            font-size: 14px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+                        }
+
+                        select {
+                            margin: 0px;
+                            padding-left: 2px;
+                            padding-right: 2px;
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+                            height: 19px;
+                            font-variant: small-caps;
+                            border: 1px solid $darkbrown;
+                            background-color: $lightbrown;
+                            border-radius: 5px;
+                            width: 100%;
+
+                            &:focus {
+                                box-shadow: none;
+                            }
+                        }
+                    }
+
+                    &.number {
+                        display: grid;
+                        grid-template-columns: 1fr 100px;
+                        grid-gap: 10px;
+                        justify-content: space-between;
+
+                        span {
+                            font-size: 14px;
+                            font-variant: small-caps;
+                            font-weight: bold;
+                        }
+
+                        input {
+                            text-align: center;
+                            padding: 0px;
+                            margin: 0px;
+                            border: 1px solid $darkbrown;
+                            border-radius: 5px;
+                            width: 100%;
+                            height: 19px;
+                            min-width: 0px;
+                            font-weight: bold;
+                            background-color: $lightbrown;
+                        }
+                    }
+
+                    &.inner {
+                        display: grid;
+                        grid-template-columns: max-content max-content max-content;
+                        grid-gap: 2px;
+                        justify-content: space-between;
+                        align-items: center;
+                        align-content: center;
+
+                        border: 1px solid $darkbrown;
+                        background-color: $lightbrown;
+                        border-radius: 5px;
+                        width: 100%;
+                        height: 19px;
+                        padding-left: 2px;
+                        padding-right: 2px;
+
+                        i {
+                            cursor: pointer;
+
+                            &:hover {
+                                color: $darkbrown;
+                                text-shadow: none;
+                            }
+                        }
+                    }
+                }
+
+                label {
+                    &.check {
+                        display: grid;
+                        grid-template-columns: 1fr 15px;
+                        padding: 2px;
+                        border:1px solid $darkbrown;
+                        border-radius: 5px;
+                        font-variant: small-caps;
+                        background: $lightgrey;
+                        cursor: pointer;
+                        font-weight: bold;
+
+                        i {
+                            width: 12.25px;
+                            margin-left: auto;
+                            margin-right: 5px;
+
+                            &.fa-xmark {
+                                color: $red;
+                            }
+
+                            &.fa-check {
+                                color: $green;
+                            }
+                        }
+
+                        &.checked {
+                            background: $lightbrown;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+section {
+    &.prophecy-combat-tracker {
+        div {
+            &.prophecyInitiative {
+                span {
+                    display: inline-grid;
+                    width: 30px;
+                    height: 30px;
+                    align-content: center;
+                    border: 1px solid $white;
+                    background:transparent;
+                    font-size: 18px !important;
+                    border-radius: 15px;
+                    color: $white;
+                    text-shadow: none !important;
+                    text-align: center;
+                    margin: auto;
+                    direction: initial;
+
+                    &.offhand {
+                        border-color:$lightVariantbrown;
+                    }
+
+                    &.owner {
+                        color: $black;
+                        border-color: $black;
+                        background:$white;
+                        font-weight: bold;
+
+                        &.offhand {
+                            background:$lightVariantbrown;
+                        }
+
+                        &.hover {
+                            cursor: pointer;
+                            box-shadow: 2px 2px 10px inset $black;
+                            text-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            &.token-other {
+                grid-column: 1 / 4;
+
+                display: grid;
+                grid-template-columns: repeat(4, 48px);
+                margin-left: auto;
+                min-height: 34px;
+                direction: rtl;
+                padding-bottom: 2px;
+                row-gap: 5px;
+            }
+        }
+
+        li {
+            &.prophecyTurns {
+                display: grid;
+                grid-template-columns: max-content 1fr 48px;
+            }
+        }
+
+        nav {
+            &.prophecyCombatControl {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                a {
+                    font-size: 14px !important;
+
+                    &.last {
+                        border-left: 1px solid $darkbrown;
+                    }
+
+                    &.full {
+                        grid-column: 1 / 3;
+                        font-size: 18px !important;
+
+                        &.withBorder {
+                            border-top: 1px solid $darkbrown;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import "parts/roll";

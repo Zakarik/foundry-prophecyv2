@@ -1,0 +1,111 @@
+<div class="tab compagnons" data-group="primary" data-tab="compagnons">
+    <div class="main">
+        <div class="mainBlock">
+            <div class="compagnon">
+                <h1 class="header">
+                    {{localize 'PROPHECY.ETOILE.Compagnons'}}
+                    <i class="fa-solid fa-plus-large addcmp" title="{{localize 'PROPHECY.ADD.Compagnon'}}"></i>
+                </h1>
+                <span class="notes">Vous pouvez ajouter des compagnons en drag & drop des personnages sur l'étoile.</span>
+
+                <div class="list">
+                    {{#each systemData.compagnons}}
+                        {{#unless (or (eq ../actor.guide.key key) (eq ../actor.archiviste.key key) (eq ../actor.main.key key) disparu)}}
+                        <div class="line {{ifThen (eq id 'custom') 'nopadding' ''}}" data-id="{{id}}" data-key="{{key}}">
+                            {{#if (eq id 'custom')}}
+                            <input type="text" name="system.compagnons.{{key}}.name" value="{{name}}" />
+                            {{else}}
+                            <span>{{name}}</span>
+                            {{/if}}
+                            {{#if ../actor.canArchiviste}}
+                            <i class="fa-duotone fa-solid fa-book addarchiviste space" title="{{localize 'PROPHECY.ADD.Archiviste'}}"></i>
+                            {{else}}
+                            <i></i>
+                            {{/if}}
+                            {{#if ../actor.canMain}}
+                            <i class="fa-solid fa-hand addmain space" title="{{localize 'PROPHECY.ADD.Main'}}"></i>
+                            {{else}}
+                            <i></i>
+                            {{/if}}
+                            {{#if ../actor.canGuide}}
+                            <i class="fa-solid fa-user addguide space" title="{{localize 'PROPHECY.ADD.Guide'}}"></i>
+                            {{else}}
+                            <i></i>
+                            {{/if}}
+                            <i class="fa-solid fa-tombstone space adddeath" title="{{localize 'PROPHECY.ADD.Death'}}"></i>
+                            <i class="fas fa-trash deletecmp space" title="{{localize 'PROPHECY.DELETE.Compagnon'}}"></i>
+                        </div>
+                        {{/unless}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="compagnon">
+                <h1 class="header">
+                    {{localize 'PROPHECY.ETOILE.CompagnonsDisparus'}}
+                </h1>
+                <div class="list">
+                    {{#each actor.disparus}}
+                        <div class="line {{ifThen (eq id 'custom') 'nopadding' ''}}" data-id="{{id}}" data-key="{{key}}">
+                            {{#if (eq id 'custom')}}
+                            <input type="text" name="system.compagnons.{{key}}.name" value="{{name}}" />
+                            {{else}}
+                            <span>{{name}}</span>
+                            {{/if}}
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i class="fa-solid fa-up space deletedeath" title="{{localize 'PROPHECY.DELETE.Death'}}"></i>
+                            <i class="fas fa-trash deletecmp space" title="{{localize 'PROPHECY.DELETE.Compagnon'}}"></i>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <div class="roles">
+            <div class="line" data-key="{{actor.guide.key}}">
+                <h1 class="header">Guide</h1>
+                {{#if actor.guide}}
+                <div class="block">
+                    {{#if (eq actor.guide.id 'custom')}}
+                    <input type="text" name="system.compagnons.{{actor.guide.key}}.name" value="{{actor.guide.name}}" />
+                    {{else}}
+                    <span>{{actor.guide.name}}</span>
+                    {{/if}}
+                    <i class="fas fa-trash deleteguide" title="{{localize 'PROPHECY.DELETE.Guide'}}"></i>
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="line" data-key="{{actor.archiviste.key}}">
+                <h1 class="header">Archiviste</h1>
+                {{#if actor.archiviste}}
+                <div class="block">
+                    {{#if (eq actor.archiviste.id 'custom')}}
+                    <input type="text" name="system.compagnons.{{actor.archiviste.key}}.name" value="{{actor.archiviste.name}}" />
+                    {{else}}
+                    <span>{{actor.archiviste.name}}</span>
+                    {{/if}}
+                    <i class="fas fa-trash deletearchiviste" title="{{localize 'PROPHECY.DELETE.Archiviste'}}"></i>
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="line" data-key="{{actor.main.key}}">
+                <h1 class="header">Main</h1>
+                {{#if actor.main}}
+                <div class="block">
+                    {{#if (eq actor.main.id 'custom')}}
+                    <input type="text" name="system.compagnons.{{actor.main.key}}.name" value="{{actor.main.name}}" />
+                    {{else}}
+                    <span>{{actor.main.name}}</span>
+                    {{/if}}
+                    <i class="fas fa-trash deletemain" title="{{localize 'PROPHECY.DELETE.Main'}}"></i>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="right">
+    <div class="dataBlock withExpand">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <span class="label">{{localize 'PROPHECY.ATTRIBUTSMINEURS.Initiative'}}</span>
+            <span class="score">{{min (formatNumber systemData.attributsmineurs.initiative.total decimals=0) 0}}</span>
+        </header>
+
+        <div class="sub" style="display:none;">
+            <label>
+                <span class="label">{{localize "PROPHECY.Base"}}</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.initiative.data.base sign=true decimals=0 }}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Modificateur"}}</span>
+                <span class="score">{{formatNumber systemData.attributsmineurs.initiative.data.mod sign=true decimals=0 }}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Temporaire"}}</span>
+                {{numberInput systemData.attributsmineurs.initiative.data.temp name='system.attributsmineurs.initiative.data.temp' step=1}}
+            </label>
+        </div>
+    </div>
+
+    <div class="dataBlock">
+        <span class="label">{{localize 'PROPHECY.Protection'}}</span>
+        <span class="score">{{formatNumber systemData.combat.protection decimals=0}}</span>
+    </div>
+
+    <div class="header">
+        <h1>{{localize 'PROPHECY.Armures'}}</h1>
+        <i class="fa-solid fa-plus-large item-create" data-type="protection" data-subtype="armure" title="{{localize 'PROPHECY.ADD.Armure'}}"></i>
+    </div>
+    <div class="list">
+    {{#each actor.armures as |key list|}}
+        <div class="bArmure {{ifThen (and key.system.notPrerequis key.system.wear) 'red' ''}}" {{#if key.system.notPrerequis}}title="{{localize 'PROPHECY.NotPrerequis2'}}"{{/if}}>
+            <header class="header js-toggler summary" data-item-id="{{key._id}}">
+                <i class="fa-solid fa-square-plus clickable"></i>
+                <span>{{key.name}}</span>
+                {{#unless key.system.notPrerequis}}
+                <i class="{{ifThen key.system.wear 'fa-solid' 'fa-regular'}} fa-shield clickable" data-type="wear" title="{{localize (ifThen key.wear 'PROPHECY.UNWEAR.Armure' 'PROPHECY.WEAR.Armure')}}"></i>
+                {{else}}
+                <i></i>
+                {{/unless}}
+
+                <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Armure'}}"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Armure'}}"><i class="fas fa-trash"></i></a>
+            </header>
+            <div class="data" style="display:none;" data-item-id="{{key._id}}">
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Protection'}}</span>
+                    <span class="score">{{key.system.protection}}</span>
+
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Penalite'}}</span>
+                    <span class="score">{{key.system.penalite}}</span>
+                </label>
+                <div class="long">
+                    <span class="label">{{localize 'PROPHECY.Usure'}}</span>
+                    <i class="fa-solid fa-arrow-down-long dowUsure"></i>
+                    <i class="fa-solid fa-arrow-up-long incUsure"></i>
+                    <span class="score">{{key.system.usure}}</span>
+                </div>
+                <div class="description">
+                    {{{key.system.description}}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+
+    <div class="header">
+        <h1>{{localize 'PROPHECY.Boucliers'}}</h1>
+        <i class="fa-solid fa-plus-large item-create" data-type="protection" data-subtype="bouclier" title="{{localize 'PROPHECY.ADD.Bouclier'}}"></i>
+    </div>
+    <div class="list">
+    {{#each actor.boucliers as |key list|}}
+        <div class="bBouclier {{ifThen key.system.notPrerequis 'red' ''}}" {{#if key.system.notPrerequis}}title="{{localize 'PROPHECY.NotPrerequis2'}}"{{/if}}>
+            <header class="header js-toggler summary" data-item-id="{{key._id}}">
+                <i class="fa-solid fa-square-plus clickable"></i>
+                {{#if (or key.system.wearP key.system.wearS)}}
+                <span class="label clickableRoll" data-type="weapon" title="{{localize 'PROPHECY.DoRoll'}}">
+                    {{key.name}}
+                    <i class="fa-solid"></i>
+                </span>
+                {{else}}
+                <span class="label">
+                    {{key.name}}
+                </span>
+                {{/if}}
+                {{#unless key.system.notPrerequis}}
+                <i class="{{ifThen key.system.wearP 'fa-solid' 'fa-regular'}} fa-sword clickable wearP" data-type="wear" title="{{localize (ifThen key.wear 'PROPHECY.UNWEAR.BouclierPrincipal' 'PROPHECY.WEAR.BouclierPrincipal')}}"></i>
+                <i class="{{ifThen key.system.wearS 'fa-solid' 'fa-regular'}} fa-sword clickable" data-type="wear" title="{{localize (ifThen key.wear 'PROPHECY.UNWEAR.BouclierSecondaire' 'PROPHECY.WEAR.BouclierSecondaire')}}"></i>
+                {{else}}
+                <i></i>
+                <i></i>
+                {{/unless}}
+                <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Bouclier'}}"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Bouclier'}}"><i class="fas fa-trash"></i></a>
+                {{#if (or key.system.wearP key.system.wearS)}}
+                <div class="line">
+                    <a class="btnUse {{ifThen (eq key.system.use 'parade') 'checked' ''}}" data-type="parade">
+                        <span>
+                            <i class="fa-solid {{ifThen (eq key.system.use 'parade') 'fa-check' ''}}"></i>
+                            {{localize 'PROPHECY.Parade'}}
+                        </span>
+                    </a>
+                    <a class="btnUse {{ifThen (eq key.system.use 'protection') 'checked' ''}}" data-type="protection">
+                        <span>
+                            <i class="fa-solid {{ifThen (eq key.system.use 'protection') 'fa-check' ''}}"></i>
+                            {{localize 'PROPHECY.ProtectionStatique'}}
+                        </span>
+                    </a>
+                </div>
+                {{/if}}
+            </header>
+            <div class="data" style="display:none;" data-item-id="{{key._id}}">
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Dommages'}}</span>
+                    <span class="score">{{key.system.dommages.total}}</span>
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Protection'}}</span>
+                    <span class="score">{{key.system.protection}}</span>
+
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Penalite'}}</span>
+                    <span class="score">{{key.system.penalite}}</span>
+                </label>
+                <div class="long">
+                    <span class="label">{{localize 'PROPHECY.Usure'}}</span>
+                    <i class="fa-solid fa-arrow-down-long dowUsure"></i>
+                    <i class="fa-solid fa-arrow-up-long incUsure"></i>
+                    <span class="score">{{key.system.usure}}</span>
+                </div>
+                <div class="description">
+                    {{{key.system.description}}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>

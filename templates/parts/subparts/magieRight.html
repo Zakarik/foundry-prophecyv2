@@ -1,0 +1,60 @@
+<div class="right">
+    <h2>{{localize 'PROPHECY.MAGIE.Spheres'}}</h2>
+
+    {{#each systemData.magie.spheres as |key attr|}}
+    <div class="dataBlock">
+        <div class="top">
+            <header class="js-toggler">
+                <i class="fa-solid fa-square-plus"></i>
+                <span class="label">{{localize (translate 'MAGIE' 'Spheres' attr)}}</span>
+                <span class="score">{{formatNumber key.total decimals=0}}</span>
+            </header>
+
+            <div class="sub" style="display:none;">
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Base'}}</span>
+                    {{numberInput key.data.base name=(concat 'system.magie.spheres.' attr '.data.base') step=1}}
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Evolutions'}}</span>
+                    {{numberInput key.data.evo name=(concat 'system.magie.spheres.' attr '.data.evo') step=1}}
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Modificateur'}}</span>
+                    <span class="score">{{formatNumber key.data.mod decimals=0}}</span>
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Temporaire'}}</span>
+                    {{numberInput key.data.temp name=(concat 'system.magie.spheres.' attr '.data.temp') step=1}}
+                </label>
+            </div>
+        </div>
+        <div class="bottom">
+            <header class="js-toggler">
+                <i class="fa-solid fa-square-plus"></i>
+                <span class="label">{{localize 'PROPHECY.MAGIE.Reserve'}}</span>
+                <div class="scores">
+                    {{numberInput key.reserve.value name=(concat 'system.magie.spheres.' attr '.reserve.value') step=1 max=key.reserve.total min=0}}
+                    <span class="separation">/</span>
+                    <span class="score">{{formatNumber key.reserve.total decimals=0}}</span>
+                </div>
+            </header>
+
+            <div class="sub" style="display:none;">
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Base'}}</span>
+                    <span class="score">{{formatNumber key.reserve.data.base decimals=0}}</span>
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Modificateur'}}</span>
+                    <span class="score">{{formatNumber key.reserve.data.mod decimals=0}}</span>
+                </label>
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Temporaire'}}</span>
+                    {{numberInput key.reserve.data.temp name=(concat 'system.magie.spheres.' attr '.reserve.data.temp') step=1}}
+                </label>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
