@@ -1,0 +1,61 @@
+<div class="tab equipement" data-group="primary" data-tab="equipement">
+    <div class="dataEquipement">
+        <header class="title">
+            <i class="fa-solid fa-plus-large item-create" data-type="materiel" title="{{localize 'PROPHECY.ADD.Materiel'}}"></i>
+            <h2>
+                {{localize 'PROPHECY.Materiel'}}
+            </h2>
+            <div>
+                <label title="{{localize 'PROPHECY.RICHESSE.Dragon'}}">
+                    <i class="fa-solid fa-coins dragon"></i>
+                    {{numberInput systemData.equipement.richesses.dragon name="system.equipement.richesses.dragon" step=1 min=0}}
+                </label>
+
+                <label title="{{localize 'PROPHECY.RICHESSE.Or'}}">
+                    <i class="fa-solid fa-coins or"></i>
+                    {{numberInput systemData.equipement.richesses.or name="system.equipement.richesses.or" step=1 min=0}}
+                </label>
+
+                <label title="{{localize 'PROPHECY.RICHESSE.Argent'}}">
+                    <i class="fa-solid fa-coins argent"></i>
+                    {{numberInput systemData.equipement.richesses.argent name="system.equipement.richesses.argent" step=1 min=0}}
+                </label>
+
+                <label title="{{localize 'PROPHECY.RICHESSE.Bronze'}}">
+                    <i class="fa-solid fa-coins bronze"></i>
+                    {{numberInput systemData.equipement.richesses.bronze name="system.equipement.richesses.bronze" step=1 min=0}}
+                </label>
+
+                <label title="{{localize 'PROPHECY.RICHESSE.Fer'}}">
+                    <i class="fa-solid fa-coins fer"></i>
+                    {{numberInput systemData.equipement.richesses.fer name="system.equipement.richesses.fer" step=1 min=0}}
+                </label>
+            </div>
+        </header>
+
+        <div class="main">
+            {{#each actor.materiel as |key materiel|}}
+                <div class="block">
+                    <header class="js-toggler summary" data-item-id="{{key._id}}">
+                        <i class="fa-solid fa-square-plus"></i>
+                        <span title="{{key.name}}" class="clickableSend" data-type="materiel">
+                            {{key.name}}
+
+                            <i class="fa-solid"></i>
+                        </span>
+                        <a class="fa-item-control item-edit" title="{{localize 'PROPHECY.EDIT.Materiel'}}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="fa-item-control item-delete" title="{{localize 'PROPHECY.DELETE.Materiel'}}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </header>
+                    <div class="data" style="display:none;">
+                        <span class="top"><b>{{localize 'PROPHECY.Poids'}} :</b> {{key.system.poids}}</span>
+                        <div class="description">{{{key.system.description}}}</div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

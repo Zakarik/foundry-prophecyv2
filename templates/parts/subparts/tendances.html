@@ -1,0 +1,15 @@
+<div class="tendances">
+    {{#each systemData.tendances as |key ten|}}
+        <div class="tendance t{{@index}}">
+            <div class="label">
+                <div class="check" data-type="{{ten}}">
+                    {{#each key.check as |kC check|}}
+                        <input type="checkbox" name={{concat 'system.tendances.' ten '.check.' check}} {{checked kC}} data-value="{{check}}" />
+                    {{/each}}
+                </div>
+                <span>{{localize (translate 'Tendances' ten)}}</span>
+            </div>
+            {{numberInput key.value name=(concat 'system.tendances.' ten '.value') step=1 min=0}}
+        </div>
+    {{/each}}
+</div>

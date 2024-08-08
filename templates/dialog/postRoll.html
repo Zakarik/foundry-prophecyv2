@@ -1,0 +1,29 @@
+{{#each combatants}}
+    <div class="main" data-id='{{msg}}'>
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-minus"></i>
+            <span class="title">{{name}}</span>
+        </header>
+        {{#each rolls as |key r|}}
+            {{#unless key.drop}}
+                <div class='data {{class}}'>
+                    <span class='main'>{{localize 'PROPHECY.ROLL.RollResult'}} : {{result}} {{#if key.offhand}}({{localize 'PROPHECY.MainSecondaire'}}){{/if}}</span>
+                    <div class="sub">
+                        {{#each key.mods}}
+                            {{> systems/prophecy-2e/templates/dialog/parts/mods.html index=r}}
+                        {{/each}}
+                        {{#if key.offhand}}
+                            {{#each key.modsoffhand}}
+                                {{> systems/prophecy-2e/templates/dialog/parts/mods.html index=r}}
+                            {{/each}}
+                        {{else}}
+                            {{#each key.modsmainhand}}
+                                {{> systems/prophecy-2e/templates/dialog/parts/mods.html index=r}}
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+            {{/unless}}
+        {{/each}}
+    </div>
+{{/each}}

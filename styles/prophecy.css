@@ -1,0 +1,5328 @@
+div.prophecy.personnage {
+  min-width: 1049px;
+}
+div.prophecy.personnage section.window-content section.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 160px;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content section.header.limited {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+div.prophecy.personnage section.window-content section.header.limited div.identite {
+  width: 500px;
+  grid-column: 2;
+}
+div.prophecy.personnage section.window-content section.header.limited div.identite label input[type=text] {
+  text-align: left;
+}
+div.prophecy.personnage section.window-content section.header.limited div.identite input.name {
+  font-weight: bold;
+  font-size: 20px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.identite {
+  display: grid;
+  height: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-columns: 122px 1fr 1fr 1fr;
+  grid-gap: 5px;
+  row-gap: 2px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.personnage section.window-content div.identite span {
+  font-variant: small-caps;
+  color: black;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.identite input {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 10px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+}
+div.prophecy.personnage section.window-content div.identite > input {
+  grid-column: 2/5;
+}
+div.prophecy.personnage section.window-content div.identite label {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: max-content 1fr;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+div.prophecy.personnage section.window-content div.identite label.threeCol {
+  grid-template-columns: max-content 1fr;
+  grid-column: 2/5;
+}
+div.prophecy.personnage section.window-content div.identite label.threeCol span {
+  word-wrap: nowrap;
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.identite label.age {
+  grid-template-columns: max-content 30px max-content;
+}
+div.prophecy.personnage section.window-content div.identite label.experience {
+  grid-column: 2/5;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: flex-end;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.identite label.experience input {
+  width: 100%;
+}
+div.prophecy.personnage section.window-content div.identite label span:nth-last-of-type(0) {
+  text-align: left;
+}
+div.prophecy.personnage section.window-content div.identite div.oneLineTriple {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr max-content;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+div.prophecy.personnage section.window-content div.identite div.oneLineTriple i {
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.identite div.oneLineTriple i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.identite img {
+  grid-row: 1/7;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.identite div.caste {
+  grid-column: 2/5;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: flex-end;
+}
+div.prophecy.personnage section.window-content div.identite div.caste div.data {
+  display: grid;
+  grid-template-columns: 1fr max-content max-content max-content;
+  grid-gap: 5px;
+  align-items: flex-end;
+  border-bottom: 1px solid black;
+  height: 24px;
+}
+div.prophecy.personnage section.window-content div.identite div.caste div.data i,
+div.prophecy.personnage section.window-content div.identite div.caste div.data a {
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.identite div.caste div.data i:hover,
+div.prophecy.personnage section.window-content div.identite div.caste div.data a:hover {
+  text-shadow: none;
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.identite div.caste span {
+  font-variant: small-caps;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.identite div.caste span.value {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  background: transparent;
+  padding: 0px;
+  color: black;
+  margin-bottom: 0px;
+  height: 26px;
+  line-height: 26px;
+}
+div.prophecy.personnage section.window-content div.identite div.caste input {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 10px;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+}
+div.prophecy.personnage section.window-content div.identite div.lastLine {
+  display: grid;
+  grid-column: 1/5;
+  grid-template-columns: 1fr 150px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.topData {
+  display: grid;
+  grid-template-columns: repeat(5, 201px);
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource {
+  display: grid;
+  height: 100%;
+  align-items: center;
+  align-content: flex-start;
+  grid-template-columns: 1fr;
+  border-radius: 5px;
+  background: #DEB887;
+  padding: 5px;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource span {
+  color: black;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 100px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header span {
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header div.data {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  height: 28px;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource header div.data input,
+div.prophecy.personnage section.window-content div.topData div.ressource header div.data span {
+  background: transparent;
+  border: 0px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource div.sub {
+  display: grid;
+  margin-top: 2px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource div.sub label {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource div.sub label span {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource div.sub label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.topData div.ressource div.sub label input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.topData div.data {
+  display: grid;
+  height: 100%;
+  align-items: center;
+  align-content: flex-start;
+  grid-template-columns: 1fr;
+  border-radius: 5px;
+  padding: 5px;
+  background: #DEB887;
+}
+div.prophecy.personnage section.window-content div.topData div.data span {
+  color: black;
+}
+div.prophecy.personnage section.window-content div.topData div.data header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.topData div.data header span {
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.topData div.data header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.topData div.data header span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 28px;
+  line-height: 28px;
+}
+div.prophecy.personnage section.window-content div.topData div.data header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.topData div.data header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.blessure, div.prophecy.personnage section.window-content div.topData div.data div.encombrement {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.blessure span, div.prophecy.personnage section.window-content div.topData div.data div.encombrement span {
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.blessure span.label, div.prophecy.personnage section.window-content div.topData div.data div.encombrement span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.blessure span.score, div.prophecy.personnage section.window-content div.topData div.data div.encombrement span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 28px;
+  line-height: 28px;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.sub {
+  display: grid;
+  margin-top: 2px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.sub label {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.sub label span {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.sub label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.topData div.data div.sub label input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.caracteristiques {
+  display: grid;
+  height: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.personnage section.window-content div.caracteristiques h1 {
+  grid-column: 1/3;
+  font-variant: small-caps;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+div.prophecy.personnage section.window-content div.caracteristiques span {
+  color: black;
+}
+div.prophecy.personnage section.window-content div.caracteristiques span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.caracteristiques header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 30px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.caracteristiques header span {
+  font-variant: small-caps;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.caracteristiques header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.caracteristiques header span.label:hover {
+  cursor: pointer;
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.caracteristiques header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.caracteristiques header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.caracteristiques div.block, div.prophecy.personnage section.window-content div.caracteristiques div.sub {
+  display: grid;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-columns: 1fr;
+}
+div.prophecy.personnage section.window-content div.caracteristiques div.sub {
+  margin-top: 2px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.caracteristiques div.sub label {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.caracteristiques div.sub label span {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.caracteristiques div.sub label input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.attributs {
+  display: grid;
+  height: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.personnage section.window-content div.attributs h1 {
+  font-variant: small-caps;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+div.prophecy.personnage section.window-content div.attributs span {
+  color: black;
+}
+div.prophecy.personnage section.window-content div.attributs span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.attributs header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 30px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.attributs header span {
+  font-variant: small-caps;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.attributs header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.attributs header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.attributs header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.attributs div.block, div.prophecy.personnage section.window-content div.attributs div.sub {
+  display: grid;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-columns: 1fr;
+}
+div.prophecy.personnage section.window-content div.attributs div.sub {
+  margin-top: 2px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.attributs div.sub label {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.attributs div.sub label span {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.attributs div.sub label input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.principal div.mid {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  background: #DEB887;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv h2, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv h2 {
+  margin: 0px;
+  border: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv i, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv i {
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv i:hover, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data {
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2px;
+  background: #E3C1AD;
+  border: 1px solid #A0522d;
+  color: black;
+  border-radius: 5px;
+  letter-spacing: 0.5px;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data header, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content max-content max-content;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+  font-weight: bold;
+  grid-gap: 2px;
+  align-items: center;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data header span, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data header span.clickableSend, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data header span.clickableSend {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data header span.clickableSend:hover, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data header span.clickableSend:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data.opacity, div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data.opacity {
+  opacity: 80%;
+}
+div.prophecy.personnage section.window-content div.principal div.mid div.left div.avDv div.data:not(:first-of-type), div.prophecy.personnage section.window-content div.principal div.mid div.right div.avDv div.data:not(:first-of-type) {
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  background: #DEB887;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid h1 {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 10px;
+  font-variant: small-caps;
+  font-size: 18px;
+  font-weight: bold;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid h1 i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.combat div.mid h1 i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left i, div.prophecy.personnage section.window-content div.combat div.mid div.left a {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left i.wearP, div.prophecy.personnage section.window-content div.combat div.mid div.left a.wearP {
+  transform: scale(-1, 1);
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left i:hover, div.prophecy.personnage section.window-content div.combat div.mid div.left a:hover {
+  text-shadow: none;
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.header {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  background: #E3C1AD;
+  padding: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn header {
+  display: grid;
+  grid-template-columns: max-content 1fr repeat(4, max-content);
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  font-weight: bold;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr 18px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn header span.label span {
+  display: inline;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn header span.label.clickableRoll:hover {
+  cursor: pointer;
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data span.full {
+  text-align: center;
+  font-variant: small-caps;
+  font-size: 14px;
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data label {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 110px;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data label span.label {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+  font-size: 14px;
+  font-variant: small-caps;
+  height: 100%;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data label span.separation {
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn div.data label.duo {
+  grid-template-columns: 1fr 50px 6px 50px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.left div.bWpn.red header span {
+  color: #aa0505;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock span {
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand {
+  grid-template-columns: 1fr;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand header {
+  display: grid;
+  grid-template-columns: max-content 1fr 50px;
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand div.sub {
+  display: grid;
+  margin-top: 2px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand div.sub label {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand div.sub label span {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand div.sub label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.dataBlock.withExpand div.sub label input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.header {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  background: #E3C1AD;
+  padding: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure header {
+  display: grid;
+  grid-template-columns: max-content 1fr repeat(3, max-content);
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  font-weight: bold;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data div,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data label {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 50px;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data div span.label,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data label span.label {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data div span.score,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data div.long,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure div.data label.long {
+  grid-template-columns: 1fr max-content max-content 50px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bArmure.red header span {
+  color: #aa0505;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  align-content: center;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  background: #E3C1AD;
+  padding: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header {
+  display: grid;
+  grid-template-columns: max-content 1fr repeat(4, max-content);
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  font-weight: bold;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header span.clickableRoll {
+  width: max-content;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header span.clickableRoll:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header div.line {
+  grid-column: 1/7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 1px dotted #A0522d;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header div.line a {
+  text-align: center;
+  width: 100%;
+  font-variant: small-caps;
+  font-size: 14px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header div.line a.checked {
+  background: #f0d2dcd8;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header div.line a:first-of-type {
+  border-bottom-left-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier header div.line a:last-of-type {
+  border-bottom-right-radius: 5px;
+  border-left: 1px solid #A0522d;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 2px;
+  border-top: 1px solid #A0522d;
+  padding-top: 2px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data div,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data label {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 100px;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data div span.label,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data label span.label {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data div span.score,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data div.long,
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier div.data label.long {
+  grid-template-columns: 1fr max-content max-content 50px;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right div.bBouclier.red header span {
+  color: #aa0505;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right i, div.prophecy.personnage section.window-content div.combat div.mid div.right a {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right i.wearP, div.prophecy.personnage section.window-content div.combat div.mid div.right a.wearP {
+  transform: scale(-1, 1);
+}
+div.prophecy.personnage section.window-content div.combat div.mid div.right i:hover, div.prophecy.personnage section.window-content div.combat div.mid div.right a:hover {
+  text-shadow: none;
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.tendances {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+div.prophecy.personnage section.window-content div.tendances div.tendance {
+  display: grid;
+}
+div.prophecy.personnage section.window-content div.tendances div.tendance input[type=number] {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 40px;
+  padding: 0px;
+  border-color: #A0522d;
+  background-color: transparent;
+  color: black;
+}
+div.prophecy.personnage section.window-content div.tendances div.tendance input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+}
+div.prophecy.personnage section.window-content div.tendances div.tendance span {
+  font-variant: small-caps;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+div.prophecy.personnage section.window-content div.tendances div.label {
+  display: grid;
+}
+div.prophecy.personnage section.window-content div.tendances div.check {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  margin-left: auto;
+  margin-right: auto;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t0 span, div.prophecy.personnage section.window-content div.tendances div.t1 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t1 span, div.prophecy.personnage section.window-content div.tendances div.t0 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t0 span, div.prophecy.personnage section.window-content div.tendances div.t1 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t1 span {
+  margin-left: auto;
+}
+div.prophecy.personnage section.window-content div.tendances div.t2 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t2 span, div.prophecy.personnage section.window-content div.tendances div.t1 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t1 span, div.prophecy.personnage section.window-content div.tendances div.t2 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t2 span, div.prophecy.personnage section.window-content div.tendances div.t1 input[type=number],
+div.prophecy.personnage section.window-content div.tendances div.t1 span {
+  margin-right: auto;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0, div.prophecy.personnage section.window-content div.tendances div.t2 {
+  align-items: flex-end;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0 input[type=number], div.prophecy.personnage section.window-content div.tendances div.t2 input[type=number] {
+  border-top: 0px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0 {
+  grid-template-columns: 1fr max-content;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0 input[type=number] {
+  border-right: 0px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0 div.label {
+  margin-right: 5px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t0 div.label span {
+  padding-right: 2px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t2 {
+  grid-template-columns: max-content 1fr;
+}
+div.prophecy.personnage section.window-content div.tendances div.t2 div.label {
+  grid-column: 2;
+  margin-left: 5px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t2 div.label span {
+  padding-left: 2px;
+  border-left: 0px;
+  border-right: 1px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t2 input[type=number] {
+  grid-row: 1;
+  grid-column: 1;
+  border-left: 0px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t1 {
+  width: 100px;
+}
+div.prophecy.personnage section.window-content div.tendances div.t1 input[type=number] {
+  border-bottom: 0px;
+  border-right: 0px;
+  border-left: 0px;
+}
+div.prophecy.personnage section.window-content div.competences {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.competences div.col {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+div.prophecy.personnage section.window-content div.competences div.col > header {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: flex-end;
+}
+div.prophecy.personnage section.window-content div.competences div.col > header h1 {
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  letter-spacing: 1px;
+  border-color: black;
+  text-transform: uppercase;
+}
+div.prophecy.personnage section.window-content div.competences div.col > header span.score {
+  height: 35px;
+  width: 35px;
+  background: #DEB887;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 35px;
+  font-size: 24px;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.competences div.mainData {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.competences div.mainData a.addCompetence {
+  text-align: center;
+  background: #A0522d;
+  color: #DEB887;
+  margin-left: -5px;
+  width: calc(100% + 10px);
+  margin-bottom: -5px;
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+}
+div.prophecy.personnage section.window-content div.competences div.mainData a.addCompetence:hover {
+  text-shadow: none;
+  box-shadow: none;
+  background: #E3C1AD;
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.competences div.data {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  border-bottom: 1px solid black;
+  background: #DEB887;
+  padding: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.competences div.data h2 {
+  color: black;
+  font-variant: small-caps;
+  border: 0px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+div.prophecy.personnage section.window-content div.competences div.data:not(:first-of-type):nth-of-type(2) {
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.competences div.data:nth-last-of-type(1) {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid black;
+}
+div.prophecy.personnage section.window-content div.competences div.data:nth-last-of-type(1) a.addCompetence {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header input.label {
+  padding: 0px;
+  height: 17px;
+  border: 0px;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header span {
+  color: black;
+  font-size: 14px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header span.label {
+  width: max-content;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header span.label:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header span.score {
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header.bLabel {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 30px;
+  align-items: center;
+  grid-gap: 2px;
+  border-bottom: 1px dotted black;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header.bLabel.mainMulti {
+  grid-template-columns: max-content max-content 1fr 14px 30px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence header.bLabel input.sublabel {
+  background: transparent;
+  border: 0px;
+  height: 17px;
+  min-width: 0px;
+  color: black;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.customCmp {
+  display: grid;
+  grid-template-columns: 1fr max-content max-content;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.customCmp i.clickable:hover {
+  color: #A0522d;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.sub {
+  margin-left: 14px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.sub input {
+  padding: 0px;
+  height: 17px;
+  border: 0px;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.sub header.bLabel {
+  grid-template-columns: max-content 1fr max-content max-content 30px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-square-plus,
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-square-minus,
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-plus,
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-plus-large,
+div.prophecy.personnage section.window-content div.competences div.competence div i.spe-delete,
+div.prophecy.personnage section.window-content div.competences div.competence div i.clickableRoll {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-square-plus:hover,
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-square-minus:hover,
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-plus:hover,
+div.prophecy.personnage section.window-content div.competences div.competence div i.fa-plus-large:hover,
+div.prophecy.personnage section.window-content div.competences div.competence div i.spe-delete:hover,
+div.prophecy.personnage section.window-content div.competences div.competence div i.clickableRoll:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.innerData {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column: 1/3;
+  grid-gap: 2px;
+  padding-left: 14px;
+  margin-top: 2px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.innerMods {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.innerMods span.innerLabel {
+  font-size: 14px;
+  font-variant: small-caps;
+  color: black;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.innerMods span.innerScore {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-variant: small-caps;
+  color: black;
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.competences div.competence div.innerMods input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.competences div.multi {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+}
+div.prophecy.personnage section.window-content div.competences div.multi i {
+  margin-right: auto;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.competences div.multi i.multi-delete {
+  grid-column: 1;
+}
+div.prophecy.personnage section.window-content div.competences div.multi i.multi-create {
+  grid-column: 3;
+  margin-left: auto;
+}
+div.prophecy.personnage section.window-content div.competences div.multi i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.blessures {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.prophecy.personnage section.window-content div.blessures h1 {
+  font-variant: small-caps;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+div.prophecy.personnage section.window-content div.blessures div.data {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr 55px 200px;
+  align-items: center;
+  align-content: center;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.blessures div.data span.label {
+  font-variant: small-caps;
+  font-size: 17px;
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.blessures div.data span.sublabel {
+  font-variant: small-caps;
+  font-size: 14px;
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.blessures div.data i.clickable {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.blessures div.data i.clickable:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.blessures div.check {
+  display: flex;
+  justify-content: space-evenly;
+}
+div.prophecy.personnage section.window-content div.blessures div.check i {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+div.prophecy.personnage section.window-content div.caste nav.submenu {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.caste nav.submenu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 2px;
+}
+div.prophecy.personnage section.window-content div.caste nav.submenu a i {
+  display: none;
+}
+div.prophecy.personnage section.window-content div.caste nav.submenu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #A0522d;
+}
+div.prophecy.personnage section.window-content div.caste nav.submenu a.active i {
+  display: inline;
+}
+div.prophecy.personnage section.window-content div.caste nav.submenu a:hover {
+  box-shadow: 2px 2px 10px inset black;
+  text-shadow: none;
+}
+div.prophecy.personnage section.window-content div.caste section.casteBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 5px;
+  margin-top: 5px;
+  background: #DEB887;
+  border-radius: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.caste div h1 {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.caste div.tab {
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.caste div.tab.active {
+  display: grid;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.caste div.resume, div.prophecy.personnage section.window-content div.caste div.privileges, div.prophecy.personnage section.window-content div.caste div.description {
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.caste div.resume div.subData, div.prophecy.personnage section.window-content div.caste div.privileges div.subData, div.prophecy.personnage section.window-content div.caste div.description div.subData {
+  padding: 5px;
+  background-color: #E3C1AD;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.caste div.resume div.subData.double, div.prophecy.personnage section.window-content div.caste div.privileges div.subData.double, div.prophecy.personnage section.window-content div.caste div.description div.subData.double {
+  grid-column: 1/3;
+}
+div.prophecy.personnage section.window-content div.caste div.dataPrivilege {
+  padding: 2px !important;
+}
+div.prophecy.personnage section.window-content div.caste div.dataPrivilege header {
+  grid-template-columns: max-content 1fr max-content !important;
+}
+div.prophecy.personnage section.window-content div.caste div.dataPrivilege header i {
+  font-size: 16px !important;
+}
+div.prophecy.personnage section.window-content div.caste div.dataPrivilege header span {
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.caste div.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.caste div.col.marginTop {
+  margin-top: auto;
+}
+div.prophecy.personnage section.window-content div.caste div.subData i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.caste div.subData i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.caste div.subData > header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.personnage section.window-content div.caste div.subData > header i {
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.magie h2 {
+  margin: 0px;
+  border: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: black;
+  font-size: 24px;
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.magie div.mid {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  background: #DEB887;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid span {
+  color: black;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+  grid-template-rows: repeat(4, max-content) 1fr max-content;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header span {
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 18px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand {
+  grid-template-columns: 1fr;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand header {
+  display: grid;
+  grid-template-columns: max-content 1fr 50px;
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand div.sub {
+  display: grid;
+  margin-top: 2px;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand div.sub label {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand div.sub label span {
+  font-size: 14px;
+  font-variant: small-caps;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand div.sub label span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background: transparent;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock.withExpand div.sub label input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock div.sub {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock div.sub label {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock div.sub span {
+  font-variant: small-caps;
+  font-size: 14px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock div.sub span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock div.sub span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 18px;
+  line-height: 18px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataBlock div.sub input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 14px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.separateur {
+  margin-top: auto;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 100px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header span {
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header span.score {
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header span.separation {
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  width: 100%;
+  height: 22px;
+  font-size: 18px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: transparent;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header div.scores {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve div.sub {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve div.sub label {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve div.sub span {
+  font-variant: small-caps;
+  font-size: 14px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve div.sub span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve div.sub span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 18px;
+  line-height: 18px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.left div.dataReserve div.sub input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 14px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  border-left: 1px solid #A0522d;
+  padding-left: 5px;
+  align-items: flex-start;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right h2 {
+  grid-column: 1/4;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  padding: 2px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header span {
+  font-variant: small-caps;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 16px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top div.sub {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top div.sub label {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top div.sub span {
+  font-variant: small-caps;
+  font-size: 14px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top div.sub span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top div.sub span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 18px;
+  line-height: 18px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.top div.sub input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 14px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: max-content 1fr 100px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header span {
+  font-variant: small-caps;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header span.score {
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header span.separation {
+  text-align: center;
+  font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  width: 100%;
+  height: 24px;
+  font-size: 16px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: transparent;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header div.scores {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom header i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom div.sub {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom div.sub label {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom div.sub span {
+  font-variant: small-caps;
+  font-size: 14px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom div.sub span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom div.sub span.score {
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  height: 18px;
+  line-height: 18px;
+}
+div.prophecy.personnage section.window-content div.magie div.mid div.right div.dataBlock div.bottom div.sub input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 14px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: #DEB887;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges h2 {
+  grid-column: 1/4;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.col:nth-of-type(1) {
+  border-right: 1px solid #A0522d;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.col:nth-of-type(3) {
+  border-left: 1px solid #A0522d;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.colSpell {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 2px;
+  align-items: center;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.colSpell h3 {
+  border: 0px;
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: 0px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.colSpell:not(:first-of-type) {
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.blockSpell {
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 2px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  background: #E3C1AD;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.blockSpell header {
+  display: grid;
+  grid-template-columns: max-content 1fr repeat(3, max-content);
+  align-items: center;
+  align-content: center;
+  grid-gap: 2px;
+  font-weight: bold;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.blockSpell header span {
+  display: grid;
+  grid-template-columns: 1fr 18px;
+  grid-gap: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.blockSpell header span:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.blockSpell.opacity {
+  opacity: 80%;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub label.line span.label {
+  font-weight: bold;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub label.line span.label.center {
+  display: block;
+  text-align: center;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub label.line span.data {
+  word-break: break-all;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub label.line span.data p {
+  margin: 0px;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub label.line.effets {
+  grid-column: 1/3;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges div.sub label.line.effets span.label {
+  display: block;
+  text-align: center;
+  border-top: 1px solid #A0522d;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.magie div.sortileges i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.lien {
+  padding: 5px;
+  margin-top: 5px;
+  background: #DEB887;
+  border-radius: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien i {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien i:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-gap: 5px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien header i {
+  font-size: 20px;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien header input {
+  margin: 0px;
+  padding: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  background: transparent;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+  font-size: 20px;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien div.description {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien div.description div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.personnage section.window-content div.lien div.dataLien div.description div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  background: #DEB887;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement i.item-create {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement i.item-create:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title {
+  display: grid;
+  grid-template-columns: max-content 1fr 450px;
+  grid-gap: 5px;
+  align-items: center;
+  align-content: center;
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title input {
+  margin: 0px;
+  padding: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  background: transparent;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+  font-size: 17px;
+  text-align: center;
+  height: 18px;
+  width: 70px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title h2 {
+  margin: 0px;
+  border: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  grid-gap: 2px;
+  font-size: 16px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label i {
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label i.dragon {
+  color: #EDEDED;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label i.or {
+  color: #FFD700;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label i.argent {
+  color: #CECECE;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label i.bronze {
+  color: #614E1A;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement header.title div label i.fer {
+  color: #848484;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #A0522d;
+  background: #E3C1AD;
+  border-radius: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 2px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content max-content max-content;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+  font-weight: bold;
+  grid-gap: 2px;
+  align-items: center;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header span:hover {
+  color: #A0522d;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header i,
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header a {
+  cursor: pointer;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header i:hover,
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block header a:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block div.data {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block div.description {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid #A0522d;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block div.description div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.personnage section.window-content div.equipement div.dataEquipement div.block div.description div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.personnage section.window-content div.concept div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.personnage section.window-content div.concept div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.personnage section.window-content div.concept div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.personnage section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.personnage section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.personnage section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.personnage section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.personnage section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.personnage section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.etoile section.window-content section.header {
+  display: grid;
+  grid-template-columns: 122px 1fr;
+  grid-template-rows: 26px 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  background: #DEB887;
+  padding: 5px;
+  border-radius: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content section.header img {
+  grid-row: 1/3;
+  border-color: #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.etoile section.window-content section.body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.identite {
+  display: grid;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.identite input {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 10px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+}
+div.prophecy.etoile section.window-content div.data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+div.prophecy.etoile section.window-content div.data label {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.data label span {
+  font-variant: small-caps;
+  font-size: 14px;
+}
+div.prophecy.etoile section.window-content div.data label span.score {
+  display: grid;
+  align-items: center;
+  width: 72px;
+  height: 42px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid #A0522d;
+}
+div.prophecy.etoile section.window-content div.data label span.label {
+  display: grid;
+  align-items: center;
+  font-size: 19px;
+  font-weight: bold;
+}
+div.prophecy.etoile section.window-content div.data label input[type=number] {
+  width: 72px;
+  height: 42px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #A0522d;
+  background: #E3C1AD;
+  font-size: 20px;
+}
+div.prophecy.etoile section.window-content div.motivationspouvoirs div.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.motivations div.block {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  background: #DEB887;
+  border-radius: 5px;
+  padding: 5px;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.motivation {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  grid-gap: 2px;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.motivation span {
+  font-weight: bold;
+  font-size: 16px;
+  font-variant: small-caps;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.motivation input[type=number] {
+  grid-row: 1/3;
+  width: 42px;
+  height: 42px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #A0522d;
+  background: transparent;
+  background: #E3C1AD;
+  font-size: 20px;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.motivation input[type=text] {
+  grid-column: 1/3;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0px;
+  border-color: #A0522d;
+  font-variant: small-caps;
+  font-size: 16px;
+  background: transparent;
+  letter-spacing: 1px;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.motivation input:focus {
+  box-shadow: none;
+  text-shadow: none;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.check {
+  display: flex;
+  justify-content: left;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.motivations div.block div.check input {
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+div.prophecy.etoile section.window-content div.pouvoirs {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  background: #DEB887;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 5px;
+  border-radius: 5px;
+}
+div.prophecy.etoile section.window-content div.pouvoirs h2 {
+  margin: 0px;
+  border: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}
+div.prophecy.etoile section.window-content div.pouvoirs i {
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+div.prophecy.etoile section.window-content div.pouvoirs i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data {
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2px;
+  background: #E3C1AD;
+  border: 1px solid #A0522d;
+  color: black;
+  border-radius: 5px;
+  letter-spacing: 0.5px;
+  grid-gap: 0px;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content max-content max-content;
+  font-size: 15px;
+  border: 0px;
+  margin: 0px;
+  font-weight: bold;
+  grid-gap: 2px;
+  align-items: center;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data header span.clickableSend {
+  cursor: pointer;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data header span.clickableSend:hover {
+  color: #A0522d;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data.opacity {
+  opacity: 80%;
+}
+div.prophecy.etoile section.window-content div.pouvoirs div.data:not(:first-of-type) {
+  margin-top: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+}
+div.prophecy.etoile section.window-content div.compagnons div.mainBlock {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon {
+  background: #DEB887;
+  padding: 5px;
+  border-radius: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon h1 {
+  margin: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  border: 0px;
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: center;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon h1 i {
+  font-size: 20px;
+  cursor: pointer;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon h1 i:hover {
+  color: #A0522d;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.line {
+  display: grid;
+  grid-template-columns: 1fr repeat(5, max-content);
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  background: #E3C1AD;
+  padding: 2px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.line.nopadding {
+  padding: 0px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.line i {
+  cursor: pointer;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.line i.space {
+  margin-left: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.line i:hover {
+  color: #A0522d;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.line span {
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 21px;
+  height: 21px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon div.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon span.notes {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-variant: small-caps;
+  color: black;
+  font-weight: bold;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon input {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-variant: small-caps;
+  background: transparent;
+  border-radius: 0px;
+  width: 100%;
+  min-width: 0px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-bottom-left-radius: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.compagnon input:focus {
+  box-shadow: none;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles {
+  display: grid;
+  grid-gap: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles h1 {
+  margin: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  border: 0px;
+  color: black;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles div.line {
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles div.line span {
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 21px;
+  height: 21px;
+  padding-left: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles div.line input {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 5px;
+  font-variant: small-caps;
+  background: transparent;
+  border-radius: 0px;
+  width: 100%;
+  min-width: 0px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-bottom-left-radius: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles div.line input:focus {
+  box-shadow: none;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles div.block {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  padding-right: 5px;
+  background: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  margin-top: 5px;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles i {
+  cursor: pointer;
+}
+div.prophecy.etoile section.window-content div.compagnons div.roles i:hover {
+  color: #A0522d;
+}
+div.prophecy.etoile section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.etoile section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.etoile section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.etoile section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.etoile section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.etoile section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.etoile section.window-content nav.menu a {
+  width: 210px;
+}
+div.prophecy.avdv section.window-content section.header {
+  display: grid;
+  height: 132px;
+  grid-template-columns: 122px 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.avdv section.window-content section.header img {
+  grid-row: 1/3;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.avdv section.window-content section.header span {
+  font-variant: small-caps;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+}
+div.prophecy.avdv section.window-content section.header input {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.avdv section.window-content section.header input[type=text] {
+  font-size: 22px;
+  padding-top: 0px;
+  height: 30px;
+}
+div.prophecy.avdv section.window-content section.header label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: flex-end;
+  width: 80px;
+}
+div.prophecy.avdv section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.avdv section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.avdv section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.avdv section.window-content div.dataEffets {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.header span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.header i {
+  font-size: 18px;
+  cursor: pointer;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.header i:hover {
+  color: #A0522d;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.effectsBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.effectsChanges {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 50px;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.effectsChanges i {
+  cursor: pointer;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.effectsChanges i:hover {
+  color: #A0522d;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.effectsChanges select {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  font-size: 14px;
+}
+div.prophecy.avdv section.window-content div.dataEffets div.effectsChanges input {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  text-align: center;
+  font-size: 14px;
+}
+div.prophecy.avdv section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.avdv section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.avdv section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.avdv section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.avdv section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.avdv section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.caste section.window-content section.header {
+  display: grid;
+  height: 132px;
+  grid-template-columns: 122px 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.caste section.window-content section.header img {
+  grid-row: 1/3;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.caste section.window-content section.header input {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.caste section.window-content section.header input[type=text] {
+  font-size: 22px;
+  padding-top: 0px;
+  height: 30px;
+}
+div.prophecy.caste section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.caste section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.caste section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.caste section.window-content div.privileges span.add {
+  display: block;
+  width: max-content;
+  margin-left: auto;
+  margin-top: 5px;
+  padding: 5px;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #DEB887;
+  cursor: pointer;
+}
+div.prophecy.caste section.window-content div.privileges span.add:hover {
+  box-shadow: 2px 2px 10px inset black;
+  text-shadow: none;
+  color: #A0522d;
+}
+div.prophecy.caste section.window-content div.privileges div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
+}
+div.prophecy.caste section.window-content div.privileges div.editor.prosemirror {
+  min-height: 200px;
+}
+div.prophecy.caste section.window-content div.privileges div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #DEB887;
+  border-radius: 5px;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges input {
+  border: 0px;
+  padding: 0px;
+  background: transparent;
+  border-radius: 0px;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges input[type=number] {
+  text-align: center;
+  border-left: 1px solid black;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges input[type=text] {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr 50px max-content;
+  align-items: center;
+  align-content: center;
+  grid-gap: 5px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  font-variant: small-caps;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges i {
+  cursor: pointer;
+}
+div.prophecy.caste section.window-content div.privileges div.dataPrivileges i:hover {
+  color: #A0522d;
+}
+div.prophecy.caste section.window-content div.dataEffets {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.caste section.window-content div.dataEffets div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.caste section.window-content div.dataEffets div.header span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.caste section.window-content div.dataEffets div.header i {
+  font-size: 18px;
+  cursor: pointer;
+}
+div.prophecy.caste section.window-content div.dataEffets div.header i:hover {
+  color: #A0522d;
+}
+div.prophecy.caste section.window-content div.dataEffets div.effectsBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.caste section.window-content div.dataEffets div.effectsChanges {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 50px;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.caste section.window-content div.dataEffets div.effectsChanges i {
+  cursor: pointer;
+}
+div.prophecy.caste section.window-content div.dataEffets div.effectsChanges i:hover {
+  color: #A0522d;
+}
+div.prophecy.caste section.window-content div.dataEffets div.effectsChanges select {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  font-size: 14px;
+}
+div.prophecy.caste section.window-content div.dataEffets div.effectsChanges input {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  text-align: center;
+  font-size: 14px;
+}
+div.prophecy.caste section.window-content div.statuts span.addStatuts {
+  display: block;
+  width: max-content;
+  margin-left: auto;
+  margin-top: 5px;
+  padding: 5px;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #DEB887;
+  cursor: pointer;
+}
+div.prophecy.caste section.window-content div.statuts span.addStatuts:hover {
+  box-shadow: 2px 2px 10px inset black;
+  text-shadow: none;
+  color: #A0522d;
+}
+div.prophecy.caste section.window-content div.statuts div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
+}
+div.prophecy.caste section.window-content div.statuts div.editor.prosemirror {
+  min-height: 200px;
+}
+div.prophecy.caste section.window-content div.statuts div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #DEB887;
+  border-radius: 5px;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts input {
+  border: 0px;
+  padding: 0px;
+  background: transparent;
+  border-radius: 0px;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts input[type=number] {
+  text-align: center;
+  border-left: 1px solid black;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts input[type=text] {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content max-content;
+  align-items: center;
+  align-content: center;
+  grid-gap: 5px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  font-variant: small-caps;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts span.number {
+  font-weight: bold;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts i {
+  cursor: pointer;
+}
+div.prophecy.caste section.window-content div.statuts div.dataStatuts i:hover {
+  color: #A0522d;
+}
+div.prophecy.caste section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.caste section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.caste section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.caste section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.caste section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.caste section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.armure section.window-content section.header {
+  display: grid;
+  height: 189px;
+  grid-template-columns: 179px 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.armure section.window-content section.header img {
+  grid-row: 1/4;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.armure section.window-content section.header input,
+div.prophecy.armure section.window-content section.header select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.armure section.window-content section.header input.itmName,
+div.prophecy.armure section.window-content section.header select.itmName {
+  font-size: 22px;
+  padding-top: 0px;
+  height: 30px;
+}
+div.prophecy.armure section.window-content section.header select {
+  width: 75px;
+}
+div.prophecy.armure section.window-content section.header div.main {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armure section.window-content section.header div.main.large {
+  grid-template-columns: repeat(2, max-content) 1fr;
+}
+div.prophecy.armure section.window-content section.header div.main.vLarge {
+  grid-template-columns: repeat(2, max-content) 1fr 1fr;
+}
+div.prophecy.armure section.window-content section.header div.main div.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.armure section.window-content section.header div.main div.line {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.armure section.window-content section.header div.dommages {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.armure section.window-content section.header div.dommages input, div.prophecy.armure section.window-content section.header div.dommages select {
+  border: 0px;
+}
+div.prophecy.armure section.window-content section.header div.dommages > span {
+  font-size: 17px;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armure section.window-content section.header div.dommages div.line {
+  display: grid;
+  grid-template-columns: max-content max-content 50px max-content 50px max-content 75px;
+  grid-gap: 5px;
+  justify-content: center;
+}
+div.prophecy.armure section.window-content section.header div.dommages div.line span {
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: center;
+  font-size: 19px;
+  line-height: 18px;
+  height: 18px;
+}
+div.prophecy.armure section.window-content section.header div.dommages div.line.full {
+  grid-template-columns: 1fr;
+}
+div.prophecy.armure section.window-content section.header div.dommages div.line.full select {
+  width: 100%;
+  border-top: 1px solid #A0522d;
+  font-variant: small-caps;
+  height: 20px;
+  line-height: 20px;
+}
+div.prophecy.armure section.window-content section.header h1 {
+  grid-column: 1/5;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.armure section.window-content section.header label {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 5px;
+  align-items: flex-end;
+}
+div.prophecy.armure section.window-content section.header label span {
+  font-weight: bold;
+}
+div.prophecy.armure section.window-content section.header label input {
+  text-align: center;
+}
+div.prophecy.armure section.window-content section.header label.type {
+  grid-template-columns: 1fr 75px;
+}
+div.prophecy.armure section.window-content section.header label.poids {
+  grid-template-columns: max-content 50px 1fr;
+}
+div.prophecy.armure section.window-content section.header label.cout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.armure section.window-content section.header label.cout span {
+  font-size: 17px;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armure section.window-content section.header label.cout input {
+  border: 0px;
+  text-align: center;
+}
+div.prophecy.armure section.window-content section.body div.statistiques div.data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.armure section.window-content section.body div.statistiques div.data label {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armure section.window-content section.body div.statistiques div.data label span {
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+div.prophecy.armure section.window-content section.body div.statistiques div.data label input,
+div.prophecy.armure section.window-content section.body div.statistiques div.data label select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.armure section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.armure section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.armure section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.armure section.window-content div.dataEffets {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.armure section.window-content div.dataEffets div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.armure section.window-content div.dataEffets div.header span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armure section.window-content div.dataEffets div.header i {
+  font-size: 18px;
+  cursor: pointer;
+}
+div.prophecy.armure section.window-content div.dataEffets div.header i:hover {
+  color: #A0522d;
+}
+div.prophecy.armure section.window-content div.dataEffets div.effectsBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armure section.window-content div.dataEffets div.effectsChanges {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 50px;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.armure section.window-content div.dataEffets div.effectsChanges i {
+  cursor: pointer;
+}
+div.prophecy.armure section.window-content div.dataEffets div.effectsChanges i:hover {
+  color: #A0522d;
+}
+div.prophecy.armure section.window-content div.dataEffets div.effectsChanges select {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  font-size: 14px;
+}
+div.prophecy.armure section.window-content div.dataEffets div.effectsChanges input {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  text-align: center;
+  font-size: 14px;
+}
+div.prophecy.armure section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.armure section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.armure section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.armure section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.armure section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.armure section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.armement section.window-content section.header {
+  display: grid;
+  height: 210px;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.armement section.window-content section.header img {
+  grid-row: 1/4;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.armement section.window-content section.header input,
+div.prophecy.armement section.window-content section.header select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.armement section.window-content section.header input.itmName,
+div.prophecy.armement section.window-content section.header select.itmName {
+  font-size: 22px;
+  padding-top: 0px;
+  height: 30px;
+}
+div.prophecy.armement section.window-content section.header div.main {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armement section.window-content section.header div.main.large {
+  grid-template-columns: repeat(2, max-content) 1fr;
+}
+div.prophecy.armement section.window-content section.header div.main div.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armement section.window-content section.header div.main div.col div.line {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.armement section.window-content section.header div.underMain {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armement section.window-content section.header div.underMain div.initiative {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  padding: 5px;
+}
+div.prophecy.armement section.window-content section.header div.underMain div.initiative span.header {
+  grid-column: 1/3;
+  font-size: 17px;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armement section.window-content section.header div.underMain div.initiative label {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+div.prophecy.armement section.window-content section.header div.underMain div.initiative label span {
+  font-weight: bold;
+  text-align: center;
+}
+div.prophecy.armement section.window-content section.header div.dommages {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.armement section.window-content section.header div.dommages input, div.prophecy.armement section.window-content section.header div.dommages select {
+  border: 0px;
+}
+div.prophecy.armement section.window-content section.header div.dommages > span {
+  font-size: 17px;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armement section.window-content section.header div.dommages div.line {
+  display: grid;
+  grid-template-columns: max-content max-content 50px max-content 50px max-content 75px;
+  grid-gap: 5px;
+  justify-content: center;
+}
+div.prophecy.armement section.window-content section.header div.dommages div.line span {
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: center;
+  font-size: 19px;
+  line-height: 18px;
+  height: 18px;
+}
+div.prophecy.armement section.window-content section.header div.dommages div.line.full {
+  grid-template-columns: 1fr;
+}
+div.prophecy.armement section.window-content section.header div.dommages div.line.full select {
+  border-top: 1px solid #A0522d;
+  font-variant: small-caps;
+  height: 20px;
+  line-height: 20px;
+}
+div.prophecy.armement section.window-content section.header h1 {
+  grid-column: 1/5;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.armement section.window-content section.header label {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 5px;
+  align-items: flex-end;
+}
+div.prophecy.armement section.window-content section.header label span {
+  font-weight: bold;
+}
+div.prophecy.armement section.window-content section.header label input {
+  text-align: center;
+}
+div.prophecy.armement section.window-content section.header label.type {
+  grid-template-columns: 1fr 180px;
+}
+div.prophecy.armement section.window-content section.header label.poids, div.prophecy.armement section.window-content section.header label.usure {
+  display: grid;
+  grid-template-columns: max-content 61px;
+}
+div.prophecy.armement section.window-content section.header label.poids input, div.prophecy.armement section.window-content section.header label.usure input {
+  width: 100%;
+}
+div.prophecy.armement section.window-content section.header label.cout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.armement section.window-content section.header label.cout span {
+  font-size: 17px;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armement section.window-content section.header label.cout input {
+  border: 0px;
+  text-align: center;
+}
+div.prophecy.armement section.window-content section.header label.portee {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+div.prophecy.armement section.window-content section.header label.portee input {
+  width: 100%;
+}
+div.prophecy.armement section.window-content section.body div.statistiques div.data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.armement section.window-content section.body div.statistiques div.data label {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armement section.window-content section.body div.statistiques div.data label span {
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+div.prophecy.armement section.window-content section.body div.statistiques div.data label input,
+div.prophecy.armement section.window-content section.body div.statistiques div.data label select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.armement section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.armement section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.armement section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.armement section.window-content div.dataEffets {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.armement section.window-content div.dataEffets div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.armement section.window-content div.dataEffets div.header span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.armement section.window-content div.dataEffets div.header i {
+  font-size: 18px;
+  cursor: pointer;
+}
+div.prophecy.armement section.window-content div.dataEffets div.header i:hover {
+  color: #A0522d;
+}
+div.prophecy.armement section.window-content div.dataEffets div.effectsBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.armement section.window-content div.dataEffets div.effectsChanges {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 50px;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.armement section.window-content div.dataEffets div.effectsChanges i {
+  cursor: pointer;
+}
+div.prophecy.armement section.window-content div.dataEffets div.effectsChanges i:hover {
+  color: #A0522d;
+}
+div.prophecy.armement section.window-content div.dataEffets div.effectsChanges select {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  font-size: 14px;
+}
+div.prophecy.armement section.window-content div.dataEffets div.effectsChanges input {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  text-align: center;
+  font-size: 14px;
+}
+div.prophecy.armement section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.armement section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.armement section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.armement section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.armement section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.armement section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.materiel section.window-content section.header {
+  display: grid;
+  height: 190px;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.materiel section.window-content section.header img {
+  grid-row: 1/4;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.materiel section.window-content section.header input,
+div.prophecy.materiel section.window-content section.header select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.materiel section.window-content section.header input.itmName,
+div.prophecy.materiel section.window-content section.header select.itmName {
+  font-size: 22px;
+  padding-top: 0px;
+  height: 30px;
+}
+div.prophecy.materiel section.window-content section.header div.main {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.materiel section.window-content section.header div.main div.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.materiel section.window-content section.header div.main div.col div.line {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.materiel section.window-content section.header label {
+  display: grid;
+  grid-template-columns: max-content 100px;
+  grid-gap: 5px;
+  align-items: flex-end;
+}
+div.prophecy.materiel section.window-content section.header label span {
+  font-weight: bold;
+}
+div.prophecy.materiel section.window-content section.header label input {
+  text-align: center;
+}
+div.prophecy.materiel section.window-content section.header label.cout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.materiel section.window-content section.header label.cout span {
+  font-size: 17px;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.materiel section.window-content section.header label.cout input {
+  border: 0px;
+  text-align: center;
+}
+div.prophecy.materiel section.window-content section.body div.statistiques div.data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.materiel section.window-content section.body div.statistiques div.data label {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.materiel section.window-content section.body div.statistiques div.data label span {
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+div.prophecy.materiel section.window-content section.body div.statistiques div.data label input,
+div.prophecy.materiel section.window-content section.body div.statistiques div.data label select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.materiel section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.materiel section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.materiel section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.materiel section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.materiel section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.materiel section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.materiel section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.materiel section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.materiel section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.sortilege section.window-content section.header {
+  display: grid;
+  height: 190px;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: max-content 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy.sortilege section.window-content section.header img {
+  grid-row: 1/4;
+  width: 100%;
+  border-radius: 5px;
+  background-size: contain;
+  border-color: #A0522d;
+}
+div.prophecy.sortilege section.window-content section.header input,
+div.prophecy.sortilege section.window-content section.header select {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 2px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+  margin-bottom: 2px;
+  height: 18px;
+}
+div.prophecy.sortilege section.window-content section.header input.itmName,
+div.prophecy.sortilege section.window-content section.header select.itmName {
+  font-size: 22px;
+  padding-top: 0px;
+  height: 30px;
+}
+div.prophecy.sortilege section.window-content section.header select {
+  width: 150px;
+}
+div.prophecy.sortilege section.window-content section.header h1 {
+  grid-column: 1/5;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.sortilege section.window-content section.header label {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-gap: 5px;
+  align-items: flex-end;
+}
+div.prophecy.sortilege section.window-content section.header label span {
+  font-weight: bold;
+}
+div.prophecy.sortilege section.window-content section.header label input {
+  text-align: center;
+}
+div.prophecy.sortilege section.window-content section.header label.mainLabel {
+  grid-template-columns: 100px 1fr;
+}
+div.prophecy.sortilege section.window-content section.header label.full {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.sortilege section.window-content section.header label.full span {
+  font-variant: small-caps;
+  text-align: center;
+  font-size: 16px;
+}
+div.prophecy.sortilege section.window-content section.header label.full input {
+  border-bottom: 0px;
+}
+div.prophecy.sortilege section.window-content section.header div.main {
+  display: grid;
+  grid-template-columns: 130px 260px 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 5px;
+}
+div.prophecy.sortilege section.window-content section.header div.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.sortilege section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.sortilege section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.sortilege section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.sortilege section.window-content div.dataEffets {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.header span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.header i {
+  font-size: 18px;
+  cursor: pointer;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.header i:hover {
+  color: #A0522d;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.effectsBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.effectsChanges {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 50px;
+  grid-gap: 5px;
+  align-items: center;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.effectsChanges i {
+  cursor: pointer;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.effectsChanges i:hover {
+  color: #A0522d;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.effectsChanges select {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  font-size: 14px;
+}
+div.prophecy.sortilege section.window-content div.dataEffets div.effectsChanges input {
+  font-weight: bold;
+  font-variant: small-caps;
+  background: transparent;
+  border-color: #A0522d;
+  text-align: center;
+  font-size: 14px;
+}
+div.prophecy.sortilege section.window-content nav.menu {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  grid-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+div.prophecy.sortilege section.window-content nav.menu a {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: #DE9F87;
+  border: 1px solid #DE9F87;
+  border-radius: 5px;
+  text-align: left;
+  font-variant: small-caps;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+div.prophecy.sortilege section.window-content nav.menu a i {
+  display: none;
+}
+div.prophecy.sortilege section.window-content nav.menu a.active {
+  text-shadow: none;
+  background: #f0d2dcd8;
+  border: 1px solid #f0d2dcd8;
+}
+div.prophecy.sortilege section.window-content nav.menu a.active i {
+  display: inline;
+}
+div.prophecy.sortilege section.window-content nav.menu a:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.pouvoir section.window-content section.header {
+  display: grid;
+  grid-template-columns: 122px 1fr;
+  grid-template-rows: 26px 1fr;
+  align-items: flex-start;
+  align-content: flex-start;
+  background: #DEB887;
+  padding: 5px;
+  border-radius: 5px;
+  grid-gap: 5px;
+}
+div.prophecy.pouvoir section.window-content section.header img {
+  grid-row: 1/3;
+  border-color: #A0522d;
+  border-radius: 5px;
+}
+div.prophecy.pouvoir section.window-content section.header input {
+  min-width: 0px;
+  background: transparent;
+  padding: 0px;
+  padding-top: 10px;
+  text-align: center;
+  color: black;
+  border-radius: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #A0522d;
+}
+div.prophecy.pouvoir section.window-content div.dataDescription {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #DEB887;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+div.prophecy.pouvoir section.window-content div.dataDescription div.editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+div.prophecy.pouvoir section.window-content div.dataDescription div.editor.prosemirror {
+  background: lightgrey;
+}
+div.prophecy.dialog section.window-content {
+  background: #A0522d;
+}
+div.prophecy.dialog section.window-content div.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+  background: #DEB887;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 5px;
+  border: 1px solid black;
+  padding: 5px;
+}
+div.prophecy.dialog section.window-content div.dialog-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+div.prophecy.dialog section.window-content div.dialog-buttons button {
+  background: #DEB887;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-shadow: none;
+  background: #E3C1AD;
+  border: 1px solid black;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+div.prophecy.dialog section.window-content div.dialog-buttons button:hover {
+  box-shadow: 2px 2px 10px inset;
+  text-shadow: none;
+}
+div.prophecy.dialog.dialogDelete section.window-content div.dialog-content {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+div.prophecy.dialog.dialogDelete section.window-content div.dialog-content span {
+  color: black;
+}
+div.prophecy.dialog.dialogDelete section.window-content div.dialog-content span.title {
+  font-size: 15px;
+  text-align: center;
+  line-height: 20px;
+}
+div.prophecy.dialog.dialogDelete section.window-content div.dialog-content span.center {
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 30px;
+  align-items: flex-start;
+  align-content: flex-start;
+  row-gap: 5px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  font-size: 18px;
+  grid-gap: 5px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogInitiative section.window-content header i {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogInitiative section.window-content header i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.dialog.dialogInitiative section.window-content span.title {
+  display: block;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.main {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.labelActions {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 10px;
+  justify-content: space-between;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.labelActions span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.data {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 10px;
+  justify-content: space-between;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.data span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.data input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.inner {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-gap: 2px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.inner i {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.inner i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck input[type=checkbox] {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck span.total {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck span.fullLine {
+  grid-column: 1/3;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck input {
+  margin: 0px;
+  width: 16px;
+  height: 16px;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck select {
+  margin: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 19px;
+  font-variant: small-caps;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataWithCheck select:focus {
+  box-shadow: none;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataChoice {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataChoice span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataChoice select {
+  margin: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 19px;
+  font-variant: small-caps;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.dataChoice select:focus {
+  box-shadow: none;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.stdCheck {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.stdCheck label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.stdCheck input[type=checkbox] {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.stdCheck span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogInitiative section.window-content div.stdCheck input {
+  margin: 0px;
+  width: 16px;
+  height: 16px;
+}
+div.prophecy.dialog.dialogRoll section.window-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 30px;
+  align-items: flex-start;
+  align-content: flex-start;
+  row-gap: 5px;
+}
+div.prophecy.dialog.dialogRoll section.window-content header {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  font-size: 18px;
+  grid-gap: 5px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogRoll section.window-content header i {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogRoll section.window-content header i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.dialog.dialogRoll section.window-content span.title {
+  display: block;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 18px;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.main {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.labelActions {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 10px;
+  justify-content: space-between;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.labelActions span {
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.data {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 10px;
+  justify-content: space-between;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.data span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.data input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.inner {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-gap: 2px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.inner i {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.inner i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck input[type=checkbox] {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck span.total {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck span.fullLine {
+  grid-column: 1/3;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck input {
+  margin: 0px;
+  width: 16px;
+  height: 16px;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck select {
+  margin: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 19px;
+  font-variant: small-caps;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataWithCheck select:focus {
+  box-shadow: none;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataChoice {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataChoice span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataChoice select {
+  margin: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 19px;
+  font-variant: small-caps;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.dataChoice select:focus {
+  box-shadow: none;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.stdCheck {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.stdCheck label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.stdCheck input[type=checkbox] {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.stdCheck span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogRoll section.window-content div.stdCheck input {
+  margin: 0px;
+  width: 16px;
+  height: 16px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.data {
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  justify-content: space-between;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.sub {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-gap: 2px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.sub div.data {
+  grid-template-columns: 1fr 100px;
+  grid-gap: 10px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 5px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck input[type=checkbox] {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck span.total {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck span.fullLine {
+  grid-column: 1/3;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck input {
+  margin: 0px;
+  width: 16px;
+  height: 16px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck select {
+  margin: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 19px;
+  font-variant: small-caps;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataWithCheck select:focus {
+  box-shadow: none;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataChoice {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 5px;
+  row-gap: 2px;
+  justify-content: space-between;
+  line-height: 19px;
+  align-items: center;
+  align-content: center;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataChoice span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataChoice select {
+  margin: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 19px;
+  font-variant: small-caps;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.dataChoice select:focus {
+  box-shadow: none;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.number {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-gap: 10px;
+  justify-content: space-between;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.number span {
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.number input {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  min-width: 0px;
+  font-weight: bold;
+  background-color: #E3C1AD;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.inner {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-gap: 2px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  border-radius: 5px;
+  width: 100%;
+  height: 19px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.inner i {
+  cursor: pointer;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content div.inner i:hover {
+  color: #A0522d;
+  text-shadow: none;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content label.check {
+  display: grid;
+  grid-template-columns: 1fr 15px;
+  padding: 2px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  font-variant: small-caps;
+  background: lightgrey;
+  cursor: pointer;
+  font-weight: bold;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content label.check i {
+  width: 12.25px;
+  margin-left: auto;
+  margin-right: 5px;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content label.check i.fa-xmark {
+  color: #8B0000;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content label.check i.fa-check {
+  color: #228B22;
+}
+div.prophecy.dialog.dialogPostRoll section.window-content label.check.checked {
+  background: #E3C1AD;
+}
+
+section.prophecy-combat-tracker div.prophecyInitiative span {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  align-content: center;
+  border: 1px solid white;
+  background: transparent;
+  font-size: 18px !important;
+  border-radius: 15px;
+  color: white;
+  text-shadow: none !important;
+  text-align: center;
+  margin: auto;
+  direction: initial;
+}
+section.prophecy-combat-tracker div.prophecyInitiative span.offhand {
+  border-color: #f0d2dcd8;
+}
+section.prophecy-combat-tracker div.prophecyInitiative span.owner {
+  color: black;
+  border-color: black;
+  background: white;
+  font-weight: bold;
+}
+section.prophecy-combat-tracker div.prophecyInitiative span.owner.offhand {
+  background: #f0d2dcd8;
+}
+section.prophecy-combat-tracker div.prophecyInitiative span.owner.hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 10px inset black;
+  text-shadow: none;
+}
+section.prophecy-combat-tracker div.token-other {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: repeat(4, 48px);
+  margin-left: auto;
+  min-height: 34px;
+  direction: rtl;
+  padding-bottom: 2px;
+  row-gap: 5px;
+}
+section.prophecy-combat-tracker li.prophecyTurns {
+  display: grid;
+  grid-template-columns: max-content 1fr 48px;
+}
+section.prophecy-combat-tracker nav.prophecyCombatControl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+section.prophecy-combat-tracker nav.prophecyCombatControl a {
+  font-size: 14px !important;
+}
+section.prophecy-combat-tracker nav.prophecyCombatControl a.last {
+  border-left: 1px solid #A0522d;
+}
+section.prophecy-combat-tracker nav.prophecyCombatControl a.full {
+  grid-column: 1/3;
+  font-size: 18px !important;
+}
+section.prophecy-combat-tracker nav.prophecyCombatControl a.full.withBorder {
+  border-top: 1px solid #A0522d;
+}
+
+div.prophecy-initiative-roll {
+  color: black;
+}
+div.prophecy-initiative-roll div.dice-formula {
+  background: #DEB887;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  cursor: pointer;
+  font-variant: small-caps;
+  font-size: 14px;
+  font-weight: bold;
+}
+div.prophecy-initiative-roll div header.part-header {
+  border-color: #A0522d;
+}
+div.prophecy-initiative-roll div header.part-header span.part-total {
+  border-top: 1px solid #A0522d;
+  border-left: 1px solid #A0522d;
+  border-right: 1px solid #A0522d;
+  background: #DEB887;
+}
+div.prophecy-initiative-roll div li.die {
+  color: #DEB887;
+}
+div.prophecy-initiative-roll div li.die.d10 {
+  background-image: url("../img/icons/d10.svg") !important;
+}
+div.prophecy-initiative-roll div ol.dice-rolls.drop {
+  opacity: 0.5;
+}
+div.prophecy-initiative-roll div ol.dice-rolls.offhand li {
+  background-image: url("../img/icons/d10_offhand.svg") !important;
+}
+div.prophecy-initiative-roll div.bonus {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-variant: small-caps;
+  margin-bottom: 2px;
+  grid-gap: 2px;
+  flex: none;
+  width: 100%;
+}
+div.prophecy-initiative-roll div.bonus span {
+  width: max-content;
+  padding: 2px;
+  border: 1px solid #A0522d;
+  background: #DEB887;
+  border-radius: 5px;
+}
+div.prophecy-std-roll {
+  color: black;
+}
+div.prophecy-std-roll div.dice-formula {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  cursor: pointer;
+  font-variant: small-caps;
+  font-size: 14px;
+  font-weight: bold;
+  column-gap: 5px;
+  margin-bottom: 2px;
+  background: none;
+  border: 0px;
+  box-shadow: none;
+}
+div.prophecy-std-roll div.dice-formula span {
+  background: #DEB887;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+div.prophecy-std-roll div.dice-formula span.label {
+  display: flex;
+  text-align: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-items: center;
+  line-height: 16px;
+}
+div.prophecy-std-roll div.dice-formula span.score {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+div.prophecy-std-roll div.dice-tooltip {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+div.prophecy-std-roll div.NR {
+  order: 3;
+  grid-column: 1/3;
+  display: block;
+  width: 100%;
+  background: #DEB887;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-variant: small-caps;
+  line-height: 24px;
+  margin-bottom: 2px;
+}
+div.prophecy-std-roll div header.part-header {
+  border-color: #A0522d;
+  align-items: flex-end;
+}
+div.prophecy-std-roll div header.part-header span.part-total {
+  border-top: 1px solid #A0522d;
+  border-left: 1px solid #A0522d;
+  border-right: 1px solid #A0522d;
+  background: #DEB887;
+}
+div.prophecy-std-roll div li.die {
+  color: #DEB887;
+}
+div.prophecy-std-roll div li.die.d10 {
+  background-image: url("../img/icons/d10.svg") !important;
+}
+div.prophecy-std-roll div ol.dice-rolls.drop {
+  opacity: 0.5;
+}
+div.prophecy-std-roll div ol.dice-rolls.offhand li {
+  background-image: url("../img/icons/d10_offhand.svg") !important;
+}
+div.prophecy-std-roll div.bonus {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-variant: small-caps;
+  margin-bottom: 2px;
+  grid-gap: 2px;
+  flex: none;
+  width: 100%;
+}
+div.prophecy-std-roll div.bonus span {
+  width: max-content;
+  padding: 2px;
+  border: 1px solid #A0522d;
+  background: #DEB887;
+  border-radius: 5px;
+}
+div.prophecy-tendance-roll div.dice-flavor {
+  text-align: left;
+  font-variant: small-caps;
+  font-size: 16px;
+  letter-spacing: 1px;
+  flex: none;
+  width: 100%;
+}
+div.prophecy-std-roll div.dice-name {
+  text-align: left;
+  font-variant: small-caps;
+  font-size: 16px;
+  letter-spacing: 1px;
+  flex: none;
+  width: 100%;
+}
+div.prophecy-std-other {
+  color: black;
+}
+div.prophecy-std-other div {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2px;
+  font-size: 14px;
+  column-gap: 5px;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  background: #DEB887;
+}
+div.prophecy-std-other div span.label {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+  align-items: center;
+  line-height: 18px;
+  font-weight: bold;
+  font-size: 18px;
+  font-variant: small-caps;
+}
+div.prophecy-std-other div span.description {
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+div.prophecy-damage-buttons, div.prophecy-magic-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-content: center;
+}
+div.prophecy-damage-buttons a, div.prophecy-magic-buttons a {
+  width: 100%;
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+  padding: 2px;
+  background: #E3C1AD;
+  color: #A0522d;
+  font-variant: small-caps;
+  font-size: 16px;
+  font-weight: bold;
+}
+div.prophecy-damage-buttons a:hover, div.prophecy-magic-buttons a:hover {
+  text-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  background: #f0d2dcd8;
+}
+
+li.chat-message {
+  background: rgba(220, 183, 137, 0.8);
+  border: 1px solid #A0522d;
+  border-radius: 5px;
+}
+li.chat-message h4 {
+  color: black;
+}
+li.chat-message span {
+  color: black;
+}
+li.chat-message.whisper {
+  background: rgba(212, 188, 196, 0.8);
+}
+li.chat-message.blind {
+  background: rgba(225, 192, 174, 0.8);
+}

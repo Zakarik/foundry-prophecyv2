@@ -1,0 +1,23 @@
+<div class="blessures">
+    <h1>
+        {{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Label'}}
+        {{#if (eq actor.type 'pnj')}}
+            <i class="fas fa-edit editBlessure" title="{{localize 'PROPHECY.EDIT.Seuil'}}"></i>
+        {{/if}}
+    </h1>
+
+    {{#each systemData.attributsmineurs.blessure.data as |key list|}}
+    <div class="data">
+        <i class="fa-solid fa-skull clickable" data-type="blessure" data-value="{{list}}" title="{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Subir'}}"></i>
+        <i class="fa-solid fa-heart clickable" data-type="heal" data-value="{{list}}" title="{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Soin'}}"></i>
+        <span class="label">{{localize (translate 'Blessures' list)}}</span>
+        <span class="sublabel">{{translate 'SeuilsBlessures' list}}</span>
+
+        <div class="check">
+            {{#each key.check as |kBle Blist|}}
+                <i class="{{ifThen kBle 'fa-solid' 'fa-light'}} fa-circle"></i>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</div>

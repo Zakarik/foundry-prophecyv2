@@ -1,0 +1,45 @@
+{
+  "id": "prophecy-2e",
+  "title": "Prophecy 2e",
+  "description": "Système non-officiel pour Prophecy 2ème édition",
+  "version": "#{VERSION}#",
+  "esmodules": [
+    "modules/prophecy.mjs"
+  ],
+  "styles": [
+    "styles/prophecy.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json",
+      "flags": {}
+    },
+    {
+      "lang": "eng",
+      "name": "English",
+      "path": "lang/eng.json",
+      "flags": {}
+    }
+  ],
+  "authors": [
+    {
+      "name": "Zakarik",
+      "url": "https://fr.tipeee.com/zakarik",
+      "discord": "Zakarik#9006",
+      "flags": {}
+    }
+  ],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "gridDistance": 5,
+  "gridUnits": "m",
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
+  "readme": "https://github.com/Zakarik/foundry-prophecyV2/blob/main/README.md",
+  "changelog": "https://raw.githubusercontent.com/Zakarik/foundry-prophecyV2/main/changelog.md"
+}

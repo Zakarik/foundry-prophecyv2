@@ -1,0 +1,13 @@
+<form class="mainFlex {{cssClass}}" autocomplete="off">
+    <section class="header">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+
+        <input name="name" class="itmName" type="text" value="{{data.name}}" placeholder="{{localize "PROPHECY.Nom"}}" />
+    </section>
+
+    <section class="body">
+        <div class="tab description">
+            {{> systems/prophecy-2e/templates/parts/description.html txt=systemData.description address='system.description' }}
+        </div>
+    </section>
+</form>

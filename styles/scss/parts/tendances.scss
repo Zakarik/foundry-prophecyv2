@@ -1,0 +1,125 @@
+div {
+    &.tendances {
+        display:grid;
+        grid-template-columns: 1fr max-content 1fr;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        div {
+            &.tendance {
+                display:grid;
+
+                input[type=number] {
+                    display: flex;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 30px;
+                    text-align: center;
+                    font-size: 40px;
+                    padding: 0px;
+
+                    border-color: $darkbrown;
+                    background-color: transparent;
+                    color: $black;
+                }
+
+                input[type=checkbox] {
+                    width: 15px;
+                    height: 15px;
+                    margin: 2px;
+                }
+
+                span {
+                    font-variant: small-caps;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: $black;
+                }
+            }
+
+            &.label {
+                display:grid;
+            }
+
+            &.check {
+                display: grid;
+                grid-template-columns: repeat(5, max-content);
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            &.t0, &.t1,
+            &.t0, &.t1 {
+                input[type=number],
+                span {
+                    margin-left: auto;
+                }
+            }
+
+            &.t2, &.t1,
+            &.t2, &.t1 {
+                input[type=number],
+                span {
+                    margin-right: auto;
+                }
+            }
+
+            &.t0, &.t2 {
+                align-items: flex-end;
+
+                input[type=number] {
+                    border-top: 0px;
+                }
+            }
+
+            &.t0 {
+                grid-template-columns: 1fr max-content;
+
+                input[type=number] {
+                    border-right: 0px;
+                }
+
+                div.label {
+                    margin-right: 5px;
+
+                    span {
+                        padding-right: 2px;
+                    }
+                }
+            }
+
+            &.t2 {
+                grid-template-columns: max-content 1fr;
+
+                div.label {
+                    grid-column: 2;
+                    margin-left: 5px;
+
+                    span {
+                        padding-left: 2px;
+                        border-left: 0px;
+                        border-right: 1px;
+                    }
+                }
+
+                input[type=number] {
+                    grid-row: 1;
+                    grid-column: 1;
+                    border-left: 0px;
+                }
+            }
+
+            &.t1 {
+                width: 100px;
+
+                input[type=number] {
+                    border-bottom: 0px;
+                    border-right: 0px;
+                    border-left: 0px;
+                }
+            }
+        }
+    }
+}

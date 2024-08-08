@@ -1,0 +1,15 @@
+<div class="tab privileges" data-group="primary" data-tab="{{tab}}">
+    {{#each list as | data kD|}}
+        <div class="dataPrivileges">
+            <div class="header">
+                <i class="{{ifThen data.check 'fa-solid' 'fa-light'}} fa-circle clickable" data-type="checkObject" data-subtype="{{../address}}" data-num="{{kD}}" title="{{../txtCheck}}"></i>
+                <input type="text" name="system.{{../address}}.{{kD}}.name" value="{{data.name}}" />
+                {{numberInput data.cout name=(concat "system." ../address "." kD ".cout" ) step=1 min=0}}
+                <i class=" fas fa-trash clickable" data-type="deleteObject" data-subtype="{{../address}}" data-num="{{kD}}" title="{{../txtDelete}}"></i>
+            </div>
+            {{editor data.description target=(concat "system." ../address "." kD ".description") engine="prosemirror" button=true owner=../owner editable=../editable}}
+        </div>
+    {{/each}}
+
+    <span class="clickable add" data-type="addObject" data-subtype="{{address}}">{{txtAdd}}</span>
+</div>

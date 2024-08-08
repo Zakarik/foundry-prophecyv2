@@ -1,0 +1,191 @@
+div.compagnons {
+    div {
+        &.main {
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 5px;
+            align-items: flex-start;
+        }
+
+        &.mainBlock {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 5px;
+            align-items: flex-start;
+        }
+
+        &.compagnon {
+            background: $brown;
+            padding: 5px;
+            border-radius: 5px;
+
+            h1 {
+                margin: 0px;
+                font-variant: small-caps;
+                font-weight: bold;
+                border: 0px;
+                color: $black;
+                display: grid;
+                grid-template-columns: 1fr max-content;
+                align-items: center;
+
+                i {
+                    font-size: 20px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $darkbrown;
+                    }
+                }
+            }
+
+            div {
+                &.line {
+                    display: grid;
+                    grid-template-columns: 1fr repeat(5, max-content);
+                    align-items: center;
+                    align-content: center;
+                    width: 100%;
+                    background: $lightbrown;
+                    padding: 2px;
+                    padding-left: 5px;
+                    border-radius: 5px;
+
+                    &.nopadding {
+                        padding: 0px;
+                    }
+
+                    i {
+                        cursor: pointer;
+
+                        &.space {
+                            margin-left: 5px;
+                        }
+
+                        &:hover {
+                            color: $darkbrown;
+                        }
+                    }
+
+                    span {
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        line-height: 21px;
+                        height: 21px;
+                    }
+                }
+
+                &.list {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 5px;
+                }
+            }
+
+            span {
+                &.notes {
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    font-variant: small-caps;
+                    color: $black;
+                    font-weight: bold;
+                }
+            }
+
+            input {
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                margin: 0px;
+                padding: 0px;
+                padding-left: 5px;
+                padding-right: 5px;
+                font-variant: small-caps;
+                background: transparent;
+                border-radius: 0px;
+                width: 100%;
+                min-width: 0px;
+                letter-spacing: 1px;
+                font-weight: bold;
+                border-bottom-left-radius: 5px;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        &.roles {
+            display: grid;
+            grid-gap: 5px;
+            grid-gap: 5px;
+
+            h1 {
+                margin: 0px;
+                font-variant: small-caps;
+                font-weight: bold;
+                border: 0px;
+                color: $black;
+            }
+
+            div {
+                &.line {
+                    padding: 5px;
+                    border-radius: 5px;
+                    background: $brown;
+
+                    span {
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        line-height: 21px;
+                        height: 21px;
+                        padding-left: 5px;
+                    }
+
+                    input {
+                        border-top: 0px;
+                        border-left: 0px;
+                        border-right: 0px;
+                        margin: 0px;
+                        padding: 0px;
+                        padding-left: 5px;
+                        font-variant: small-caps;
+                        background: transparent;
+                        border-radius: 0px;
+                        width: 100%;
+                        min-width: 0px;
+                        letter-spacing: 1px;
+                        font-weight: bold;
+                        border-bottom-left-radius: 5px;
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+
+                &.block {
+                    display: grid;
+                    grid-template-columns: 1fr max-content;
+                    padding-right: 5px;
+                    background: $lightbrown;
+                    border-radius: 5px;
+                    width: 100%;
+                    align-items: center;
+                    align-content: center;
+                    margin-top: 5px;
+                }
+            }
+
+            i {
+                cursor: pointer;
+
+                &:hover {
+                    color: $darkbrown;
+                }
+            }
+        }
+    }
+}

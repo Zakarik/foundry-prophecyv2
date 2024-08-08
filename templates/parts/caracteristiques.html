@@ -1,0 +1,38 @@
+<div class="caracteristiques">
+    <h1>{{localize "PROPHECY.CARACTERISTIQUES.Label"}}</h1>
+
+    {{#each systemData.caracteristiques as |key car|}}
+    <div class="block">
+        <header class="js-toggler">
+            <i class="fa-solid fa-square-plus"></i>
+            <span class="label clickableRoll" data-type="caracteristique" data-caracteristique="{{car}}">
+                {{threeUppercase (localize (translate 'Caracteristiques' car))}}
+                <i class="fa-solid"></i>
+            </span>
+            <span class="score">{{formatNumber key.total decimals=0}}</span>
+        </header>
+        <div class="sub" style="display:none;">
+            <label>
+                <span class="label">{{localize "PROPHECY.Base"}}</span>
+                {{numberInput key.data.base name=(concat 'system.caracteristiques.' car '.data.base') step=1}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Age"}}</span>
+                <span class="score">{{formatNumber key.data.age decimals=0}}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Evolutions"}}</span>
+                {{numberInput key.data.evo name=(concat 'system.caracteristiques.' car '.data.evo') step=1}}
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Modificateurs"}}</span>
+                <span class="score">{{formatNumber key.data.mod decimals=0}}</span>
+            </label>
+            <label>
+                <span class="label">{{localize "PROPHECY.Temporaire"}}</span>
+                {{numberInput key.data.temp name=(concat 'system.caracteristiques.' car '.data.temp') step=1}}
+            </label>
+        </div>
+    </div>
+    {{/each}}
+</div>

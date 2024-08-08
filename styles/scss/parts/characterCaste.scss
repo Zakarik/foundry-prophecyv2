@@ -1,0 +1,112 @@
+div {
+    &.caste {
+        @include submenu(5);
+
+        section {
+            &.casteBody {
+                display: grid;
+                grid-template-columns: 1fr;
+                padding: 5px;
+                margin-top: 5px;
+                background: $brown;
+                border-radius: 5px;
+
+                align-items: flex-start;
+                align-content: flex-start;
+            }
+        }
+
+        div {
+            h1 {
+                border: 0px;
+                margin: 0px;
+                padding: 0px;
+                font-variant: small-caps;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            &.tab {
+                margin-top: 5px;
+
+                &.active {
+                    display: grid;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                }
+            }
+
+            &.resume,
+            &.privileges,
+            &.description {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 5px;
+
+                div {
+                    &.subData {
+                        padding: 5px;
+                        background-color: $lightbrown;
+                        border: 1px solid $darkbrown;
+                        border-radius: 5px;
+
+                        &.double {
+                            grid-column: 1 / 3;
+                        }
+                    }
+                }
+            }
+
+            &.dataPrivilege {
+                padding: 2px !important;
+
+                header {
+                    grid-template-columns: max-content 1fr max-content !important;
+
+                    i {
+                        font-size: 16px !important;
+                    }
+
+                    span {
+                        font-variant: small-caps;
+                        font-weight: bold;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            &.col {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 2px;
+                align-items: flex-start;
+                align-content: flex-start;
+
+                &.marginTop {
+                    margin-top: auto;
+                }
+            }
+
+            &.subData {
+                i {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $darkbrown;
+                    }
+                }
+
+                >header {
+                    display: grid;
+                    grid-template-columns: max-content 1fr;
+                    grid-gap: 5px;
+                    align-items: center;
+                    align-content: center;
+
+                    i {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

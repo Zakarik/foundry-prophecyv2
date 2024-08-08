@@ -1,0 +1,16 @@
+<div class="dice-roll prophecy-initiative-roll">
+    {{#if flavor}}
+    <div class="dice-flavor">{{flavor}}</div>
+    {{/if}}
+    <div class="dice-result">
+        <div class="dice-formula">{{formula}}</div>
+        {{{tooltip}}}
+    </div>
+    {{#if bonus}}
+    <div class="bonus">
+        {{#each bonus}}
+            <span class="{{class}}" data-value="{{value}}">{{label}}</span>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>

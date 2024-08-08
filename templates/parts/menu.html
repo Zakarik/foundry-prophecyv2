@@ -1,0 +1,45 @@
+{{!-- Sheet Tab Navigation --}}
+<nav class="tabs menu" data-group="primary">
+    <a class="item" data-tab="principal">
+        {{localize "PROPHECY.Principal"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+
+    <a class="item" data-tab="combat">
+        {{localize "PROPHECY.Combat"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+    {{#if actor.caste}}
+    <a class="item" data-tab="caste">
+        {{localize "PROPHECY.Caste"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+    {{/if}}
+
+    <a class="item" data-tab="magie">
+        {{localize "PROPHECY.MAGIE.Label"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+
+    <a class="item" data-tab="equipement">
+        {{localize "PROPHECY.Equipement"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+
+    <a class="item" data-tab="concept">
+        {{localize "PROPHECY.Concept"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+
+    <a class="item" data-tab="lien">
+        {{localize "PROPHECY.Lien"}}
+
+        <i class="fa-solid fa-check"></i>
+    </a>
+</nav>

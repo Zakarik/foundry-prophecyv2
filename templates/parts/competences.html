@@ -1,0 +1,24 @@
+<div class="competences">
+    {{#each systemData.competences as |key attr|}}
+    <div class="col">
+        <header>
+            <h1>{{localize (translate 'Attributs' attr)}}</h1>
+            <span class="score">{{formatNumber (searchData ../actor (concat 'system.attributs.' attr '.total'))}}</span>
+        </header>
+
+        <div class="mainData">
+            {{#each key as |kCat cat|}}
+                <div class="data">
+                    <h2>{{localize (translate 'CatComp' cat)}}</h2>
+                    {{#each kCat as |kComp comp|}}
+                        {{#each kComp as |kList list|}}
+                            {{> systems/prophecy-2e/templates/parts/subparts/competence.html comp=comp attr=attr cat=cat list=list domain=kList.domain}}
+                        {{/each}}
+                    {{/each}}
+                    <a class="addCompetence clickable" data-type="addCompetence" data-cat="{{cat}}" data-attr="{{attr}}">Ajouter une compétence</a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</div>

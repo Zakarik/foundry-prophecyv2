@@ -1,0 +1,63 @@
+<div class="left">
+    <div class="header">
+        <h1>{{localize 'PROPHECY.Armes'}}</h1>
+        <i class="fa-solid fa-plus-large item-create" data-type="armement" title="{{localize 'PROPHECY.ADD.Arme'}}"></i>
+    </div>
+    <div class="list">
+    {{#each actor.armements as |key list|}}
+        <div class="bWpn {{ifThen (or key.system.notPrerequis key.system.malusPrerequis) 'red' ''}}" {{#if key.system.notPrerequis}}title="{{localize 'PROPHECY.NotPrerequis2'}}"{{/if}}>
+            <header class="header js-toggler summary" data-item-id="{{key._id}}">
+                <i class="fa-solid fa-square-plus clickable"></i>
+                {{#unless key.system.notPrerequis}}
+                    {{#if (or key.system.wearP key.system.wearS)}}
+                        <span class="label clickableRoll" data-type="weapon" title="{{localize 'PROPHECY.DoRoll'}}{{#if key.system.malusPrerequis}} / {{localize 'PROPHECY.NotPrerequis1'}}{{/if}}">
+                            <span>{{key.name}}</span>
+                            <i class="fa-solid"></i>
+                        </span>
+                    {{else}}
+                        <span>{{key.name}}</span>
+                    {{/if}}
+                    {{#if (eq key.system.mains '2mains')}}
+                        <span></span>
+                        <i class="{{ifThen key.system.wearP 'fa-solid' 'fa-regular'}} fa-swords clickable" data-type="wear" title="{{localize (ifThen key.wear 'PROPHECY.UNWEAR.Arme' 'PROPHECY.WEAR.Arme')}}"></i>
+                    {{else}}
+                        <i class="{{ifThen key.system.wearP 'fa-solid' 'fa-regular'}} fa-sword clickable wearP" data-type="wear" title="{{localize (ifThen key.wear 'PROPHECY.UNWEAR.ArmePrincipale' 'PROPHECY.WEAR.ArmePrincipale')}}"></i>
+                        <i class="{{ifThen key.system.wearS 'fa-solid' 'fa-regular'}} fa-sword clickable" data-type="wear" title="{{localize (ifThen key.wear 'PROPHECY.UNWEAR.ArmeSecondaire' 'PROPHECY.WEAR.ArmeSecondaire')}}"></i>
+                    {{/if}}
+                {{else}}
+                    <span class="label">
+                        <span>{{key.name}}</span>
+                        <i class="fa-solid"></i>
+                    </span>
+                {{/unless}}
+                <a class="item-control item-edit" title="{{localize 'PROPHECY.EDIT.Arme'}}"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="{{localize 'PROPHECY.DELETE.Arne'}}"><i class="fas fa-trash"></i></a>
+            </header>
+            <div class="data" style="display:none;">
+                {{#if key.system.type}}
+                <span class="full">{{localize (translate 'TypeWpn' key.system.type)}}</span>
+                {{/if}}
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Dommages'}}</span>
+                    <span class="score">{{key.system.dommages.total}}</span>
+                </label>
+                <label class="duo">
+                    <span class="label">{{localize 'PROPHECY.INITIATIVE.Label'}}</span>
+                    <span class="score">{{localize 'PROPHECY.INITIATIVE.M'}} : {{key.system.initiative.m}}</span>
+                    <span class="separation">/</span>
+                    <span class="score">{{localize 'PROPHECY.INITIATIVE.CC'}} : {{key.system.initiative.cc}}</span>
+                </label>
+                {{#if (or (eq key.system.type 'projectile') (eq key.system.type 'mecanique'))}}
+                <label>
+                    <span class="label">{{localize 'PROPHECY.Portee'}}</span>
+                    <span class="score">{{key.system.portee}}</span>
+                </label>
+                {{/if}}
+                <div class="description">
+                    {{{key.system.description}}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>

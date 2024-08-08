@@ -1,0 +1,88 @@
+<form class="mainFlex {{cssClass}}" autocomplete="off">
+    <section class="header">
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+
+        <input name="name" class="itmName" type="text" value="{{data.name}}" placeholder="{{localize "PROPHECY.Nom"}}" />
+
+        <div class="main">
+            <div class="col">
+                <label>
+                    <span class="label">
+                        {{localize 'PROPHECY.MAGIE.SORTILEGE.Complexite'}}
+                    </span>
+                    {{numberInput systemData.complexite name='system.complexite' step=1 min=0}}
+                </label>
+                <label>
+                    <span class="label">
+                        {{localize 'PROPHECY.Cout'}}
+                    </span>
+                    {{numberInput systemData.cout name='system.cout' step=1 min=0}}
+                </label>
+                <label>
+                    <span class="label">
+                        {{localize 'PROPHECY.Difficulte'}}
+                    </span>
+                    {{numberInput systemData.difficulte name='system.difficulte' step=1 min=0}}
+                </label>
+            </div>
+
+            <div class="col">
+                <label class="mainLabel">
+                    <span class="label">
+                        {{localize 'PROPHECY.MAGIE.Discipline'}}
+                    </span>
+                    <select name="system.discipline">
+                        {{selectOptions item.Disciplines selected=systemData.discipline localize=true sort=true}}
+                    </select>
+                </label>
+                <label class="mainLabel">
+                    <span class="label">
+                        {{localize 'PROPHECY.MAGIE.Sphere'}}
+                    </span>
+                    <select name="system.sphere">
+                        {{selectOptions item.Spheres selected=systemData.sphere localize=true sort=true}}
+                    </select>
+                </label>
+            </div>
+
+            <div class="col">
+                <label class="full">
+                    <span class="label">
+                        {{localize 'PROPHECY.MAGIE.SORTILEGE.Temps'}}
+                    </span>
+                    <input type="text" name="system.temps" value="{{systemData.temps}}" />
+                </label>
+
+                <label class="full">
+                    <span class="label">
+                        {{localize 'PROPHECY.MAGIE.SORTILEGE.Cles'}}
+                    </span>
+                    <input type="text" name="system.cles" value="{{systemData.cles}}" />
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <section class="body">
+        {{!-- Sheet Tab Navigation --}}
+        <nav class="tabs menu" data-group="primary">
+            <a class="item" data-tab="description">
+                {{localize "PROPHECY.Description"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+
+            <a class="item" data-tab="effets">
+                {{localize "PROPHECY.Effets"}}
+
+                <i class="fa-solid fa-check"></i>
+            </a>
+        </nav>
+
+        <div class="tab description" data-group="primary" data-tab="description">
+            {{> systems/prophecy-2e/templates/parts/description.html txt=systemData.effets address='system.effets' }}
+        </div>
+
+        {{> systems/prophecy-2e/templates/parts/effets.html }}
+    </section>
+</form>

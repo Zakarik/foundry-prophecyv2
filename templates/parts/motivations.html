@@ -1,0 +1,16 @@
+<div class="motivations">
+    <div class="block">
+        {{#each systemData.motivations as |key motivation|}}
+        <div class="motivation t{{@index}}">
+            {{numberInput value name=(concat "system.motivations." motivation ".value") step=1 min=0 max=10}}
+            <span>{{localize (translate 'Motivations' motivation)}}</span>
+            <div class="check" data-type="{{motivation}}">
+                {{#each key.check as |kC check|}}
+                    <input type="checkbox" name={{concat 'system.motivations.' motivation '.check.' check}} {{checked kC}} data-value="{{check}}" />
+                {{/each}}
+            </div>
+            <input type="text" name="system.motivations.{{motivation}}.name" value="{{key.name}}" />
+        </div>
+        {{/each}}
+    </div>
+</div>
