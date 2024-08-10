@@ -40,6 +40,6 @@
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
-  "readme": "https://github.com/Zakarik/foundry-prophecyV2/blob/main/README.md",
-  "changelog": "https://raw.githubusercontent.com/Zakarik/foundry-prophecyV2/main/changelog.md"
+  "readme": "https://github.com/Zakarik/foundry-prophecyv2/blob/main/README.md",
+  "changelog": "https://raw.githubusercontent.com/Zakarik/foundry-prophecyv2/main/changelog.md"
 }
