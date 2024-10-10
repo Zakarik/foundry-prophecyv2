@@ -89,7 +89,7 @@ jobs:
             README.md                            \
             changelog.md                         \
             lang/                                \
-            module/                              \
+            modules/                              \
             styles/                              \
             img/                              \
             templates/
