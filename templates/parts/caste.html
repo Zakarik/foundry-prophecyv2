@@ -46,21 +46,20 @@
 
                 <div class="col marginTop">
                     <h1>{{localize 'PROPHECY.Statut'}}</h1>
-                    {{#each actor.caste.system.statuts as |key statut|}}
-                        {{#if key.check}}
-                            <div class="subData">
-                                <header class="js-toggler">
-                                    <i class="fa-solid fa-square-plus"></i>
-                                    <h1>{{key.num}}) {{key.name}}</h1>
-                                </header>
-                                <div class="col" style="display:none;">
-                                    <span class="label"></span>
-                                    <span class="description">{{{sanitizeTxt key.description}}}</span>
-                                </div>
+                    {{#each (statutFilter actor.caste.system.statuts) as |key statut|}}
+                        <div class="subData">
+                            <header class="js-toggler">
+                                <i class="fa-solid fa-square-plus"></i>
+                                <h1>{{key.num}}) {{key.name}}</h1>
+                            </header>
+                            <div class="col" style="display:none;">
+                                <span class="label"></span>
+                                <span class="description">{{{sanitizeTxt key.description}}}</span>
                             </div>
-                        {{/if}}
+                        </div>
                     {{/each}}
                 </div>
+                {{log this}}
 
 
                 <h1>{{localize 'PROPHECY.PrivilegesAcquis'}}</h1>

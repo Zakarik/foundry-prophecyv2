@@ -1,3 +1,6 @@
+## Version 1.1.0
+- Ajout de l'affichage des statuts inférieur, en plus du statut actuel.
+
 ## Version 1.0.2
 - Correction d'un bug de mise à jour
 

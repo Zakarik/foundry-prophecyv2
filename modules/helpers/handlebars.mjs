@@ -91,4 +91,22 @@ export const registerHandlebars = function() {
 
         return result;
     });
+
+    Handlebars.registerHelper('statutFilter', function(list) {
+        let result = {};
+
+        for(const s in list) {
+            const data = list[s];
+
+            if(!data.check) {
+                result[s] = data;
+            } else {
+                result[s] = data;
+
+                break;
+            }
+        }
+
+        return result;
+    });
 }
