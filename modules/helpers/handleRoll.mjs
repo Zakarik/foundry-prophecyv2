@@ -436,7 +436,6 @@ export class handleRoll {
 
         let chatData = {
             user:game.user.id,
-            type:CONST.CHAT_MESSAGE_TYPES.ROLL,
             speaker: {
                 actor: actor.id,
                 token: actor.token,

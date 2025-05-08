@@ -1,3 +1,6 @@
+## Version 1.2.0
+- Compatibilité avec la V13.
+
 ## Version 1.1.0
 - Ajout de l'affichage des statuts inférieur, en plus du statut actuel.
 

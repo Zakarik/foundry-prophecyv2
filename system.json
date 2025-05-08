@@ -31,12 +31,31 @@
       "flags": {}
     }
   ],
-  "compatibility": {
-    "minimum": "11",
-    "verified": "12"
+  "documentTypes": {
+    "Actor": {
+      "personnage": {},
+      "etoile":{},
+      "pnj":{}
+    },
+    "Item":{
+      "caste":{},
+      "avantage":{},
+      "desavantage":{},
+      "protection":{},
+      "armement":{},
+      "sortilege":{},
+      "materiel":{},
+      "pouvoir":{}
+    }
   },
-  "gridDistance": 5,
-  "gridUnits": "m",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "grid":{
+    "distance":5,
+    "unit":"m"
+  },
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
