@@ -903,6 +903,7 @@ export async function sendMsgWear(actor, item, wear) {
             rollMode:chatRollMode,
         };
 
+        ChatMessage.applyRollMode(chatData, chatRollMode);
         const msg = await ChatMessage.create(chatData);
     }
 }
@@ -984,6 +985,7 @@ async function addDmgButton(html, msg) {
                 rollMode:chatRollMode,
             };
 
+            ChatMessage.applyRollMode(chatData, chatRollMode);
             const msgdmg = await ChatMessage.create(chatData);
             Hooks.call('msgroll', actor, msgdmg);
         }, render:(html) => {
@@ -1180,6 +1182,7 @@ async function applyDmg(actor, totaldmg, addToChat=undefined) {
         rollMode:chatRollMode,
     };
 
+    ChatMessage.applyRollMode(chatData, chatRollMode);
     const msg = await ChatMessage.create(chatData);
 }
 
@@ -1306,6 +1309,7 @@ async function addApplyMagicButton(html, msg) {
             rollMode:chatRollMode,
         };
 
-       await ChatMessage.create(chatData);
+        ChatMessage.applyRollMode(chatData, chatRollMode);
+        await ChatMessage.create(chatData);
     });
 }

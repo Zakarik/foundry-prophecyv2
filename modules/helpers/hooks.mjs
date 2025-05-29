@@ -93,6 +93,7 @@ async function sendItemChat(actor, tgt) {
         rollMode:chatRollMode,
     };
 
+    ChatMessage.applyRollMode(chatData, chatRollMode);
     const msg = await ChatMessage.create(chatData);
 }
 
@@ -116,5 +117,6 @@ async function sendChat(actor, tgt) {
         rollMode:chatRollMode,
     };
 
+    ChatMessage.applyRollMode(chatData, chatRollMode);
     const msg = await ChatMessage.create(chatData);
 }

@@ -450,6 +450,7 @@ export class handleRoll {
 
         if(rolls !== null) chatData.rolls = roll;
 
+        ChatMessage.applyRollMode(chatData, chatRollMode);
         const msg = await ChatMessage.create(chatData);
 
         if(!final) this.#endRoll(rolls, msg);
