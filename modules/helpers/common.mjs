@@ -891,7 +891,7 @@ export async function sendMsgWear(actor, item, wear) {
 
         let chatData = {
             user:game.user.id,
-            type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             speaker: ChatMessage.getSpeaker({
                 actor: actor.actor,
                 token: actor.token,
@@ -1170,7 +1170,7 @@ async function applyDmg(actor, totaldmg, addToChat=undefined) {
 
     let chatData = {
         user:game.user.id,
-        type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
         speaker: ChatMessage.getSpeaker({
             actor: actor.actor,
             token: actor.token,
@@ -1301,7 +1301,7 @@ async function addApplyMagicButton(html, msg) {
 
         let chatData = {
             user:game.user.id,
-            type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             speaker: msg.speaker,
             content:await renderTemplate('systems/prophecy-2e/templates/roll/multiother.html', {
                 list:list,

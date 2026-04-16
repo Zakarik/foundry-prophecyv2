@@ -212,7 +212,7 @@ export class EtoileActorSheet extends ActorSheet {
       const subtype = header.dataset.subtype;
       const sphere = header.dataset.sphere;
       // Grab any data associated with this control.
-      const data = duplicate(header.dataset);
+      const data = foundry.utils.duplicate(header.dataset);
       // Initialize a default name.
       const name = `${game.i18n.localize(`TYPES.Item.${type}`)}`;
       // Prepare the item object.

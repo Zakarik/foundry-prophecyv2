@@ -80,7 +80,7 @@ async function sendItemChat(actor, tgt) {
 
     let chatData = {
         user:game.user.id,
-        type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
         speaker: ChatMessage.getSpeaker({
             actor: actor.actor,
             token: actor.token,
@@ -104,7 +104,7 @@ async function sendChat(actor, tgt) {
 
     let chatData = {
         user:game.user.id,
-        type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
         speaker: ChatMessage.getSpeaker({
             actor: actor.actor,
             token: actor.token,

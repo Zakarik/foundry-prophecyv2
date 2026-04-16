@@ -71,7 +71,7 @@ export class ProphecyCombatTracker extends CombatTracker {
 
       let chatData = foundry.utils.mergeObject({
         user:game.user.id,
-        type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
         speaker: ChatMessage.getSpeaker({
           actor: c.actor,
           token: c.token,
@@ -98,7 +98,7 @@ export class ProphecyCombatTracker extends CombatTracker {
 
           let chatData = foundry.utils.mergeObject({
             user:game.user.id,
-            type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             speaker: ChatMessage.getSpeaker({
               actor: null,
               token: null,
@@ -127,7 +127,7 @@ export class ProphecyCombatTracker extends CombatTracker {
 
       let chatData = foundry.utils.mergeObject({
         user:game.user.id,
-        type:CONST.CHAT_MESSAGE_TYPES.OTHER,
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
         speaker: ChatMessage.getSpeaker({
           actor: c.actor,
           token: c.token,

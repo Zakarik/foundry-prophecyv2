@@ -7,6 +7,6 @@ export class ProphecyItem extends Item {
         // Replace default image
         if (data.img === undefined) data.img = CONFIG.PROPHECY.IMAGES[data.type];
 
-        await super.create(data, options);
+        return await super.create(data, options);
     }
 }
