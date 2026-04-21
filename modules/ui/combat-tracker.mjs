@@ -2,214 +2,179 @@
  * @property {FUCombat} viewed
  */
 export class ProphecyCombatTracker extends CombatTracker {
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			template: "systems/prophecy-2e/templates/ui/combat-tracker.html",
-			classes: [...super.defaultOptions.classes, 'prophecy-combat-tracker'],
-		});
-	}
+  /** @override */
+  static DEFAULT_OPTIONS = {
+    actions: {
+      tokenInitiative: ProphecyCombatTracker.#tokenInitiative,
+      tokenOther: ProphecyCombatTracker.#tokenOther,
+    }
+  };
 
-  async getData(options = {}) {
-		  const data = await super.getData(options);
+  /** @override */
+  static PARTS = {
+    ...super.PARTS, // hérite des parts parents (header, tracker, footer)
+    tracker: {
+      template: "systems/prophecy-2e/templates/ui/combat-tracker.hbs",
+      scrollable: [""]
+    },
+    footer: {
+      template: "systems/prophecy-2e/templates/ui/combat-footer.hbs",
+    }
+  };
 
-      if(data.combat) {
-        const turn = this.viewed.round === 0 ? 1 : this.viewed.round;
+  /**
+   * Prepare render context for a single entry in the combat tracker.
+   * @param {Combat} combat        The active combat.
+   * @param {Combatant} combatant  The Combatant whose turn is being prepared.
+   * @param {number} index         The index of this entry in the turn order.
+   * @returns {Promise<object>}
+   * @protected
+   */
+  async _prepareTurnContext(combat, combatant, index) {
+    const turn = await super._prepareTurnContext(combat, combatant, index);
+    const { id, name, isOwner, isDefeated, hidden, initiative, permission } = combatant;
+    const flag = combatant.getFlag('prophecy-2e', 'initiative')?.[turn] ?? undefined;
 
-        for(let t of data.turns) {
-          const c = data.combat.combatants.get(t.id);
-          if(turn !== undefined) {
-            const flag = c.getFlag('prophecy-2e', 'initiative')?.[turn] ?? undefined;
+    if(flag) {
+      turn.other = flag.other;
+      turn.current = flag.current;
+    }
 
-            if(flag !== undefined) {
-              t.other = flag.other;
-              t.current = flag.current;
-            }
-          }
+    const hasDecimals = Number.isFinite(initiative) && Number.isInteger(initiative);
 
-          data.turns?.forEach((turn, index) => {
-            if (index === 0) {
-              turn.css = 'active';
-              turn.activate = true;
-            } else {
-              turn.css = '';
-              turn.activate = false;
-            }
-          });
-        }
-      }
+    turn.hasDecimals = hasDecimals;
 
-		return data;
-	}
+    return turn;
+  }
 
   /* -------------------------------------------- */
+  /** @inheritDoc */
+  _attachFrameListeners() {
+    super._attachFrameListeners();
 
-  /** @inheritdoc */
-  activateListeners(html) {
-    super.activateListeners(html);
-    const tracker = html.find("#combat-tracker");
-    const tknImage = tracker.find(".combatant .token-image");
-    const tknName = tracker.find(".combatant .token-name");
-    const tknRsrc = tracker.find(".combatant .token-name");
+    this.element.addEventListener("mouseenter", event => {
+      const target = event.target.closest("span.initiative.owner");
+      if (!target) return;
 
-    html.find(".token-initiative span.initiative.owner").click(async ev => {
-      const btn = ev.currentTarget;
-      const tgt = $(ev.currentTarget);
-      const value = tgt.data('value');
-      const li = btn.closest(".combatant");
-      const combat = this.viewed;
-      const chatRollMode = game.settings.get("core", "rollMode");
-      let next = true;
-      if(combat.round === 0) return;
+      const rnd = this.viewed.round;
+      if (rnd === 0) return;
 
-      const combatants = combat.combatants;
-      const c = combatants.get(li.dataset.combatantId);
-      const rMode = c.hidden ? CONST.DICE_ROLL_MODES.PRIVATE : chatRollMode;
-      let update = {};
+      target.classList.toggle("hover");
+    }, { passive: true, capture: true });
 
-      update['initiative'] = this._setInitiative(c, ev);
-      await c.update(update);
+    this.element.addEventListener("mouseleave", event => {
+      const target = event.target.closest("span.initiative.owner");
+      if (!target) return;
 
-      let chatData = foundry.utils.mergeObject({
-        user:game.user.id,
-        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: ChatMessage.getSpeaker({
-          actor: c.actor,
-          token: c.token,
-          alias: c.name
+      const rnd = this.viewed.round;
+      if (rnd === 0) return;
+
+      target.classList.toggle("hover");
+    }, { passive: true, capture: true });
+  }
+
+  static async #tokenInitiative(ev) {
+    const { combatantId } = ev.target.closest("[data-combatant-id]")?.dataset ?? {};
+    const combat = this.viewed;
+    const chatRollMode = game.settings.get("core", "rollMode");
+    let next = true;
+    if(combat.round === 0) return;
+
+    const combatants = combat.combatants;
+    const c = combatants.get(combatantId);
+    const value = c.initiative;
+    const rMode = c.hidden ? CONST.DICE_ROLL_MODES.PRIVATE : chatRollMode;
+    let update = {};
+
+    update['initiative'] = this._setInitiative(c, ev);
+    await c.update(update);
+
+    let chatData = foundry.utils.mergeObject({
+      user:game.user.id,
+      style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+      speaker: ChatMessage.getSpeaker({
+        actor: c.actor,
+        token: c.token,
+        alias: c.name
+    }),
+      content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
+          formula:game.i18n.format("PROPHECY.ROLL.UseAction", {number: value}),
       }),
-        content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
-            formula:game.i18n.format("PROPHECY.ROLL.UseAction", {number: value}),
+    });
+
+    ChatMessage.applyRollMode(chatData, rMode);
+
+    const msg = await ChatMessage.create(chatData, {
+      rollMode:rMode,
+    });
+
+    for(let cbt of combatants) {
+      if(cbt.initiative !== null) next = false;
+    }
+
+    if(next) {
+        const fn = combat['nextRound'];
+        await fn.bind(combat)();
+
+        let chatData = foundry.utils.mergeObject({
+          user:game.user.id,
+          style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+          speaker: ChatMessage.getSpeaker({
+            actor: null,
+            token: null,
+            alias: game.i18n.localize('PROPHECY.ROLL.System')
         }),
-      });
-
-      ChatMessage.applyRollMode(chatData, rMode);
-
-      const msg = await ChatMessage.create(chatData, {
-        rollMode:rMode,
-      });
-
-      for(let cbt of combatants) {
-        if(cbt.initiative !== null) next = false;
-      }
-
-      if(next) {
-          const fn = combat['nextRound'];
-          await fn.bind(combat)();
-
-          let chatData = foundry.utils.mergeObject({
-            user:game.user.id,
-            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-            speaker: ChatMessage.getSpeaker({
-              actor: null,
-              token: null,
-              alias: game.i18n.localize('PROPHECY.ROLL.System')
+          content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
+              formula:game.i18n.localize('PROPHECY.ROLL.NextTurn'),
           }),
-            content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
-                formula:game.i18n.localize('PROPHECY.ROLL.NextTurn'),
-            }),
-          });
+        });
 
-          const msg = await ChatMessage.create(chatData);
-      }
-    });
-
-    html.find(".token-other span.initiative.owner").click(async ev => {
-      const btn = $(ev.currentTarget);
-      const value = btn.data('value');
-      const li = btn.closest(".combatant");
-      const combat = this.viewed;
-      const chatRollMode = game.settings.get("core", "rollMode");
-      if(combat.round === 0) return;
-
-      const combatants = combat.combatants;
-      const c = combatants.get(li.data('combatantId'));
-      const rMode = c.hidden ? CONST.DICE_ROLL_MODES.PRIVATE : chatRollMode;
-
-      let chatData = foundry.utils.mergeObject({
-        user:game.user.id,
-        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: ChatMessage.getSpeaker({
-          actor: c.actor,
-          token: c.token,
-          alias: c.name
-        }),
-        content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
-            formula:game.i18n.format("PROPHECY.ROLL.UseAction", {number: value}),
-        }),
-      });
-
-      ChatMessage.applyRollMode(chatData, rMode);
-
-      const msg = await ChatMessage.create(chatData, {
-        rollMode:rMode,
-      });
-
-      this._setInitiative(c, ev);
-    });
-
-    tknImage.click(this._onCombatantMouseDown.bind(this));
-    tknName.click(this._onCombatantMouseDown.bind(this));
-    tknRsrc.click(this._onCombatantMouseDown.bind(this));
-
-    html.find("span.initiative.owner").mouseenter(async ev => {
-      const rnd = this.viewed.round;
-
-      if(rnd === 0) return;
-
-      const tgt = $(ev.currentTarget);
-      tgt.toggleClass('hover');
-    });
-
-    html.find("span.initiative.owner").mouseleave(async ev => {
-      const rnd = this.viewed.round;
-
-      if(rnd === 0) return;
-
-      const tgt = $(ev.currentTarget);
-      tgt.toggleClass('hover');
-    });
+        const msg = await ChatMessage.create(chatData);
+    }
   }
 
-  async _onCombatantControl(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      const btn = event.currentTarget;
-      const li = btn.closest(".combatant");
-      const combat = this.viewed;
-      const c = combat.combatants.get(li.dataset.combatantId);
+  static async #tokenOther(ev) {
+    const { combatantId } = ev.target.closest("[data-combatant-id]")?.dataset ?? {};
+    const combat = this.viewed;
+    const value = c.initiative;
+    const chatRollMode = game.settings.get("core", "rollMode");
+    if(combat.round === 0) return;
 
-      // Switch control action
-      switch (btn.dataset.control) {
+    const combatants = combat.combatants;
+    const c = combatants.get(combatantId);
+    const rMode = c.hidden ? CONST.DICE_ROLL_MODES.PRIVATE : chatRollMode;
 
-        // Toggle combatant visibility
-        case "toggleHidden":
-          return c.update({hidden: !c.hidden});
+    let chatData = foundry.utils.mergeObject({
+      user:game.user.id,
+      style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+      speaker: ChatMessage.getSpeaker({
+        actor: c.actor,
+        token: c.token,
+        alias: c.name
+      }),
+      content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
+          formula:game.i18n.format("PROPHECY.ROLL.UseAction", {number: value}),
+      }),
+    });
 
-        // Toggle combatant defeated flag
-        case "toggleDefeated":
-          return this._onToggleDefeatedStatus(c);
+    ChatMessage.applyRollMode(chatData, rMode);
 
-        // Roll combatant initiative
-        case "rollInitiative":
-          const initiative = await combat.rollInitiative([c.id]);
-          return initiative;
+    const msg = await ChatMessage.create(chatData, {
+      rollMode:rMode,
+    });
 
-        // Actively ping the Combatant
-        case "pingCombatant":
-          return this._onPingCombatant(c);
-      }
+    this._setInitiative(c, ev);
   }
 
-  _setInitiative(combatant, event) {
-    const tgt = $(event.currentTarget);
-    const index = tgt.data('index');
-    const value = tgt.data('value');
+  _setInitiative(combatant, ev) {
+    const { index } = ev.target.closest("[data-index]")?.dataset ?? {};
+    const value = combatant.initiative;
     const rnd = this.viewed.round;
     const order = this.viewed.getFlag('prophecy-2e', 'order');
     const rndExist = order?.[rnd] ?? undefined
     let flag = combatant.getFlag('prophecy-2e', 'initiative');
     let currentTurn = flag?.[rnd] ?? undefined;
-
+    console.error(combatant);
     if(index === 'current') {
       let current = -999;
       let cIndex = 0;
@@ -241,37 +206,9 @@ export class ProphecyCombatTracker extends CombatTracker {
       this.viewed.setFlag('prophecy-2e', 'order', order);
     }
 
+    console.error(combatant);
+
     return combatant.getFlag('prophecy-2e', 'initiative')?.[rnd]?.current?.value ?? null;
-  }
-
-  /**
- * Handle mouse-down event on a combatant name in the tracker
- * @param {Event} event   The originating mousedown event
- * @returns {Promise}     A Promise that resolves once the pan is complete
- * @private
- */
-  async _onCombatantMouseDown(event) {
-    event.preventDefault();
-
-    const clicked = event.currentTarget;
-    if($(clicked).hasClass('combatant')) return;
-    const li = $(event.currentTarget).parents('.combatant');
-
-    const combatant = this.viewed.combatants.get(li.data('combatantId'));
-    const token = combatant.token;
-    if ( !combatant.actor?.testUserPermission(game.user, "OBSERVER") ) return;
-    const now = Date.now();
-
-    // Handle double-left click to open sheet
-    const dt = now - this._clickTime;
-    this._clickTime = now;
-    if ( dt <= 250 ) return combatant.actor?.sheet.render(true);
-
-    // Control and pan to Token object
-    if ( token?.object ) {
-      token.object?.control({releaseOthers: true});
-      return canvas.animatePan(token.object.center);
-    }
   }
 
   /**
@@ -280,49 +217,30 @@ export class ProphecyCombatTracker extends CombatTracker {
    * @private
    */
   _getEntryContextOptions() {
-    return [
-      {
-        name: "COMBAT.CombatantClear",
-        icon: '<i class="fas fa-undo"></i>',
-        condition: li => {
-          const combatant = this.viewed.combatants.get(li.data("combatant-id"));
-          return Number.isNumeric(combatant?.initiative);
-        },
-        callback: li => {
-          const combatant = this.viewed.combatants.get(li.data("combatant-id"));
+    const context = super._getEntryContextOptions();
+    const clear = context.find(itm => itm.label === 'COMBATANT.ACTIONS.Clear' || itm.name === 'COMBATANT.ACTIONS.Clear');
+    const getCombatant = li => this.viewed.combatants.get(li.dataset.combatantId);
 
-          if ( combatant ) {
-            const round = this.viewed.round;
-            const rnd = round === 0 ? 1 : round;
-            let flag = combatant.getFlag('prophecy-2e', 'initiative');
-            let crt = flag?.[rnd] ?? undefined;
+    if (clear) {
+      clear.onClick = (event, li) => {
+        const combatant = getCombatant(li);
+        if (!combatant) return;
 
-            if(crt !== undefined) {
-              flag[rnd] = null;
+        const round = this.viewed.round;
+        const rnd = round === 0 ? 1 : round;
+        let flag = combatant.getFlag('prophecy-2e', 'initiative');
+        let crt = flag?.[rnd] ?? undefined;
 
-              combatant.setFlag('prophecy-2e', 'initiative', flag);
-            }
+        if(crt !== undefined) {
+          flag[rnd] = null;
 
-            return combatant.update({initiative: null});
-          }
+          combatant.setFlag('prophecy-2e', 'initiative', flag);
         }
-      },
-      {
-        name: "COMBAT.CombatantReroll",
-        icon: '<i class="fas fa-dice-d20"></i>',
-        callback: li => {
-          const combatant = this.viewed.combatants.get(li.data("combatant-id"));
-          if ( combatant ) return this.viewed.rollInitiative([combatant.id]);
-        }
-      },
-      {
-        name: "COMBAT.CombatantRemove",
-        icon: '<i class="fas fa-trash"></i>',
-        callback: li => {
-          const combatant = this.viewed.combatants.get(li.data("combatant-id"));
-          if ( combatant ) return combatant.delete();
-        }
-      }
-    ];
+
+        return combatant.update({initiative: null});
+      };
+    }
+
+    return context;
   }
 }

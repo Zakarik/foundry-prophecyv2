@@ -1,0 +1,73 @@
+
+<ol class="combat-tracker plain">
+    {{log this}}
+    {{#each turns}}
+    {{log this}}
+    <li class="combatant {{ css }} prophecyTurns" data-combatant-id="{{ id }}" data-action="activateCombatant">
+
+        <img class="token-image" src="{{ img }}" alt="{{ name }}" loading="lazy">
+
+        <div class="token-name">
+            <strong class="name">{{ name }}</strong>
+            <div class="combatant-controls">
+                {{#if @root.user.isGM}}
+                <button type="button" class="inline-control combatant-control icon fa-solid fa-eye-slash {{#if hidden}}active{{/if}}"
+                        data-action="toggleHidden" data-tooltip aria-label="{{ localize "COMBATANT.ToggleVis" }}"></button>
+                <button type="button" class="inline-control combatant-control icon fa-solid fa-skull {{#if isDefeated}}active{{/if}}"
+                        data-action="toggleDefeated" data-tooltip
+                        aria-label="{{ localize "COMBATANT.ToggleDead" }}"></button>
+                {{/if}}
+                {{#if canPing}}
+                <button type="button" class="inline-control combatant-control icon fa-solid fa-bullseye-arrow"
+                        data-action="pingCombatant" data-tooltip
+                        aria-label="{{ localize "COMBATANT.Ping" }}"></button>
+                {{/if}}
+                {{#unless @root.user.isGM}}
+                <button type="button" class="inline-control combatant-control icon fa-solid fa-arrows-to-eye"
+                        data-action="panToCombatant" data-tooltip
+                        aria-label="{{ localize "COMBATANT.PanTo" }}"></button>
+                {{/unless}}
+                <div class="token-effects" data-tooltip-html="{{ effects.tooltip }}">
+                    {{#each effects.icons}}
+                    <img class="token-effect" src="{{ img }}" alt="{{ name }}">
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        {{#if resource includeZero=true}}
+        <div class="token-resource">
+            <span class="resource">{{ resource }}</span>
+        </div>
+        {{/if}}
+
+        <div class="token-initiative prophecyInitiative">
+            {{#if initiative includeZero=true}}
+
+                {{#if @root.hasDecimals}}
+                    {{#unless (lt initiative -990)}}
+                        <span class="initiative {{ifThen isOwner 'owner' ''}} {{ifThen current.offhand 'offhand' ''}}" data-action="tokenInitiative" data-index="current" data-value="{{initiative}}">{{initiative}}</span>
+                    {{/unless}}
+                {{else}}
+                <input type="text" class="initiative-input" inputmode="numeric" pattern="^[+=\-]?\d*" value="{{initiative}}"
+                    aria-label="{{localize "COMBATANT.FIELDS.initiative.label"}}"
+                    {{#unless @root.user.isGM}}readonly{{/unless}}>
+
+                {{/if}}
+
+                {{else if isOwner}}
+            <button type="button" class="combatant-control roll" data-action="rollInitiative" data-tooltip
+                    aria-label="{{ localize "COMBATANT.InitiativeRoll" }}"
+                    style="--initiative-icon: url('{{ @root.initiativeIcon.icon }}'); --initiative-icon-hover: url('{{ @root.initiativeIcon.hover }}');"></button>
+            {{/if}}
+        </div>
+        {{#if other}}
+        <div class="token-other prophecyInitiative">
+            {{#each other}}
+                <span class="initiative {{ifThen ../isOwner 'owner' ''}} {{ifThen offhand 'offhand' ''}}" data-index="{{@index}}" data-action="tokenOther" data-value="{{value}}">{{value}}</span>
+            {{/each}}
+        </div>
+        {{/if}}
+    </li>
+    {{/each}}
+</ol>

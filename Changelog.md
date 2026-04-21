@@ -1,3 +1,7 @@
+## Version 1.3.1
+- Correction du Combat Tracker qui avait explosé au fil des mises à jours de FoundryVTT !
+Mes excuses.
+
 ## Version 1.3.0
 - Compatibilité avec la V14.
 

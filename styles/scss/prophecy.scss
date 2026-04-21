@@ -969,7 +969,7 @@ div {
 }
 
 section {
-    &.prophecy-combat-tracker {
+    &.combat-sidebar.active {
         div {
             &.prophecyInitiative {
                 span {
@@ -1034,9 +1034,14 @@ section {
             &.prophecyCombatControl {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
+                grid-gap: 0px;
 
-                a {
+                button {
                     font-size: 14px !important;
+                    border-radius: 0px;
+                    &:not(:hover) {
+                        background: transparent;
+                    }
 
                     &.last {
                         border-left: 1px solid $darkbrown;
@@ -1047,6 +1052,7 @@ section {
                         font-size: 18px !important;
 
                         &.withBorder {
+                            border: 0px;
                             border-top: 1px solid $darkbrown;
                         }
                     }

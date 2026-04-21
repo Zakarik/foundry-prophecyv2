@@ -198,7 +198,7 @@ export class ProphecyCombat extends Combat {
                 // Construct chat message data
                 let chatData = foundry.utils.mergeObject({
                     user:game.user.id,
-                    type:CONST.CHAT_MESSAGE_TYPES.ROLL,
+                    style: CONST.CHAT_MESSAGE_STYLES.OTHER,
                     speaker: ChatMessage.getSpeaker({
                         actor: combatant.actor,
                         token: combatant.token,
@@ -459,7 +459,7 @@ export class ProphecyCombat extends Combat {
 
                         let chatData = foundry.utils.mergeObject({
                             user:game.user.id,
-                            type:CONST.CHAT_MESSAGE_TYPES.ROLL,
+                            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
                             speaker: getMsg.speaker,
                             content:await renderTemplate('systems/prophecy-2e/templates/roll/initiative.html', {
                                 formula:getFormula,
