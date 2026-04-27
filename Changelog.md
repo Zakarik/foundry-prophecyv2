@@ -1,3 +1,6 @@
+## Version 1.3.2
+- Nouvelle correction du Combat Tracker, qui n'était toujours pas pleinement rétabli !
+
 ## Version 1.3.1
 - Correction du Combat Tracker qui avait explosé au fil des mises à jours de FoundryVTT !
 Mes excuses.

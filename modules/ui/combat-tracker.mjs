@@ -32,8 +32,9 @@ export class ProphecyCombatTracker extends CombatTracker {
    */
   async _prepareTurnContext(combat, combatant, index) {
     const turn = await super._prepareTurnContext(combat, combatant, index);
+    const rnd = this.viewed?.round ?? 1;
     const { id, name, isOwner, isDefeated, hidden, initiative, permission } = combatant;
-    const flag = combatant.getFlag('prophecy-2e', 'initiative')?.[turn] ?? undefined;
+    const flag = combatant.getFlag('prophecy-2e', 'initiative')?.[rnd] ?? undefined;
 
     if(flag) {
       turn.other = flag.other;
@@ -136,12 +137,12 @@ export class ProphecyCombatTracker extends CombatTracker {
   static async #tokenOther(ev) {
     const { combatantId } = ev.target.closest("[data-combatant-id]")?.dataset ?? {};
     const combat = this.viewed;
-    const value = c.initiative;
+    const combatants = combat.combatants;
+    const c = combatants.get(combatantId);
+    const value = $(ev.target).data('value');
     const chatRollMode = game.settings.get("core", "rollMode");
     if(combat.round === 0) return;
 
-    const combatants = combat.combatants;
-    const c = combatants.get(combatantId);
     const rMode = c.hidden ? CONST.DICE_ROLL_MODES.PRIVATE : chatRollMode;
 
     let chatData = foundry.utils.mergeObject({
@@ -174,7 +175,6 @@ export class ProphecyCombatTracker extends CombatTracker {
     const rndExist = order?.[rnd] ?? undefined
     let flag = combatant.getFlag('prophecy-2e', 'initiative');
     let currentTurn = flag?.[rnd] ?? undefined;
-    console.error(combatant);
     if(index === 'current') {
       let current = -999;
       let cIndex = 0;
@@ -205,8 +205,6 @@ export class ProphecyCombatTracker extends CombatTracker {
 
       this.viewed.setFlag('prophecy-2e', 'order', order);
     }
-
-    console.error(combatant);
 
     return combatant.getFlag('prophecy-2e', 'initiative')?.[rnd]?.current?.value ?? null;
   }
