@@ -47,7 +47,7 @@
                     <span class="separation">/</span>
                     <span class="score">{{localize 'PROPHECY.INITIATIVE.CC'}} : {{key.system.initiative.cc}}</span>
                 </label>
-                {{#if (or (eq key.system.type 'projectile') (eq key.system.type 'mecanique'))}}
+                {{#if (or (eq key.system.type 'projectile') (eq key.system.type 'mecanique') (eq key.system.type 'jet'))}}
                 <label>
                     <span class="label">{{localize 'PROPHECY.Portee'}}</span>
                     <span class="score">{{key.system.portee}}</span>

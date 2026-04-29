@@ -1,3 +1,6 @@
+## Version 1.3.3
+- Correction des armes de jet qui n'avaient pas de portée !
+
 ## Version 1.3.2
 - Nouvelle correction du Combat Tracker, qui n'était toujours pas pleinement rétabli !
 

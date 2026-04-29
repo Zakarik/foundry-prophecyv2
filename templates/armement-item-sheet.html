@@ -23,7 +23,7 @@
                         {{selectOptions item.Mains selected=systemData.mains localize=true sort=true}}
                     </select>
                 </div>
-                {{#if (or (eq systemData.type 'projectile') (eq systemData.type 'mecanique'))}}
+                {{#if (or (eq systemData.type 'projectile') (eq systemData.type 'mecanique') (eq systemData.type 'jet'))}}
                 <label class="portee">
                         <span>{{localize 'PROPHECY.Portee'}} :</span>
                         <input type="text" name="system.portee" value="{{systemData.portee}}" />
