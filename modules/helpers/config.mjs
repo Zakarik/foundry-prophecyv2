@@ -331,7 +331,7 @@ PROPHECY.TypeWpn = {
     'double':'PROPHECY.WPN.Double',
     'corpsacorps':'PROPHECY.WPN.Corpsacorps',
     'hast':'PROPHECY.WPN.Hast',
-    'jet':'PROPHECY.WPN.Hast',
+    'jet':'PROPHECY.WPN.Jet',
     'projectile':'PROPHECY.WPN.Projectile',
     'mecanique':'PROPHECY.WPN.Mecanique',
 };
