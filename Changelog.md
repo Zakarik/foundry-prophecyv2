@@ -1,3 +1,6 @@
+## Version 1.3.5
+- Correction suite à la dernière mise à jour... Les statuts ne fonctaionnents plus !
+
 ## Version 1.3.4
 - Correction d'un problème de gestion des effets.
 

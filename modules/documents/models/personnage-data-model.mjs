@@ -306,7 +306,10 @@ export class PersonnageDataModel extends foundry.abstract.TypeDataModel {
 	}
 
 	sanitizeEffects() {
-		const ids = this.actor.effects.map(e => e.id);
-  		this.actor.deleteEmbeddedDocuments("ActiveEffect", ids);
+	const ids = this.actor.effects
+		.filter(e => !e.statuses?.size && !e.transfer && (!e.icon || !e.img))
+		.map(e => e.id);
+		return this.actor.deleteEmbeddedDocuments("ActiveEffect", ids);
 	}
+
 }
