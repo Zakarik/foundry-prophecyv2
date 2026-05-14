@@ -1,3 +1,6 @@
+## Version 1.3.4
+- Correction d'un problème de gestion des effets.
+
 ## Version 1.3.3
 - Correction des armes de jet qui n'avaient pas de portée !
 

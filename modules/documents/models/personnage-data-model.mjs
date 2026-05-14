@@ -201,6 +201,7 @@ export class PersonnageDataModel extends foundry.abstract.TypeDataModel {
 		this.prepareCompetences();
 		this.prepareCombat();
 		this.magie.prepareData();
+		this.sanitizeEffects();
 	}
 
 	prepareCompetences() {
@@ -302,5 +303,10 @@ export class PersonnageDataModel extends foundry.abstract.TypeDataModel {
 				value: CONFIG.PROPHECY.BaseCaracteristique[age][c],
 			});
 		}
+	}
+
+	sanitizeEffects() {
+		const ids = this.actor.effects.map(e => e.id);
+  		this.actor.deleteEmbeddedDocuments("ActiveEffect", ids);
 	}
 }

@@ -697,7 +697,7 @@ async function createEffects(item, defaultDisable=false) {
 
     await item.createEmbeddedDocuments('ActiveEffect', [addItemEffects]);
 
-    if(actor !== null) {
+    /*if(actor !== null) {
         let addActorEffects = {
             name: item.name,
             icon:'',
@@ -713,7 +713,7 @@ async function createEffects(item, defaultDisable=false) {
         };
 
       await actor.createEmbeddedDocuments('ActiveEffect', [addActorEffects]);
-    }
+    }*/
 }
 
 async function deleteEffects(item, id, key) {
@@ -737,7 +737,7 @@ async function updateEffects(item, id, changes) {
       changes:sanitizChanges,
     }]);
 
-    if(actor !== null) {
+    /*if(actor !== null) {
       const getActorEffects = actor.effects.contents.find(itm => itm.origin === `Actor.${actor._id}.Item.${item._id}`);
 
       await actor.updateEmbeddedDocuments('ActiveEffect', [{
@@ -745,7 +745,7 @@ async function updateEffects(item, id, changes) {
         icon:'',
         changes:sanitizChanges,
       }]);
-    }
+    }*/
 }
 
 async function updateEffectsName(item, id, name) {
@@ -757,7 +757,7 @@ async function updateEffectsName(item, id, name) {
       name:name,
     }]);
 
-    if(actor !== null) {
+    /*if(actor !== null) {
       const getActorEffects = actor.effects.contents.find(itm => itm.origin === `Actor.${actor._id}.Item.${item._id}`);
 
       await actor.updateEmbeddedDocuments('ActiveEffect', [{
@@ -765,7 +765,7 @@ async function updateEffectsName(item, id, name) {
         icon:'',
         name:name,
       }]);
-    }
+    }*/
 }
 
 export async function setActivateEffect(item, id, disabled) {
@@ -777,7 +777,7 @@ export async function setActivateEffect(item, id, disabled) {
       disabled:disabled
     }]);
 
-    if(actor !== null) {
+    /*if(actor !== null) {
       const getActorEffects = actor.effects.contents.find(itm => itm.origin === `Actor.${actor._id}.Item.${item._id}`);
 
       await actor.updateEmbeddedDocuments('ActiveEffect', [{
@@ -785,7 +785,7 @@ export async function setActivateEffect(item, id, disabled) {
         icon:'',
         disabled:disabled
       }]);
-    }
+    }*/
 }
 
 function sanitizKey(changes) {

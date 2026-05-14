@@ -18,10 +18,10 @@ export class AttributDataModel extends foundry.abstract.DataModel {
 	_initialize(options = {}) {
 		super._initialize(options);
 
-		let total = setSurcharge(this.data.surcharge, this.data.base, this.data.car, this.data.mod, this.data.temp)
+		//let total = setSurcharge(this.data.surcharge, this.data.base, this.data.car, this.data.mod, this.data.temp)
 
-		Object.defineProperty(this, 'total', {
+		/*Object.defineProperty(this, 'total', {
 			value:total,
-		});
+		});*/
 	}
 }
