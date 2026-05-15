@@ -31,6 +31,8 @@ export class PersonnageActorSheet extends ActorSheet {
 
       context.systemData = context.data.system;
 
+      console.error(context);
+
       return context;
     }
 

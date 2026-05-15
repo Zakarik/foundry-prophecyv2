@@ -971,7 +971,7 @@ async function addDmgButton(html, msg) {
 
             let chatData = {
                 user:game.user.id,
-                type:CONST.CHAT_MESSAGE_TYPES.ROLL,
+                type:CONST.CHAT_MESSAGE_STYLES.ROLL,
                 speaker: ChatMessage.getSpeaker(msg),
                 content:content,
                 rolls:[roll],

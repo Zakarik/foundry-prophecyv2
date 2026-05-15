@@ -1,3 +1,6 @@
+## Version 1.3.6
+- Correction de problèmes avec le système de combat qui avait du mal avec les tendances et ne gérais pas correctement les dégâts.
+
 ## Version 1.3.5
 - Correction suite à la dernière mise à jour... Les statuts ne fonctaionnents plus !
 
