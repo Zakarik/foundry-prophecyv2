@@ -1,3 +1,6 @@
+## Version 1.4.0
+- Ajout d'une boite de dialogue lors de l'application des dommages, afin de pouvoir moduler le résultat.
+
 ## Version 1.3.6
 - Correction de problèmes avec le système de combat qui avait du mal avec les tendances et ne gérais pas correctement les dégâts.
 

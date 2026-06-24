@@ -1,3 +1,6 @@
+
+import toggler from './toggler.js';
+
 export function commonHTML(html, actor, hasClickable=false, hasEffects=false, hasRoll=false, hasSend=false) {
     if(hasClickable) {
         html.find('.clickable').click(ev => {
@@ -1096,33 +1099,128 @@ async function addApplyDmgButton(html, msg) {
         const dmg = parseInt(msg.getFlag('prophecy-2e', 'dmgtotal'));
         const howToApply = msg.getFlag('prophecy-2e', 'howToApply');
         const targets = game.users.current.targets;
+        const ids = {};
+        const combatants = [];
+        let allIds = '';
+
+        if(!targets.size) {
+            ui.notifications.warn(game.i18n.localize('PROPHECY.WRN.NoTarget'));
+            return;
+        }
 
         for(let t of targets) {
             const tgt = t.actor;
             let protection = tgt.system.combat.protection;
             if(howToApply === 'divide') protection = protection/2;
             else if(howToApply === 'none') protection = 0;
+            allIds += tgt.uuid;
 
-            const totaldmg = dmg-protection;
+            ids[tgt.uuid] = {
+                armor:tgt.items.find(itm => itm.type === 'protection' && itm.system.type === 'armure' && itm.system.wear),
+            };
 
-            if(totaldmg > 0) {
-                const armor = tgt.items.find(itm => itm.type === 'protection' && itm.system.type === 'armure' && itm.system.wear);
-                let addToChat = undefined
+            combatants.push({
+                id:tgt.uuid,
+                name:tgt.name,
+                bonus:[
+                    {
+                        type:'number',
+                        label:game.i18n.localize("PROPHECY.Dommages"),
+                        class:'damage',
+                        value:dmg,
+                    },
+                    {
+                        type:'number',
+                        label:game.i18n.localize("PROPHECY.Protection"),
+                        class:'protection',
+                        value:protection,
+                    }
+                ],
+            })
+        }
 
-                if(armor) {
-                    const usure = armor.system.usure;
-                    const protection = armor.system.protection;
+        const d = generateDialog({type:'other', content:await renderTemplate('systems/prophecy-2e/templates/dialog/askMod.html',
+            {
+                combatants,
+            }),
+            height:400, width:300, classe:['dialogRoll'],
+            validate:async (d) => {
+                const main = $(d.find('div.main'));
 
-                    if(usure < protection && totaldmg > protection) {
-                        armor.update({['system.usure']:usure+1});
+                for(const m of main) {
+                    const id = $(m).data('id');
+                    const tgt = await fromUuid(id);
+                    const dmg = parseInt($(m).find('div.damage span.score').text());
+                    const protection = parseInt($(m).find('div.protection span.score').text());
+                    const totaldmg = dmg-protection;
 
-                        addToChat = game.i18n.format('PROPHECY.MSG.ArmorDmg', {actor:tgt.name});
+                    if(totaldmg > 0) {
+                        const armor = tgt.items.find(itm => itm.type === 'protection' && itm.system.type === 'armure' && itm.system.wear);
+                        let addToChat = undefined
+
+                        if(armor) {
+                            const usure = armor.system.usure;
+                            const protection = armor.system.protection;
+
+                            if(usure < protection && totaldmg > protection) {
+                                armor.update({['system.usure']:usure+1});
+
+                                addToChat = game.i18n.format('PROPHECY.MSG.ArmorDmg', {actor:tgt.name});
+                            }
+                        }
+
+                        applyDmg(tgt, totaldmg, addToChat)
+                    } else {
+                        const chatRollMode = game.settings.get("core", "rollMode");
+                        const list = [];
+                        list.push(
+                            game.i18n.format('PROPHECY.MSG.NoDmg', {
+                                actor:tgt.name,
+                            }));
+
+                        let chatData = {
+                            user:game.user.id,
+                            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+                            speaker: ChatMessage.getSpeaker({
+                                actor: tgt.actor,
+                                token: tgt.token,
+                                alias: tgt.name,
+                            }),
+                            content:await renderTemplate('systems/prophecy-2e/templates/roll/multiother.html', {
+                                list:list,
+                            }),
+                            rollMode:chatRollMode,
+                        };
+
+                        ChatMessage.applyRollMode(chatData, chatRollMode);
+                        const msg = await ChatMessage.create(chatData);
                     }
                 }
+            },
+            render:(html) => {
+                stylingHTML(html);
+                toggler.init(allIds, html);
 
-                applyDmg(tgt, totaldmg, addToChat)
+                html.find('.data .inner .plus').click(async ev => {
+                    const tgt = $(ev.currentTarget);
+                    const master = tgt.data('class');
+                    let mScore = tgt.parents(`.${master}`).find('span.score');
+                    let score = parseInt(mScore.text());
+
+                    mScore.text(score+1);
+                });
+
+                html.find('.data .inner .minus').click(async ev => {
+                    const tgt = $(ev.currentTarget);
+                    const master = tgt.data('class');
+                    let mScore = tgt.parents(`.${master}`).find('span.score');
+                    let score = parseInt(mScore.text());
+
+                    if((score-1) < 0) mScore.text(0);
+                    else mScore.text(score-1);
+                });
             }
-        }
+        });
     });
 }
 

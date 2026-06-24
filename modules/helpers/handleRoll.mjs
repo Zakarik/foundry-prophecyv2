@@ -759,7 +759,7 @@ export class handleRoll {
                 const wpn = this.#getWeaponSkill(item.system.type);
 
                 attrTotal = wpn.attribut;
-                score = this.dataRoll.specialization !== null ? wpn.specialization[this.dataRoll.specialization].total : wpn.score;
+                score = this.dataRoll.specialization !== null && this.dataRoll.specialization !== undefined ? wpn.specialization[this.dataRoll.specialization].total : wpn.score;
                 break;
         }
 

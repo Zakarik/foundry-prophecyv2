@@ -386,7 +386,8 @@
       },
       "WRN":{
         "MaitriseMax":"Vous ne pouvez pas dépenser davantage de points de maîtrise.",
-        "ChanceMax":"Vous ne pouvez pas dépenser davantage de points de chance."
+        "ChanceMax":"Vous ne pouvez pas dépenser davantage de points de chance.",
+        "NoTarget":"Aucune cible sélectionnée"
       },
       "ROLL":{
         "System":"Système",
@@ -457,6 +458,7 @@
         "WearWeapon":"Équipe l'arme '{name}'",
         "UnwearWeapon":"Déséquipe l'arme '{name}'",
         "Dmg":"{actor} subit une blessure de type {type}",
+        "NoDmg":"{actor} ne subit aucune blessure",
         "AlreadyDead":"{actor} est déjà mort",
         "ArmorDmg":"{actor} voit son armure se dégrader...",
         "MagicSphere":"{actor} dépense {value} de sa réserve de magie de la {sphere}",
