@@ -28,17 +28,6 @@ export class CasteItemSheet extends ItemSheet {
       return context;
     }
 
-    /**
-       * Return a light sheet if in "limited" state
-       * @override
-       */
-     get template() {
-      if (!game.user.isGM && this.actor.limited) {
-        //return "systems/donjons-et-chatons/templates/limited-sheet.html";
-      }
-      return this.options.template;
-    }
-
     /* -------------------------------------------- */
 
     /** @inheritdoc */

@@ -1,3 +1,6 @@
+## Version 1.4.1
+- Correction d'un bug pouvant empêcher les joueurs d'ouvrir les fiches des items.
+
 ## Version 1.4.0
 - Ajout d'une boite de dialogue lors de l'application des dommages, afin de pouvoir moduler le résultat.
 
