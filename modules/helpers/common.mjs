@@ -130,29 +130,31 @@ export function stylingHTML(html) {
     html.parents('.window-content').css("background", game.settings.get('prophecy-2e', 'background'));
 }
 
+function getBlessureLabel(actor, type) {
+    return actor.system.attributsmineurs.blessure.getThresholdLabel(type);
+}
+
+function setBlessureCheckUpdate(actor, update, type, check, value) {
+    const blessure = actor.system.attributsmineurs.blessure;
+
+    blessure.data[type].check[check] = value;
+    blessure.getExtendedThreshold(type).check[check] = value;
+    update['system.attributsmineurs.blessure.edit'] = blessure.edit;
+    update['system.attributsmineurs.blessure.etendu'] = blessure.etendu;
+    update[`system.attributsmineurs.blessure.data.${type}.check.${check}`] = value;
+    update['system.attributsmineurs.blessure.extended'] = foundry.utils.deepClone(blessure.extended);
+}
+
 async function addBlessure(actor, tgt, autoupdate=true) {
     const type = tgt?.['value'] ?? tgt.data("value");
-    let currentType = type;
     let update = {};
     let applied = '';
 
-    while (currentType !== 'end') {
-        const data = actor.system.attributsmineurs.blessure.data[currentType];
-        const numCheck = Object.values(data.check).filter(value => value === true).length;
+    const nextBlessure = actor.system.attributsmineurs.blessure.findNextAvailableThreshold(type);
 
-        if (numCheck < data.value) {
-            applied = currentType;
-            update[`system.attributsmineurs.blessure.data.${currentType}.check.c${numCheck + 1}`] = true;
-            break;
-        } else {
-            currentType = {
-                'egratinures': 'legeres',
-                'legeres': 'graves',
-                'graves': 'fatales',
-                'fatales': 'morts',
-                'morts': 'end',
-            }[currentType];
-        }
+    if(nextBlessure) {
+        applied = nextBlessure.type;
+        setBlessureCheckUpdate(actor, update, nextBlessure.type, nextBlessure.check, true);
     }
 
     await actor.update(update);
@@ -161,11 +163,11 @@ async function addBlessure(actor, tgt, autoupdate=true) {
 
 async function removeBlessure(actor, tgt) {
     const type = tgt.data("value");
-    const data = actor.system.attributsmineurs.blessure.data[type];
+    const data = actor.system.attributsmineurs.blessure.getThresholdData(type);
     const numCheck = Object.values(data.check).filter(value => value === true).length;
     let update = {}
 
-    if(numCheck > 0) update[`system.attributsmineurs.blessure.data.${type}.check.c${numCheck}`] = false;
+    if(numCheck > 0) setBlessureCheckUpdate(actor, update, type, `c${numCheck}`, false);
 
     await actor.update(update);
 }
@@ -1226,41 +1228,15 @@ async function addApplyDmgButton(html, msg) {
 
 async function applyDmg(actor, totaldmg, addToChat=undefined) {
     const chatRollMode = game.settings.get("core", "rollMode");
+    const blessureData = actor.system.attributsmineurs.blessure;
+    const startType = blessureData.getThresholdTypeFromDamage(totaldmg);
 
     let label = '';
-    if(totaldmg <= 10) {
-        const bls = await addBlessure(actor, {value:'egratinures'});
-        label = !bls ? game.i18n.format('PROPHECY.MSG.AlreadyDead', {actor:actor.name}) : game.i18n.format('PROPHECY.MSG.Dmg', {
-            actor:actor.name,
-            type:game.i18n.localize(CONFIG.PROPHECY.Blessures[bls])}
-        );
-    } else if(totaldmg <= 20) {
-        const bls = await addBlessure(actor, {value:'legeres'});
-        label = !bls ? game.i18n.format('PROPHECY.MSG.AlreadyDead', {actor:actor.name}) : game.i18n.format('PROPHECY.MSG.Dmg', {
-            actor:actor.name,
-            type:game.i18n.localize(CONFIG.PROPHECY.Blessures[bls])}
-        );
-
-    } else if(totaldmg <= 30) {
-        const bls = await addBlessure(actor, {value:'graves'});
-        label = !bls ? game.i18n.format('PROPHECY.MSG.AlreadyDead', {actor:actor.name}) : game.i18n.format('PROPHECY.MSG.Dmg', {
-            actor:actor.name,
-            type:game.i18n.localize(CONFIG.PROPHECY.Blessures[bls])}
-        );
-    } else if(totaldmg <= 40) {
-        const bls = await addBlessure(actor, {value:'fatales'});
-        label = !bls ? game.i18n.format('PROPHECY.MSG.AlreadyDead', {actor:actor.name}) : game.i18n.format('PROPHECY.MSG.Dmg', {
-            actor:actor.name,
-            type:game.i18n.localize(CONFIG.PROPHECY.Blessures[bls])}
-        );
-
-    } else if(totaldmg > 40) {
-        const bls = await addBlessure(actor, {value:'morts'});
-        label = !bls ? game.i18n.format('PROPHECY.MSG.AlreadyDead', {actor:actor.name}) : game.i18n.format('PROPHECY.MSG.Dmg', {
-            actor:actor.name,
-            type:game.i18n.localize(CONFIG.PROPHECY.Blessures[bls])}
-        );
-    }
+    const bls = await addBlessure(actor, {value:startType});
+    label = !bls ? game.i18n.format('PROPHECY.MSG.AlreadyDead', {actor:actor.name}) : game.i18n.format('PROPHECY.MSG.Dmg', {
+        actor:actor.name,
+        type:getBlessureLabel(actor, bls)}
+    );
     const list = [];
     list.push(label);
 
@@ -1353,29 +1329,16 @@ async function addApplyMagicButton(html, msg) {
         }
 
         if(spendSubstract > 0) {
-            const dataBlessures = actor.system.attributsmineurs.blessure.data;
+            const blessureData = actor.system.attributsmineurs.blessure;
 
             for(let n = 0;n < spendSubstract;n++) {
-                let currentType = 'egratinures';
+                const nextBlessure = blessureData.findNextAvailableThreshold('egratinures');
 
-                while (currentType !== 'end') {
-                    const data = dataBlessures[currentType];
-                    const numCheck = Object.values(data.check).filter(value => value === true).length;
-
-                    if (numCheck < data.value) {
-                        typeDmg[currentType] += 1;
-                        dataBlessures[currentType]['check'][`c${numCheck + 1}`] = true;
-                        update[`system.attributsmineurs.blessure.data.${currentType}.check.c${numCheck + 1}`] = true;
-                        break;
-                    } else {
-                        currentType = {
-                            'egratinures': 'legeres',
-                            'legeres': 'graves',
-                            'graves': 'fatales',
-                            'fatales': 'morts',
-                            'morts': 'end',
-                        }[currentType];
-                    }
+                if(nextBlessure) {
+                    typeDmg[nextBlessure.type] += 1;
+                    const threshold = blessureData.getThresholdData(nextBlessure.type);
+                    threshold.check[nextBlessure.check] = true;
+                    setBlessureCheckUpdate(actor, update, nextBlessure.type, nextBlessure.check, true);
                 }
             }
 
@@ -1383,14 +1346,14 @@ async function addApplyMagicButton(html, msg) {
                 if(typeDmg[d] === 1) list.push(game.i18n.format('PROPHECY.MSG.Dmgs', {
                     actor:actor.name,
                     blessure:game.i18n.localize("PROPHECY.MSG.BlessureEgratinure"),
-                    type:game.i18n.localize(CONFIG.PROPHECY.Blessures[d]),
+                    type:getBlessureLabel(actor, d),
                 }))
                 else if(typeDmg[d] > 1) list.push(game.i18n.format('PROPHECY.MSG.Dmgs', {
                     actor:actor.name,
                     blessure:game.i18n.format("PROPHECY.MSG.Blessures", {
                         value:typeDmg[d],
                     }),
-                    type:game.i18n.localize(CONFIG.PROPHECY.Blessures[d]),
+                    type:getBlessureLabel(actor, d),
                 }))
             }
         }

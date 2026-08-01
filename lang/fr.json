@@ -239,6 +239,11 @@
           "Grave":"grave",
           "Fatale":"fatale",
           "Mort":"mort",
+          "ExtendedMode":"Mode étendu",
+          "DefaultLabel":"Seuil standard",
+          "CustomLabel":"Libellé affiché",
+          "MaxThreshold":"Seuil max",
+          "Boxes":"Nombre de cases",
           "Subir":"Subir une blessure de ce type",
           "Soin":"Soigner une blessure de ce type"
         }

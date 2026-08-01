@@ -1,6 +1,16 @@
 import { commonHTML, generateDialog, sortByWear, sortByWearWpn, stylingHTML } from "../helpers/common.mjs";
 import toggler from '../helpers/toggler.js';
 
+const BLESSURE_ORDER = ['egratinures', 'legeres', 'graves', 'fatales', 'morts'];
+
+const BLESSURE_DEFAULT_LABELS = {
+  egratinures: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Egratinure',
+  legeres: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Legere',
+  graves: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Grave',
+  fatales: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Fatale',
+  morts: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Mort',
+};
+
 /**
  * @extends {ActorSheet}
  */
@@ -30,6 +40,7 @@ export class PersonnageActorSheet extends ActorSheet {
       this._prepareCharacterItems(context);
 
       context.systemData = context.data.system;
+      context.blessureDisplayData = this.actor.system.attributsmineurs.blessure.displayData;
 
       console.error(context);
 
@@ -202,94 +213,71 @@ export class PersonnageActorSheet extends ActorSheet {
       });
 
       html.find('i.editBlessure').click(async ev => {
-        let others = {
-          id:this.actor._id,
-          name:this.actor.name,
-          bonus:[{
-            class:'egratinure',
-            type:'number',
-            label:game.i18n.localize('PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Egratinure'),
-            min:0,
-            value:Object.values(this.actor.system.attributsmineurs.blessure.data.egratinures.check).length,
-          },
-          {
-            class:'legere',
-            type:'number',
-            label:game.i18n.localize('PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Legere'),
-            min:0,
-            value:Object.values(this.actor.system.attributsmineurs.blessure.data.legeres.check).length,
-          },
-          {
-            class:'grave',
-            type:'number',
-            label:game.i18n.localize('PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Grave'),
-            min:0,
-            value:Object.values(this.actor.system.attributsmineurs.blessure.data.graves.check).length,
-          },
-          {
-            class:'fatale',
-            type:'number',
-            label:game.i18n.localize('PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Fatale'),
-            min:0,
-            value:Object.values(this.actor.system.attributsmineurs.blessure.data.fatales.check).length,
-          },
-          {
-            class:'mort',
-            type:'number',
-            label:game.i18n.localize('PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Mort'),
-            min:0,
-            value:Object.values(this.actor.system.attributsmineurs.blessure.data.morts.check).length,
-          }],
-        };
+        const blessure = this.actor.system.attributsmineurs.blessure;
+        const thresholds = BLESSURE_ORDER.map(type => {
+          const standard = blessure.data[type];
+          const extended = blessure.getExtendedThreshold(type);
+          const label = extended.label?.startsWith('PROPHECY.') ? game.i18n.localize(extended.label) : extended.label;
 
-        generateDialog({type:'other', content:await renderTemplate('systems/prophecy-2e/templates/dialog/askMod.html', {combatants:[others]}), classe:['dialogRoll'], name:game.i18n.localize('PROPHECY.EDIT.Seuil'), validate:async (d) => {
+          return {
+            type,
+            defaultLabel: game.i18n.localize(BLESSURE_DEFAULT_LABELS[type]),
+            label,
+            max: extended.max ?? '',
+            value: blessure.getThresholdData(type).value ?? standard.value,
+          };
+        });
+
+        generateDialog({type:'other', content:await renderTemplate('systems/prophecy-2e/templates/dialog/blessure-thresholds.html', {
+          actorId:this.actor._id,
+          actorName:this.actor.name,
+          etendu:blessure.etendu,
+          thresholds,
+        }), classe:['dialogRoll'], width:650, name:game.i18n.localize('PROPHECY.EDIT.Seuil'), validate:async (d) => {
           const main = $(d.find('div.main'))[0];
-          const egratinure = $(main).find('div.egratinure span.score').text();
-          const legere = $(main).find('div.legere span.score').text();
-          const grave = $(main).find('div.grave span.score').text();
-          const fatale = $(main).find('div.fatale span.score').text();
-          const mort = $(main).find('div.mort span.score').text();
-
+          const useExtended = $(main).find('input[name="etendu"]').is(':checked');
           let update = {};
-          update['system.attributsmineurs.blessure.edit'] = true;
-          update['system.attributsmineurs.blessure.data.egratinures.value'] = parseInt(egratinure);
-          update['system.attributsmineurs.blessure.data.legeres.value'] = parseInt(legere);
-          update['system.attributsmineurs.blessure.data.graves.value'] = parseInt(grave);
-          update['system.attributsmineurs.blessure.data.fatales.value'] = parseInt(fatale);
-          update['system.attributsmineurs.blessure.data.morts.value'] = parseInt(mort);
+          const extendedUpdate = foundry.utils.deepClone(blessure.extended);
 
-          this.actor.update(update);
+          update['system.attributsmineurs.blessure.edit'] = true;
+          update['system.attributsmineurs.blessure.etendu'] = useExtended;
+
+          for(const type of BLESSURE_ORDER) {
+            const row = $(main).find(`tr[data-type="${type}"]`);
+            const activeThreshold = blessure.getThresholdData(type);
+            const value = Math.max(parseInt(row.find('input.threshold-value').val()) || 0, 0);
+            const rawLabel = row.find('input.threshold-label').val().trim();
+            const rawMax = row.find('input.threshold-max').val().trim();
+            const defaultLabel = game.i18n.localize(BLESSURE_DEFAULT_LABELS[type]);
+            const label = !rawLabel || rawLabel === defaultLabel ? BLESSURE_DEFAULT_LABELS[type] : rawLabel;
+            const max = rawMax === '' ? null : Math.max(parseInt(rawMax) || 0, 0);
+            const check = blessure.prepareThresholdCheck(activeThreshold.check, value);
+
+            update[`system.attributsmineurs.blessure.data.${type}.value`] = value;
+            update[`system.attributsmineurs.blessure.data.${type}.check`] = check;
+            extendedUpdate[type].value = value;
+            extendedUpdate[type].check = check;
+            extendedUpdate[type].label = label;
+            extendedUpdate[type].max = max;
+          }
+
+          update['system.attributsmineurs.blessure.extended'] = extendedUpdate;
+
+          await this.actor.update(update);
 
         }, render:(html) => {
           stylingHTML(html);
-          toggler.init(this.actor._id, html);
 
-          html.find('.data .inner .plus').click(async ev => {
-              const tgt = $(ev.currentTarget);
-              const master = tgt.data('class');
-              const max = parseInt(tgt.data('max'));
-              let mScore = tgt.parents(`.${master}`).find('span.score');
-              let score = parseInt(mScore.text());
+          const toggleExtendedFields = () => {
+            const useExtended = html.find('input[name="etendu"]').is(':checked');
+            html.find('.extended-field').prop('disabled', !useExtended);
+          };
 
-              if(score === max) {
-                  ui.notifications.warn(game.i18n.localize('PROPHECY.WRN.MaitriseMax'));
-                  return;
-              }
-
-              mScore.text(score+1);
+          html.find('input[name="etendu"]').change(() => {
+            toggleExtendedFields();
           });
 
-          html.find('.data .inner .minus').click(async ev => {
-              const tgt = $(ev.currentTarget);
-              const master = tgt.data('class');
-              const min = parseInt(tgt.data('min'));
-              let mScore = tgt.parents(`.${master}`).find('span.score');
-              let score = parseInt(mScore.text());
-
-              if(score === min) return;
-
-              mScore.text(score-1);
-          });
+          toggleExtendedFields();
         }});
       });
     }
