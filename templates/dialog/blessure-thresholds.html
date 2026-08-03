@@ -1,35 +1,22 @@
 <div class="main blessure-thresholds" data-id="{{actorId}}">
-    <div class="threshold-mode">
-        <label>
-            <input type="checkbox" name="etendu" {{#if etendu}}checked{{/if}}>
-            {{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.ExtendedMode'}}
-        </label>
+    <label>
+        <input type="checkbox" name="etendu" {{#if etendu}}checked{{/if}}>
+        {{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.ExtendedMode'}}
+    </label>
+
+    <div class="header">
+        <span class="header">{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.DefaultLabel'}}</span>
+        <span class="header">{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.CustomLabel'}}</span>
+        <span class="header">{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.MaxThreshold'}}</span>
+        <span class="header">{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Boxes'}}</span>
     </div>
 
-    <table class="threshold-table">
-        <thead>
-            <tr>
-                <th>{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.DefaultLabel'}}</th>
-                <th>{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.CustomLabel'}}</th>
-                <th>{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.MaxThreshold'}}</th>
-                <th>{{localize 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Boxes'}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each thresholds}}
-            <tr data-type="{{type}}">
-                <td>{{defaultLabel}}</td>
-                <td>
-                    <input class="threshold-label extended-field" type="text" value="{{label}}">
-                </td>
-                <td>
-                    <input class="threshold-max extended-field" type="number" min="0" value="{{max}}">
-                </td>
-                <td>
-                    <input class="threshold-value" type="number" min="0" value="{{value}}">
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    {{#each thresholds}}
+    <div class="treshold" data-type="{{type}}">
+        <span>{{defaultLabel}}</span>
+        <input class="threshold-label extended-field" type="text" value="{{label}}">
+        <input class="threshold-max extended-field" type="number" min="0" value="{{max}}">
+        <input class="threshold-value" type="number" min="0" value="{{value}}">
+    </div>
+    {{/each}}
 </div>

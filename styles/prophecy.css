@@ -5032,6 +5032,47 @@ div.prophecy.dialog.dialogPostRoll section.window-content label.check i.fa-check
 div.prophecy.dialog.dialogPostRoll section.window-content label.check.checked {
   background: #E3C1AD;
 }
+div.prophecy.dialog.editBlessure section.window-content label {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 18px;
+}
+div.prophecy.dialog.editBlessure section.window-content div.header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+div.prophecy.dialog.editBlessure section.window-content div.header span {
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 16px;
+  text-align: center;
+}
+div.prophecy.dialog.editBlessure section.window-content div.treshold {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+div.prophecy.dialog.editBlessure section.window-content div.treshold span {
+  font-variant: small-caps;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+div.prophecy.dialog.editBlessure section.window-content div.treshold input {
+  text-align: center;
+  border: 1px solid #A0522d;
+  background-color: #E3C1AD;
+  color: black;
+  font-variant: small-caps;
+}
+div.prophecy.dialog.editBlessure section.window-content div.treshold input[type=text] {
+  font-size: 16px;
+}
+div.prophecy.dialog.editBlessure section.window-content div.treshold input:disabled {
+  background: transparent;
+}
 
 section.combat-sidebar.active div.prophecyInitiative span {
   display: inline-grid;

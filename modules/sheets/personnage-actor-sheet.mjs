@@ -233,7 +233,7 @@ export class PersonnageActorSheet extends ActorSheet {
           actorName:this.actor.name,
           etendu:blessure.etendu,
           thresholds,
-        }), classe:['dialogRoll'], width:650, name:game.i18n.localize('PROPHECY.EDIT.Seuil'), validate:async (d) => {
+        }), classe:['editBlessure'], width:650, name:game.i18n.localize('PROPHECY.EDIT.Seuil'), validate:async (d) => {
           const main = $(d.find('div.main'))[0];
           const useExtended = $(main).find('input[name="etendu"]').is(':checked');
           let update = {};
@@ -243,7 +243,7 @@ export class PersonnageActorSheet extends ActorSheet {
           update['system.attributsmineurs.blessure.etendu'] = useExtended;
 
           for(const type of BLESSURE_ORDER) {
-            const row = $(main).find(`tr[data-type="${type}"]`);
+            const row = $(main).find(`[data-type="${type}"]`);
             const activeThreshold = blessure.getThresholdData(type);
             const value = Math.max(parseInt(row.find('input.threshold-value').val()) || 0, 0);
             const rawLabel = row.find('input.threshold-label').val().trim();

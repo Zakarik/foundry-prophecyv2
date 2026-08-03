@@ -965,6 +965,61 @@ div {
 
             }
         }
+
+        &.editBlessure {
+            section.window-content {
+                label {
+                    display: grid;
+                    grid-template-columns: max-content 1fr;
+                    align-items: center;
+                    font-weight: bold;
+                    font-variant: small-caps;
+                    font-size: 18px;
+                }
+
+                div {
+                    &.header{
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+
+                        span {
+                            font-weight: bold;
+                            font-variant: small-caps;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                    }
+
+                    &.treshold {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+
+                        span {
+                            font-variant: small-caps;
+                            font-size: 18px;
+                            text-transform: capitalize;
+                            font-weight: bold;
+                        }
+
+                        input {
+                            text-align: center;
+                            border: 1px solid $darkbrown;
+                            background-color: $lightbrown;
+                            color: $black;
+                            font-variant: small-caps;
+
+                            &[type=text] {
+                                font-size: 16px;
+                            }
+
+                            &:disabled {
+                                background: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

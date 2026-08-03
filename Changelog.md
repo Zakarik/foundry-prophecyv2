@@ -1,3 +1,6 @@
+## Version 1.5.0
+- Ajout de la possibilité de modifier les blessures pour les PNJ.
+
 ## Version 1.4.1
 - Correction d'un bug pouvant empêcher les joueurs d'ouvrir les fiches des items.
 
