@@ -3,6 +3,49 @@ import { AttributsDataModel } from './base/attributs-data-model.mjs';
 import { AttributsMineursDataModel } from './base/attributs-mineurs-data-model.mjs';
 import { MagieDataModel } from './base/magie-data-model.mjs';
 
+const BLESSURE_ORDER = ['egratinures', 'legeres', 'graves', 'fatales', 'morts'];
+
+const BLESSURE_DEFAULTS = {
+	egratinures: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Egratinure',
+		max: 10,
+	},
+	legeres: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Legere',
+		max: 20,
+	},
+	graves: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Grave',
+		max: 30,
+	},
+	fatales: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Fatale',
+		max: 40,
+	},
+	morts: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Mort',
+		max: null,
+	},
+};
+
+function createExtendedBlessureData(data = {}) {
+	const extended = {};
+
+	for(const type of BLESSURE_ORDER) {
+		const threshold = data?.[type] ?? {};
+		const defaults = BLESSURE_DEFAULTS[type];
+
+		extended[type] = {
+			label: threshold.label ?? defaults.label,
+			max: threshold.max ?? defaults.max,
+			value: threshold.value ?? 0,
+			check: foundry.utils.deepClone(threshold.check ?? {}),
+		};
+	}
+
+	return extended;
+}
+
 export class PersonnageDataModel extends foundry.abstract.TypeDataModel {
 	static defineSchema() {
 		const {SchemaField, EmbeddedDataField, StringField, NumberField, BooleanField, ObjectField, ArrayField, HTMLField} = foundry.data.fields;
@@ -184,6 +227,27 @@ export class PersonnageDataModel extends foundry.abstract.TypeDataModel {
 	}
 
     static migrateData(source) {
+		const blessure = source?.attributsmineurs?.blessure;
+
+		if(!blessure) return source;
+
+		if(blessure.etendu === undefined) blessure.etendu = false;
+
+		if(!blessure.extended) {
+			const data = {};
+
+			for(const type of BLESSURE_ORDER) {
+				data[type] = {
+					value: blessure.data?.[type]?.value ?? 0,
+					check: blessure.data?.[type]?.check ?? {},
+				};
+			}
+
+			blessure.extended = createExtendedBlessureData(data);
+		} else {
+			blessure.extended = createExtendedBlessureData(blessure.extended);
+		}
+
 		return source;
 	}
 

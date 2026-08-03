@@ -1,3 +1,53 @@
+const BLESSURE_ORDER = ['egratinures', 'legeres', 'graves', 'fatales', 'morts'];
+
+const BLESSURE_DEFAULTS = {
+	egratinures: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Egratinure',
+		max: 10,
+	},
+	legeres: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Legere',
+		max: 20,
+	},
+	graves: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Grave',
+		max: 30,
+	},
+	fatales: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Fatale',
+		max: 40,
+	},
+	morts: {
+		label: 'PROPHECY.ATTRIBUTSMINEURS.BLESSURES.Mort',
+		max: null,
+	},
+};
+
+function duplicateData(data) {
+	return foundry.utils.deepClone(data);
+}
+
+function createExtendedThreshold(type, value = 0, check = {}) {
+	const defaults = BLESSURE_DEFAULTS[type];
+
+	return {
+		label: defaults.label,
+		max: defaults.max,
+		value,
+		check: duplicateData(check ?? {}),
+	};
+}
+
+function createExtendedData() {
+	const data = {};
+
+	for(const type of BLESSURE_ORDER) {
+		data[type] = createExtendedThreshold(type);
+	}
+
+	return data;
+}
+
 export class BlessureDataModel extends foundry.abstract.DataModel {
 	static defineSchema() {
 		const { SchemaField, NumberField, ObjectField, BooleanField } = foundry.data.fields;
@@ -25,6 +75,8 @@ export class BlessureDataModel extends foundry.abstract.DataModel {
 				}),
 			}),
 			edit: new BooleanField({ initial: false}),
+			etendu: new BooleanField({ initial: false}),
+			extended: new ObjectField({ initial: createExtendedData() }),
 			malus: new NumberField({ initial: 0, integer: true, nullable: false}),
 		};
 	}
@@ -33,8 +85,172 @@ export class BlessureDataModel extends foundry.abstract.DataModel {
 		super._initialize(options);
 	}
 
+	get actor() {
+		return this.parent.parent;
+	}
+
+	get isExtended() {
+		return this.actor.actor.type === 'pnj' && this.etendu;
+	}
+
+	get displayData() {
+		return this.getDisplayData();
+	}
+
+	getExtendedThreshold(type) {
+		if(!this.extended?.[type]) this.extended[type] = createExtendedThreshold(type);
+
+		const threshold = this.extended[type];
+		const data = this.data[type];
+		const label = threshold.label || BLESSURE_DEFAULTS[type].label;
+		const max = threshold.max === '' || threshold.max === undefined ? BLESSURE_DEFAULTS[type].max : threshold.max;
+
+		threshold.label = label;
+		threshold.max = max;
+		threshold.value = Number.isInteger(threshold.value) ? threshold.value : (data?.value ?? 0);
+		threshold.check = duplicateData(threshold.check ?? data?.check ?? {});
+
+		return threshold;
+	}
+
+	getThresholdData(type) {
+		return this.isExtended ? this.getExtendedThreshold(type) : this.data[type];
+	}
+
+	prepareExtendedData() {
+		if(!this.extended) this.extended = createExtendedData();
+
+		for(const type of BLESSURE_ORDER) {
+			const threshold = this.getExtendedThreshold(type);
+			threshold.value = Number.isInteger(threshold.value) ? Math.max(threshold.value, 0) : 0;
+			threshold.max = threshold.max === null || threshold.max === '' ? null : parseInt(threshold.max);
+			threshold.check = this.prepareThresholdCheck(threshold.check, threshold.value);
+		}
+	}
+
+	prepareThresholdCheck(currentCheck = {}, value = 0) {
+		let prepared = {};
+
+		for(let i = 1;i <= value;i++) {
+			prepared[`c${i}`] = currentCheck?.[`c${i}`] ?? false;
+		}
+
+		return prepared;
+	}
+
+	getThresholdLabel(type) {
+		if(this.isExtended) {
+			const label = this.getExtendedThreshold(type).label;
+			return label?.startsWith('PROPHECY.') ? game.i18n.localize(label) : label;
+		}
+
+		return game.i18n.localize(CONFIG.PROPHECY.Blessures[type]);
+	}
+
+	getDisplayData() {
+		const entries = [];
+		let start = 1;
+
+		for(const type of BLESSURE_ORDER) {
+			const threshold = this.getThresholdData(type);
+			const value = threshold?.value ?? 0;
+			const visible = !this.isExtended || value > 0;
+
+			if(!visible) continue;
+
+			const entry = {
+				type,
+				value,
+				check: threshold.check ?? {},
+				label: this.getThresholdLabel(type),
+				range: this.isExtended ? this.getExtendedRange(type, start) : CONFIG.PROPHECY.SeuilsBlessures[type],
+			};
+
+			entries.push(entry);
+
+			if(this.isExtended) {
+				const max = this.getExtendedThreshold(type).max;
+
+				if(Number.isInteger(max)) start = max + 1;
+			}
+		}
+
+		return entries;
+	}
+
+	getExtendedRange(type, start) {
+		const threshold = this.getExtendedThreshold(type);
+		const visibleTypes = BLESSURE_ORDER.filter(currentType => (this.getThresholdData(currentType)?.value ?? 0) > 0);
+		const isLastVisible = visibleTypes[visibleTypes.length - 1] === type;
+		const max = threshold.max;
+
+		if(isLastVisible) {
+			return `(${start}+)`;
+		}
+
+		if(Number.isInteger(max) && max >= start) {
+			return `(${start} - ${max})`;
+		}
+
+		return `(${start}+)`;
+	}
+
+	getThresholdTypeFromDamage(totaldmg) {
+		if(!this.isExtended) {
+			if(totaldmg <= 10) return 'egratinures';
+			if(totaldmg <= 20) return 'legeres';
+			if(totaldmg <= 30) return 'graves';
+			if(totaldmg <= 40) return 'fatales';
+			return 'morts';
+		}
+
+		const visibleTypes = BLESSURE_ORDER.filter(type => (this.getThresholdData(type)?.value ?? 0) > 0);
+
+		if(visibleTypes.length === 0) return 'morts';
+
+		for(const type of visibleTypes) {
+			const max = this.getExtendedThreshold(type).max;
+
+			if(!Number.isInteger(max)) return type;
+			if(totaldmg <= max) return type;
+		}
+
+		return visibleTypes[visibleTypes.length - 1];
+	}
+
+	findNextAvailableThreshold(startType = 'egratinures') {
+		let currentType = startType;
+
+		while(currentType !== 'end') {
+			const data = this.getThresholdData(currentType);
+			const numCheck = Object.values(data.check ?? {}).filter(value => value === true).length;
+
+			if(numCheck < (data?.value ?? 0)) {
+				return {
+					type: currentType,
+					check: `c${numCheck + 1}`,
+				};
+			}
+
+			currentType = {
+				egratinures: 'legeres',
+				legeres: 'graves',
+				graves: 'fatales',
+				fatales: 'morts',
+				morts: 'end',
+			}[currentType];
+		}
+
+		return null;
+	}
+
+	getUpdatePath(type, field, suffix = '') {
+		const prefix = this.isExtended ? `system.attributsmineurs.blessure.extended.${type}` : `system.attributsmineurs.blessure.data.${type}`;
+		return `${prefix}.${field}${suffix}`;
+	}
+
 	prepareData() {
-		const actor = this.parent.parent;
+		const actor = this.actor;
 		const res = actor.caracteristiques.resistance.total;
 		const vol = actor.caracteristiques.volonte.total;
 		const totalRESVOL = res+vol;
@@ -100,46 +316,14 @@ export class BlessureDataModel extends foundry.abstract.DataModel {
 		}
 
 		this.prepareCheck();
+		this.prepareExtendedData();
 		this.prepareMalus();
 	}
 
 	prepareCheck() {
-		const egratinures = this.data.egratinures;
-		const legeres = this.data.legeres;
-		const graves = this.data.graves;
-		const fatales = this.data.fatales;
-		const morts = this.data.morts;
-		let eg = {};
-		let le = {};
-		let gr = {};
-		let fa = {};
-		let mo = {};
-
-		for(let i = 1;i <= egratinures.value;i++) {
-			eg[`c${i}`] = egratinures.check?.[`c${i}`] ?? false;
+		for(const type of BLESSURE_ORDER) {
+			this.data[type].check = this.prepareThresholdCheck(this.data[type].check, this.data[type].value);
 		}
-
-		for(let i = 1;i <= legeres.value;i++) {
-			le[`c${i}`] = legeres.check?.[`c${i}`] ?? false;
-		}
-
-		for(let i = 1;i <= graves.value;i++) {
-			gr[`c${i}`] = graves.check?.[`c${i}`] ?? false;
-		}
-
-		for(let i = 1;i <= fatales.value;i++) {
-			fa[`c${i}`] = fatales.check?.[`c${i}`] ?? false;
-		}
-
-		for(let i = 1;i <= morts.value;i++) {
-			mo[`c${i}`] = morts.check?.[`c${i}`] ?? false;
-		}
-
-		this.data.egratinures.check = eg;
-		this.data.legeres.check = le;
-		this.data.graves.check = gr;
-		this.data.fatales.check = fa;
-		this.data.morts.check = mo;
 	}
 
 	prepareMalus() {

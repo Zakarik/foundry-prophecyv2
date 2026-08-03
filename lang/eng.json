@@ -239,6 +239,11 @@
           "Grave":"grave",
           "Fatale":"fatale",
           "Mort":"mort",
+          "ExtendedMode":"Extended mode",
+          "DefaultLabel":"Standard threshold",
+          "CustomLabel":"Displayed label",
+          "MaxThreshold":"Max threshold",
+          "Boxes":"Number of boxes",
           "Subir":"Subir une blessure de ce type",
           "Soin":"Soigner une blessure de ce type"
         }
