@@ -14,6 +14,14 @@
         </div>
     </div>
 {{/if}}
+{{#if (eq type 'string')}}
+    <div class='dataString {{class}}' data-value="{{value}}" data-onlyone="{{onlyone}}" data-index="{{index}}" data-name="{{name}}" data-class="{{class}}">
+        <label>
+            <span class='label'>{{label}}</span>
+            <input type="text" value="{{value}}" />
+        </label>
+    </div>
+{{/if}}
 {{#if (eq type 'stdCheck')}}
     <div class='stdCheck {{class}}' data-value="{{value}}" data-onlyone="{{onlyone}}" data-index="{{index}}" data-name="{{name}}" data-class="{{class}}">
         <label>

@@ -1,3 +1,12 @@
+## Version 1.6.0
+- Possibilité de modifier la difficulté sur un jet de carac + attribut et de tendance.
+- Possibilité de modifier tous les dommages dans la popup de dommage.
+- Ajout de boutons pour regagner de la Maitrise / de la Chance après un jet, en suivant des règles assez simple :
+Si vous êtes au max de Maitrise et/ou de Chance : Le bouton n'apparait pas (c'est inutile dans ce cas)
+Si vous n'avez mis aucune difficulté au jet : On affiche les deux boutons, vu que le système ne peut pas savoir dans ce cas.
+Si de la Maitrise et / ou de la Chance ont été dépensé sur le jet, on affiche aucun bouton.
+Dans tous les cas, en cas de clic sur un bouton, un message est envoyé dans le tchat pour informer.
+
 ## Version 1.5.0
 - Ajout de la possibilité de modifier les blessures pour les PNJ.
 

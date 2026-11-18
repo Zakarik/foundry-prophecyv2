@@ -917,6 +917,7 @@ export async function upgradeMsg(html, msg) {
     addDmgButton(html, msg);
     addApplyDmgButton(html, msg);
     addApplyMagicButton(html, msg);
+    addRegainButton(html, msg);
 }
 
 async function addDmgButton(html, msg) {
@@ -924,7 +925,6 @@ async function addDmgButton(html, msg) {
         const chatRollMode = game.settings.get("core", "rollMode");
         const flavor = msg.getFlag('prophecy-2e', 'flavor');
         const dmg = msg.getFlag('prophecy-2e', 'dmg');
-        const dmgLabel = msg.getFlag('prophecy-2e', 'dmgLabel');
         const howToApply = msg.getFlag('prophecy-2e', 'howToApply');
         const nr = msg.getFlag('prophecy-2e', 'NR');
         const acteurs = [];
@@ -938,6 +938,13 @@ async function addDmgButton(html, msg) {
         };
 
         acteur.bonus.push({
+            class:'damage',
+            type:'string',
+            label:game.i18n.localize('PROPHECY.DommagesDes'),
+            value:dmg,
+        });
+
+        acteur.bonus.push({
             class:'nr',
             type:'number',
             label:game.i18n.localize('PROPHECY.NR-Short'),
@@ -949,8 +956,9 @@ async function addDmgButton(html, msg) {
 
         const d = generateDialog({type:'roll', content:await renderTemplate('systems/prophecy-2e/templates/dialog/askMod.html', {combatants:acteurs}), height:200, width:300, classes:['dialogRoll'], validate:async (d) => {
             const main = $(d.find('div.main'))[0];
+            const realDmg = $(main)?.find('div.damage input')?.val() ?? '0D0';
             const nr = parseInt($(main).find('div.nr span.score').text());
-            const roll = new Roll(`${dmg} + ${nr}D10`, {});
+            const roll = new Roll(`${realDmg} + ${nr}D10`, {});
             await roll.evaluate({async: true});
 
             let contentTemplate = {
@@ -961,7 +969,7 @@ async function addDmgButton(html, msg) {
                     class:'applydmg'
                 }],
                 tooltip:await renderTemplate('systems/prophecy-2e/templates/roll/tooltip.html', {parts:[{
-                    formula:`${dmgLabel} + ${nr}D10 (${game.i18n.localize('PROPHECY.NR-Short')})`,
+                    formula:`${realDmg} + ${nr}D10 (${game.i18n.localize('PROPHECY.NR-Short')})`,
                     result:roll.total,
                     rolls:roll.dice.map(d => (
                         d.results.map(r => ({
@@ -1372,5 +1380,65 @@ async function addApplyMagicButton(html, msg) {
 
         ChatMessage.applyRollMode(chatData, chatRollMode);
         await ChatMessage.create(chatData);
+    });
+}
+
+async function addRegainButton(html, msg) {
+    const pathMaitrise = `system.attributsmineurs.maitrise`;
+    const pathChance = `system.attributsmineurs.chance`;
+
+    const regain = async (type='', critique=false) => {
+        if(type === '') return;
+
+        const dataActors = msg.speaker;
+        const actor = dataActors.token !== null ? game.scenes.get(dataActors.scene).tokens.get(dataActors.token).actor : game.actors.get(dataActors.actor);
+        const pathUsed = type === 'maitrise' ? pathMaitrise : pathChance;
+        const value = foundry.utils.getProperty(actor, `${pathUsed}.value`);
+        const valueMax = foundry.utils.getProperty(actor, `${pathUsed}.max`);
+        const toRecup = critique ? 2 : 1;
+        let total = value + toRecup;
+
+        if(value === valueMax) return;
+        if(total > valueMax) total = valueMax;
+
+        let update = {};
+        update[`${pathUsed}.value`] = total;
+        await actor.update(update);
+
+        const chatRollMode = game.settings.get("core", "rollMode");
+
+        let chatData = {
+            user:game.user.id,
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+            speaker: ChatMessage.getSpeaker({
+                actor: actor.actor,
+                token: actor.token,
+                alias: actor.name
+            }),
+            content:await renderTemplate('systems/prophecy-2e/templates/roll/other.html', {
+                label:actor.name,
+                description:type === 'maitrise' ? game.i18n.localize("PROPHECY.ROLL.RegainMaitrise") : game.i18n.localize("PROPHECY.ROLL.RegainChance"),
+            }),
+            rollMode:chatRollMode,
+        };
+
+        ChatMessage.applyRollMode(chatData, chatRollMode);
+        const final = await ChatMessage.create(chatData);
+    }
+
+    html.find('a.othermaitrise').click(async ev => {
+        await regain('maitrise');
+    });
+
+    html.find('a.othermaitrisecritique').click(async ev => {
+        await regain('maitrise', true);
+    });
+
+    html.find('a.otherchance').click(async ev => {
+        await regain('chance');
+    });
+
+    html.find('a.otherchancecritique').click(async ev => {
+        await regain('chance', true);
     });
 }

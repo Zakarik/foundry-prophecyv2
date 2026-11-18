@@ -70,6 +70,7 @@
       "NotPrerequis1":"Vous ne remplissez pas un des prérequis pour porter cet objet, un malus sera appliqué.",
       "NotPrerequis2":"Vous ne remplissez pas deux des prérequis pour porter cet objet.",
       "Dommages":"Dommages",
+      "DommagesDes":"Dés de Dommages",
       "Bonus":"Bonus",
       "Artisanat":"Artisanat",
       "Armes":"Armes",
@@ -447,7 +448,9 @@
         "Fatigue":"Fatigue ({value})",
         "Cles":"Clés ({number})",
         "SpecializationUsed":"Spécialisation utilisée",
-        "BonusParade":"Bonus de parade"
+        "BonusParade":"Bonus de parade",
+        "RegainChance":"Récupérer de la Chance",
+        "RegainMaitrise":"Récupérer de la Maîtrise"
       },
       "SETTINGS":{
         "MsgWear":"Notifications d'équipement",

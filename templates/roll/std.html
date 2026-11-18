@@ -26,8 +26,15 @@
 {{{magic}}}
 {{#if btnSimple}}
     {{#each btn}}
+        {{#if (eq class 'applydmg')}}
         <div class="prophecy-damage-buttons">
-            <a class="applydmg"><i class="fa-solid fa-bullseye-arrow"></i> {{localize 'PROPHECY.ROLL.ApplyDmg'}} <i class="fa-solid fa-bullseye-arrow"></i></a>
+            <a class="{{class}}"><i class="fa-solid fa-bullseye-arrow"></i> {{localize 'PROPHECY.ROLL.ApplyDmg'}} <i class="fa-solid fa-bullseye-arrow"></i></a>
         </div>
+        {{/if}}
+        {{#if (eq class 'other')}}
+        <div class="prophecy-damage-buttons">
+            <a class="{{class}}{{type}}">{{localize loc}}</a>
+        </div>
+        {{/if}}
     {{/each}}
 {{/if}}

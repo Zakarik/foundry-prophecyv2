@@ -32,18 +32,18 @@ export class ProphecyCombatTracker extends CombatTracker {
    */
   async _prepareTurnContext(combat, combatant, index) {
     const turn = await super._prepareTurnContext(combat, combatant, index);
-    const rnd = this.viewed?.round ?? 1;
-    const { id, name, isOwner, isDefeated, hidden, initiative, permission } = combatant;
-    const flag = combatant.getFlag('prophecy-2e', 'initiative')?.[rnd] ?? undefined;
 
-    if(flag) {
-      turn.other = flag.other;
+    // En préparation (round 0), les dés sont stockés dans le round 1.
+    const rnd = combat?.round || 1;
+    const flag = combatant.getFlag("prophecy-2e", "initiative")?.[rnd];
+
+    if (flag) {
       turn.current = flag.current;
+      turn.other = flag.other;
     }
 
-    const hasDecimals = Number.isFinite(initiative) && Number.isInteger(initiative);
-
-    turn.hasDecimals = hasDecimals;
+    const { initiative } = combatant;
+    turn.hasDecimals = Number.isFinite(initiative) && Number.isInteger(initiative);
 
     return turn;
   }
@@ -87,7 +87,7 @@ export class ProphecyCombatTracker extends CombatTracker {
     const rMode = c.hidden ? CONST.DICE_ROLL_MODES.PRIVATE : chatRollMode;
     let update = {};
 
-    update['initiative'] = this._setInitiative(c, ev);
+    update['initiative'] = await this._setInitiative(combat, c, ev);
     await c.update(update);
 
     let chatData = foundry.utils.mergeObject({
@@ -164,24 +164,26 @@ export class ProphecyCombatTracker extends CombatTracker {
       rollMode:rMode,
     });
 
-    this._setInitiative(c, ev);
+    await this._setInitiative(combat, c, ev);
   }
 
-  _setInitiative(combatant, ev) {
+  async _setInitiative(combat, combatant, ev) {
     const { index } = ev.target.closest("[data-index]")?.dataset ?? {};
     const value = combatant.initiative;
-    const rnd = this.viewed.round;
-    const order = this.viewed.getFlag('prophecy-2e', 'order');
+    const rnd = combat.round;
+    const order = combat.getFlag('prophecy-2e', 'order');
     const rndExist = order?.[rnd] ?? undefined
     let flag = combatant.getFlag('prophecy-2e', 'initiative');
     let currentTurn = flag?.[rnd] ?? undefined;
     if(index === 'current') {
       let current = -999;
+      let currentOther = null;
       let cIndex = 0;
 
       for(let i = 0; i < currentTurn.other.length; i++) {
         if(currentTurn.other[i].value > current) {
-          current = currentTurn.other[i];
+          current = currentTurn.other[i].value;
+          currentOther = currentTurn.other[i];
           cIndex = i;
         }
       }
@@ -189,21 +191,21 @@ export class ProphecyCombatTracker extends CombatTracker {
       if(current !== -999 && current !== null) currentTurn.other.splice(cIndex, 1);
 
       currentTurn.used.push(currentTurn.current);
-      currentTurn.current = current;
+      currentTurn.current = currentOther ?? current;
     } else {
       currentTurn.used.push(currentTurn.other[index]);
       currentTurn.other.splice(index, 1);
     }
 
-    combatant.setFlag('prophecy-2e', 'initiative', flag);
+    await combatant.setFlag('prophecy-2e', 'initiative', flag);
 
-    if(!order || !rndExist) this.viewed.setFlag('prophecy-2e', 'order', {
+    if(!order || !rndExist) await combat.setFlag('prophecy-2e', 'order', {
       [rnd]:[combatant.id]
     });
     else {
       order[rnd].push(combatant.id);
 
-      this.viewed.setFlag('prophecy-2e', 'order', order);
+      await combat.setFlag('prophecy-2e', 'order', order);
     }
 
     return combatant.getFlag('prophecy-2e', 'initiative')?.[rnd]?.current?.value ?? null;
@@ -220,7 +222,7 @@ export class ProphecyCombatTracker extends CombatTracker {
     const getCombatant = li => this.viewed.combatants.get(li.dataset.combatantId);
 
     if (clear) {
-      clear.onClick = (event, li) => {
+      clear.onClick = async (event, li) => {
         const combatant = getCombatant(li);
         if (!combatant) return;
 
@@ -232,7 +234,7 @@ export class ProphecyCombatTracker extends CombatTracker {
         if(crt !== undefined) {
           flag[rnd] = null;
 
-          combatant.setFlag('prophecy-2e', 'initiative', flag);
+          await combatant.setFlag('prophecy-2e', 'initiative', flag);
         }
 
         return combatant.update({initiative: null});

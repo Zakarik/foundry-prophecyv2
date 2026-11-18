@@ -434,6 +434,45 @@ div {
                         height: 16px;
                     }
                 }
+
+                &.dataString {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    column-gap: 5px;
+                    row-gap: 2px;
+                    justify-content: space-between;
+                    line-height: 19px;
+                    align-items: center;
+                    align-content: center;
+
+                    label {
+                        display: grid;
+                        grid-template-columns: max-content 100px;
+                        grid-gap: 5px;
+                        justify-content: space-between;
+                        line-height: 19px;
+                        align-items: center;
+                        align-content: center;
+                        cursor: pointer;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        font-variant: small-caps;
+                        font-weight: bold;
+                    }
+
+                    input {
+                        margin:0px;
+                        width: 100%;
+                        text-align: center;
+                        height: 16px;
+                        font-variant: small-caps;
+                        border: 1px solid $darkbrown;
+                        background-color: $lightbrown;
+                        font-weight: bold;
+                    }
+                }
             }
         }
 

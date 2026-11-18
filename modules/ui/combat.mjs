@@ -80,7 +80,7 @@ export class ProphecyCombat extends Combat {
                 if(getWpn && getWpnOffHand && getWpn.id !== getWpnOffHand.id) hasOffHand = true;
                 if(hasOffHand) diceTotal += 1;
 
-                combatant.actor.update({['system.attributsmineurs.maitrise.value']:getMaitrise-maitriseUsed});
+                await combatant.actor.update({['system.attributsmineurs.maitrise.value']:getMaitrise-maitriseUsed});
 
                 let f = '';
 
@@ -144,6 +144,7 @@ export class ProphecyCombat extends Combat {
                 sortedTooltip.reverse();
 
                 const filter = sortedTooltip.filter(itm => !itm.drop && itm.result >= 0).map(itm => ({value: itm.result, offhand: itm.offhand}));
+                if (filter.length === 0) return this;
 
                 let current = Math.max(...filter.map(f => f.value));
                 let cIndex = filter.findIndex(f => f.value === current);
@@ -151,9 +152,9 @@ export class ProphecyCombat extends Combat {
 
                 other = filter;
                 other.splice(cIndex, 1);
-                other.sort().reverse();
+                other.sort((a,b)=>b.value-a.value);
 
-                this._setInitiativeList(combatant, filterCurrent, other);
+                await this._setInitiativeList(combatant, filterCurrent, other);
                 updates.push({_id: id, initiative: current});
 
                 if(maitriseUsed === 1) bonus.push({
@@ -445,6 +446,7 @@ export class ProphecyCombat extends Combat {
                         }
 
                         const filter = getTooltip.filter(itm => !itm.drop && itm.result >= 0).map(itm => ({value: itm.result, offhand: itm.offhand}));
+                        if (filter.length === 0) return;
 
                         let current = Math.max(...filter.map(f => f.value));
                         let cIndex = filter.findIndex(f => f.value === current);
@@ -452,9 +454,9 @@ export class ProphecyCombat extends Combat {
 
                         other = filter;
                         other.splice(cIndex, 1);
-                        other.sort().reverse();
+                        other.sort((a,b)=>b.value-a.value);
 
-                        this._setInitiativeList(getCmbt, filterCurrent, other);
+                        await this._setInitiativeList(getCmbt, filterCurrent, other);
                         postupdate.push({_id: getCmbt.id, initiative: current});
 
                         let chatData = foundry.utils.mergeObject({
@@ -611,9 +613,7 @@ export class ProphecyCombat extends Combat {
         const combatants = this.combatants;
         Hooks.callAll("combatRound", this, updateData, updateOptions);
 
-        for(let cbt of combatants) {
-            cbt.update({['initiative']:null});
-        }
+        await this.updateEmbeddedDocuments("Combatant", combatants.map(cbt => ({_id: cbt.id, initiative: null})));
 
         return this.update(updateData, updateOptions);
     }
@@ -644,25 +644,26 @@ export class ProphecyCombat extends Combat {
                 if(initiative !== undefined) {
                     let currentInitiative = initiative?.[rnd] ?? undefined;
 
-                    if(initiative !== undefined) {
+                    if(currentInitiative !== undefined) {
 
                         if(currentInitiative.used.length === 0) return;
 
-                        const last = currentInitiative.used[currentInitiative.used.length-1];
-                        const current = combatant.initiative;
+const last = currentInitiative.used[currentInitiative.used.length-1];
+const current = currentInitiative.current?.value ?? combatant.initiative;
 
-                        if(current === null || last.value > current) {
-                            if(current !== null && current !== -999) currentInitiative.other.push(currentInitiative.current);
-                            combatant.update({['initiative']:last.value});
-                            currentInitiative.current = last;
-                        } else {
-                            currentInitiative.other.push(last);
-                        }
+if(current === null || current === undefined || current === -999 || last.value > current) {
+    if(currentInitiative.current && current !== null && current !== undefined && current !== -999) currentInitiative.other.push(currentInitiative.current);
+    currentInitiative.current = last;
+} else {
+    currentInitiative.other.push(last);
+}
+currentInitiative.other.sort((a, b) => b.value - a.value);
+await combatant.update({['initiative']:currentInitiative.current?.value ?? current});
 
                         order.pop();
                         currentInitiative.used.pop();
-                        combatant.setFlag('prophecy-2e', 'initiative', initiative);
-                        this.setFlag('prophecy-2e', 'order', allOrder);
+                        await combatant.setFlag('prophecy-2e', 'initiative', initiative);
+                        await this.setFlag('prophecy-2e', 'order', allOrder);
                     }
                 }
             }
@@ -671,32 +672,26 @@ export class ProphecyCombat extends Combat {
         }
     }
 
-    _setInitiativeList(combatant, current, other) {
-        const rnd = this.round === 0 ? 1 : this.round;
-        let values = {
-            current:current,
-            other: other,
-            used:[]
-        };
+    async _setInitiativeList(combatant, current, other) {
+  const round = this.round === 0 ? 1 : this.round;
+  const initiative = combatant.getFlag("prophecy-2e", "initiative") ?? {};
+  initiative[round] = { current, other, used: [] };
+  await combatant.setFlag("prophecy-2e", "initiative", initiative);
+}
 
-        combatant.setFlag('prophecy-2e', 'initiative', {
-            [rnd]:null
-        }).then(() => this._updateInitiative(combatant, values));
-    }
-
-    _updateInitiative(combatant, values) {
+    async _updateInitiative(combatant, values) {
         const flag = combatant.getFlag('prophecy-2e', 'initiative');
         const rnd = this.round === 0 ? 1 : this.round;
         const crt = flag?.[rnd] ?? undefined;
 
         if(flag === undefined || crt === undefined) {
-            combatant.setFlag('prophecy-2e', 'initiative', {
+            await combatant.setFlag('prophecy-2e', 'initiative', {
                 [rnd]:values
             });
         } else {
-            crt[rnd] = values;
+            flag[rnd] = values;
 
-            combatant.setFlag('prophecy-2e', 'initiative', flag);
+            await combatant.setFlag('prophecy-2e', 'initiative', flag);
         }
     }
 }

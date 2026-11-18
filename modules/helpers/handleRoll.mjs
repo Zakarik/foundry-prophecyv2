@@ -2,8 +2,8 @@ import { generateDialog, stylingHTML } from "./common.mjs";
 import toggler from './toggler.js';
 
 export class handleRoll {
-    static optionsWithDIfficulte = ['competence', 'specialization', 'weapon', 'magie'];
-    static optionsWithTendances = ['competence', 'specialization', 'weapon', 'magie'];
+    static optionsWithDIfficulte = ['caracteristique', 'competence', 'specialization', 'weapon', 'magie'];
+    static optionsWithTendances = ['caracteristique', 'competence', 'specialization', 'weapon', 'magie'];
     static templateMods = 'systems/prophecy-2e/templates/dialog/askMod.html';
     static templatePost = 'systems/prophecy-2e/templates/dialog/postRoll.html';
     static templateStdRoll = 'systems/prophecy-2e/templates/roll/std.html';
@@ -39,9 +39,14 @@ export class handleRoll {
                 fatigue:0,
                 total:0,
             },
+            regain:{
+                has:false,
+                type:null,
+            },
             NR:{
                 loc:null,
-                val:null
+                val:null,
+                sys:null,
             },
             tooltip:[],
         }
@@ -367,6 +372,8 @@ export class handleRoll {
                 contentTemplate.magic = await renderTemplate('systems/prophecy-2e/templates/roll/parts/magic.html', {});
             }
 
+            this.#handleRecuperation(contentTemplate);
+
             content = await renderTemplate(handleRoll.templateStdRoll, contentTemplate);
 
             roll = [roll].concat(critique);
@@ -428,6 +435,8 @@ export class handleRoll {
             if(isMagic) {
                 contentTemplate.magic = await renderTemplate('systems/prophecy-2e/templates/roll/parts/magic.html', {});
             }
+
+            this.#handleRecuperation(contentTemplate);
 
             content = await renderTemplate(handleRoll.templateStdRoll, contentTemplate);
 
@@ -1120,6 +1129,7 @@ export class handleRoll {
         const critique = this.critique;
         let locNR = this.NR.loc;
         let valNR = this.NR.val;
+        let sysNR = this.NR.sys;
 
         valNR = (total - difficulte) >= 0 && difficulte !== null && critique !== 'epicfail' ? Math.floor((total - difficulte) / 5) : null;
         let echec = (total - difficulte) < 0 && difficulte !== null && critique !== 'epicfail'  ? 'fail' : null;
@@ -1127,29 +1137,96 @@ export class handleRoll {
         if(valNR !== null) {
             if(valNR > 1) locNR = game.i18n.format("PROPHECY.ROLL.NRs", {number: valNR});
             else locNR = game.i18n.format("PROPHECY.ROLL.NR", {number: valNR});
+
+            sysNR = 0;
         }
+
+        if(critique >= 5) sysNR = 1;
 
         if(echec === 'fail' && critique !== 'epicfail') {
             locNR = game.i18n.localize('PROPHECY.ROLL.Echec');
             valNR = echec;
+            sysNR = -1;
         }
 
         if(critique === 'epicfail') {
             locNR = game.i18n.localize('PROPHECY.ROLL.EchecCritique');
             valNR = 'fail';
+            sysNR = -2;
         }
 
         if(!extract) {
             this.dataRoll.NR = {
                 loc:locNR,
                 val:valNR,
+                sys:sysNR,
             }
         } else {
             return {
                 loc:locNR,
                 val:valNR,
+                sys:sysNR,
             }
         }
+    }
+
+    #handleRecuperation(contentTemplate) {
+        if(!contentTemplate) return;
+        if(this.tags.find(itm => itm.class === 'maitrise') || this.tags.find(itm => itm.class === 'chance')) return;
+        const actor = this.actor;
+        const attrMineurs = actor.system.attributsmineurs;
+        const chance = attrMineurs.chance;
+        const maitrise = attrMineurs.maitrise
+
+        let list = ['chance', 'maitrise'];
+        let critique = 0;
+
+        switch(this.NR.sys) {
+            case 1:
+                list = ['maitrise'];
+                critique = 1;
+            break;
+
+            case 0:
+                list = ['maitrise'];
+            break;
+
+            case -1:
+                list = ['chance'];
+            break;
+
+            case -2:
+                list = ['chance'];
+                critique = 1;
+            break;
+        }
+
+        if(chance.value === chance.max) list = list.filter(itm => itm !== "chance");
+        if(maitrise.value === maitrise.max) list = list.filter(itm => itm !== "maitrise");
+        if(list.length === 0) return;
+
+        contentTemplate.btnSimple = true;
+
+        const btnChance = {
+            class:'other',
+            type:'chance',
+            loc:'PROPHECY.ROLL.RegainChance'
+        }
+
+        const btnMaitrise = {
+            class:'other',
+            type:'maitrise',
+            loc:'PROPHECY.ROLL.RegainMaitrise'
+        }
+
+        if(critique === 1) {
+            btnChance += 'critique';
+            btnMaitrise += 'critique';
+        }
+
+        if(!contentTemplate.btn) contentTemplate.btn = [];
+        if(list.includes('chance')) contentTemplate.btn.push(btnChance);
+        if(list.includes('maitrise')) contentTemplate.btn.push(btnMaitrise);
     }
 
     async #handleCritique(roll) {
